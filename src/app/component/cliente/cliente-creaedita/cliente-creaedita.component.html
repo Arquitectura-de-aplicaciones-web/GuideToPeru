@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+
+            <h1>Registro de clientes</h1>
+        </div>
+        <form [formGroup]="form" (submit)="aceptar()">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Codigo</mat-label>
+                <input matInput placeholder="Codigo" formControlName="id">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" formControlName="nameCliente">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="Apellido" formControlName="apellidoCliente">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="anioNacimiento" [max]="maxFecha">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="algo@example.com" formControlName="emailCliente">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Telefono</mat-label>
+                <input matInput placeholder="Telefono" formControlName="telefono">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Direccion</mat-label>
+                <input matInput placeholder="Direccion" formControlName="direccion">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>IDUsuario</mat-label>
+                <input matInput placeholder="IDUsuario" formControlName="IDUsuario">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>CuentaBancaria</mat-label>
+                <input matInput placeholder="CuentaBancaria" formControlName="cuentaBancaria">
+            </mat-form-field>
+            <br>
+
+            <button mat-raised-button color="primary">Aceptar</button>
+            <button mat-raised-button color="warn" routerLink="/clientes">Cancelar</button>
+            <p>{{mensaje}}</p>
+
+        </form>
+    </div>
+</body>
+
+</html>
