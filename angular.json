@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "GuideToPeru": {
+    "ListaCliente": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/guide-to-peru",
+            "outputPath": "dist/lista-cliente",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "GuideToPeru:build:production"
+              "browserTarget": "ListaCliente:build:production"
             },
             "development": {
-              "browserTarget": "GuideToPeru:build:development"
+              "browserTarget": "ListaCliente:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "GuideToPeru:build"
+            "browserTarget": "ListaCliente:build"
           }
         },
         "test": {
@@ -96,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "351b488f-97f1-4cea-9d82-e58110c56148"
   }
 }

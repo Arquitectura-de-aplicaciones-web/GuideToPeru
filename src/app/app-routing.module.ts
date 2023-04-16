@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DestinoComponent } from './component/destino/destino.component';
-import { DestinoCreaeditaComponent } from './component/destino/destino-creaedita/destino-creaedita.component';
+import { ClienteComponent } from './component/cliente/cliente.component';
+import { ClienteCreaeditaComponent } from './component/cliente/cliente-creaedita/cliente-creaedita.component';
 
 const routes: Routes = [
+
   {
-    path: 'destinos', component: DestinoComponent, children: [
-      { path: 'nuevo', component: DestinoCreaeditaComponent },
-      { path: 'edicion/:id', component: DestinoCreaeditaComponent }
+    path: 'clientes', component: ClienteComponent, children: [
+      {
+        path: 'new', component: ClienteCreaeditaComponent
+      }
     ]
   }
 
