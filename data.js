@@ -55,6 +55,17 @@ module.exports = function () {
         direccion: "Avn Nahida N. 110",
         IDUsuario:"0",
         cuentaBancaria: "321321321",
+      },
+      {
+        id: 6,
+        nameCliente: "Dick Rixi",
+        apellidoCliente: "Solis Romero",
+        anioNacimiento: "2001-05-01",
+        emailCliente: "rixi@gmail.com",
+        telefono: "915251629",
+        direccion: "Av. Amarilis. 110",
+        IDUsuario:"0",
+        cuentaBancaria: "321321321",
       }
     ]
   }
