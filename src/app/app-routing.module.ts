@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClienteComponent } from './component/cliente/cliente.component';
-import { ClienteCreaeditaComponent } from './component/cliente/cliente-creaedita/cliente-creaedita.component';
+import { NegocioComponent } from './component/negocio/negocio.component';
+import { NegocioCreaeditaComponent } from './component/negocio/negocio-creaedita/negocio-creaedita.component';
 
 const routes: Routes = [
-
   {
-    path: 'clientes', component: ClienteComponent, children: [
+    path:'negocio',component:NegocioComponent,children:[
       {
-        path: 'new', component: ClienteCreaeditaComponent
+        path:'new',component:NegocioCreaeditaComponent
+      },
+      {
+        path:'edicion/:id',component:NegocioCreaeditaComponent
       }
     ]
   }
-
-
 ];
 
 @NgModule({
