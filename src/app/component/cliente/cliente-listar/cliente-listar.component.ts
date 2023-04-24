@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table'
 })
 export class ClienteListarComponent implements OnInit {
   dataSource: MatTableDataSource<Cliente> = new MatTableDataSource();
-  displayedColumns:string[]=['Codigo','Nombre','Apellido','Fecha','Email','Telefono','Direccion','Usuario','N°Cuenta']
+  displayedColumns:string[]=['Codigo','Nombre','Apellido','Fecha','Email','Telefono','Direccion','Usuario','N°Cuenta','accion01']
 
   constructor(private cS: ClienteService) { }
 
@@ -19,13 +19,12 @@ export class ClienteListarComponent implements OnInit {
     this.cS.list().subscribe(data => {
 
       this.dataSource = new MatTableDataSource(data);
-
     })
     this.cS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
-
     })
-
   }
-
+  filtrar(z: any) {
+    this.dataSource.filter = z.target.value.trim();
+  }
 }

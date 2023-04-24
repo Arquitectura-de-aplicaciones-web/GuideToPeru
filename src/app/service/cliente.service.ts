@@ -30,4 +30,13 @@ export class ClienteService {
     return this.listaCambio.asObservable();
   }
 
+  listID(id: number) {
+    return this.http.get<Cliente>(`${this.url}/${id}`);
+  }
+
+  update(a: Cliente) {
+    return this.http.put(this.url + "/" + a.id, a);
+
+  }
+
 }
