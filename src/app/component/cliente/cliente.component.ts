@@ -9,7 +9,5 @@ import { ActivatedRoute } from '@angular/router';
 export class ClienteComponent implements OnInit {
   constructor(public route: ActivatedRoute) { }
   ngOnInit(): void {
-
   }
-
 }

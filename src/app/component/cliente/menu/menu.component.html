@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div style="text-align: center;">
+
+            <h1>Menu</h1>
+        </div>
+
+          <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+              <button mat-icon-button matTreeNodeToggle>
+                <mat-icon>
+                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                </mat-icon>
+              </button>
+              <a (click)="onNodeClick(node)">{{node.name}}</a>
+            </mat-tree-node>
+          
+            <mat-tree-node *matTreeNodeDef="let node; when: hasChild">
+              <button mat-icon-button matTreeNodeToggle>
+                <mat-icon>
+                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                </mat-icon>
+              </button>
+              {{node.name}}
+              <mat-nested-tree-node>
+                <mat-tree-node *matTreeNodeDef="let childNode" matTreeNodeToggle>
+                  <a (click)="onNodeClick(childNode)">{{childNode.name}}</a>
+                </mat-tree-node>
+              </mat-nested-tree-node>
+            </mat-tree-node>
+          </mat-tree>
+          
+    </div>
+</body>
+
+</html>
