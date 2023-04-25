@@ -24,5 +24,9 @@ export class ComprasListarComponent implements OnInit {
     })
   }
 
+  filtrar(z:any){
+    this.dataSource.filter=z.target.value.trim();
+  }
+
 
 }

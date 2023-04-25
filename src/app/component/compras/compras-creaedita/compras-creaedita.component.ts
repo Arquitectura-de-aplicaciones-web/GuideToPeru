@@ -3,19 +3,33 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { compras } from 'src/app/model/compras';
 import * as moment from 'moment'
 import { ComprasService } from 'src/app/service/compras.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 @Component({
   selector: 'app-compras-creaedita',
   templateUrl: './compras-creaedita.component.html',
   styleUrls: ['./compras-creaedita.component.css']
 })
 export class ComprasCreaeditaComponent implements OnInit {
+
+  id:number=0
+  edicion:boolean=false
+
   form: FormGroup = new FormGroup({});
   compras: compras = new compras();
   mensaje: string = "";
   fecha_max: Date = moment().add(1, 'days').toDate();
 
   ngOnInit(): void {
+
+this.route.params.subscribe((data:Params)=>{
+  this.id=data['id'];
+  this.edicion=data['id']!=null;
+  this.init();
+})
+
+
+
     this.form = new FormGroup({
       id: new FormControl(),
       cantidad: new FormControl(),
@@ -28,7 +42,7 @@ export class ComprasCreaeditaComponent implements OnInit {
 
   }
 
-  constructor(private cS: ComprasService, private router:Router) {}
+  constructor(private cS: ComprasService, private router:Router, private route:ActivatedRoute) {}
 
   aceptar(): void {
     this.compras.id = this.form.value['id'];
@@ -52,6 +66,28 @@ this.router.navigate(['compras']);
     }
     else {
       this.mensaje = "Ingrese los datos de la compra"
+    }
+  }
+
+  init() {
+
+    if (this.edicion) {
+
+      this.cS.listId(this.id).subscribe(data => {
+        this.form = new FormGroup({
+
+          id: new FormControl(data.id),
+          cantida: new FormControl(data.cantidad),
+          precio_total: new FormControl(data.precio_total),
+          descripcion: new FormControl(data.descripcion),
+          fecha: new FormControl(data.fecha),
+          Cliente_ID: new FormControl(data.Cliente_ID),
+          Negocio_ID: new FormControl(data.Negocio_ID)
+
+
+        })
+
+      })
     }
   }
 
