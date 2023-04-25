@@ -8,8 +8,12 @@ const routes: Routes = [
   path:'compras', component:ComprasComponent,children:[
     {
       path:'new', component: ComprasCreaeditaComponent
+    },
+    {
+      path:'edicion/:id', component: ComprasCreaeditaComponent
     }
   ]
+
 }
 
 ];

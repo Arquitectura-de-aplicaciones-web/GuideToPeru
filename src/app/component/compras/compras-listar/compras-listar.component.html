@@ -16,28 +16,25 @@
     </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
 
-      <!-- Position Column -->
       <ng-container matColumnDef="codigo">
         <th mat-header-cell *matHeaderCellDef> codigo </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
 
-      <!-- Name Column -->
+
       <ng-container matColumnDef="cantidad">
         <th mat-header-cell *matHeaderCellDef> cantidad </th>
         <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
       </ng-container>
 
-      <!-- Weight Column -->
+
       <ng-container matColumnDef="precio_total">
         <th mat-header-cell *matHeaderCellDef> precio_total </th>
         <td mat-cell *matCellDef="let element"> {{element.precio_total}} </td>
       </ng-container>
 
-      <!-- Symbol Column -->
+
       <ng-container matColumnDef="descripcion">
         <th mat-header-cell *matHeaderCellDef> descripcion </th>
         <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
@@ -56,6 +53,13 @@
       <ng-container matColumnDef="negocio_codigo">
         <th mat-header-cell *matHeaderCellDef> negocio_codigo </th>
         <td mat-cell *matCellDef="let element"> {{element.Negocio_ID}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion01">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="accent" [routerLink]="['edicion', element.id]">Actualizar</button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
