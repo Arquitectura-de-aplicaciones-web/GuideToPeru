@@ -14,6 +14,9 @@
     <div style="text-align: right;">
       <button mat-raised-button color="warn" routerLink="/compras/new">Agregar</button>
     </div>
+    <mat-form-field>
+      <input matInput (keyup)="filtrar($event)" placeholder="Buscar" class="src" autocomplete="off">
+  </mat-form-field>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 

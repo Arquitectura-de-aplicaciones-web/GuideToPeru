@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table'
 })
 export class ComprasListarComponent implements OnInit {
   dataSource: MatTableDataSource<compras> = new MatTableDataSource();
-  displayedColumns: string[] = ['codigo', 'cantidad', 'precio_total', 'descripcion', 'fecha', 'cliente_codigo', 'negocio_codigo']
+  displayedColumns: string[] = ['codigo', 'cantidad', 'precio_total', 'descripcion', 'fecha', 'cliente_codigo', 'negocio_codigo','accion01']
   constructor(private cS: ComprasService) {
 
   }
