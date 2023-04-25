@@ -9,60 +9,65 @@
 </head>
 
 <body>
-  <div style="text-align: center;">
-    <form [formGroup]="form" (submit)="aceptar()">
-      <mat-form-field class="example-full-width">
-        <mat-label>Codigo</mat-label>
-        <input matInput placeholder="Codigo" formControlName="id">
-      </mat-form-field>
-      <br>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Cantidad</mat-label>
-        <input matInput placeholder="Cantidad" formControlName="cantidad">
-      </mat-form-field>
-      <br>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Precio_Total</mat-label>
-        <input matInput placeholder="Precio_Total" formControlName="precio_total">
-      </mat-form-field>
-      <br>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Descripcion</mat-label>
-        <input matInput placeholder="Descripcion" formControlName="descripcion">
-      </mat-form-field>
-      <br>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Fecha_Compra</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fecha" [max]="fecha_max">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <br>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Cliente_id</mat-label>
-        <input matInput placeholder="Cliente_id" formControlName="Cliente_ID">
-      </mat-form-field>
-      <br>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Negocio_id</mat-label>
-        <input matInput placeholder="Negocio_id" formControlName="Negocio_ID">
-      </mat-form-field>
-      <br>
-<div style="text-align: center;">
-  <button mat-raised-button color="primary">Aceptar</button>
-      <button mat-raised-button color="warn" routerLink="/compras">Cancelar</button>
-</div>
-
-      <p>{{mensaje}}</p>
-    </form>
+  <div class="container">
+    <div style="text-align: center;">
+      <h1>Registro de compras</h1>
+    </div>
   </div>
+    <div style="text-align: center;">
+      <form [formGroup]="form" (submit)="aceptar()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Codigo</mat-label>
+          <input matInput placeholder="Codigo" formControlName="id">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cantidad</mat-label>
+          <input matInput placeholder="Cantidad" formControlName="cantidad">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Precio_Total</mat-label>
+          <input matInput placeholder="Precio_Total" formControlName="precio_total">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Descripcion</mat-label>
+          <input matInput placeholder="Descripcion" formControlName="descripcion">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha_Compra</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fecha" [max]="fecha_max">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cliente_id</mat-label>
+          <input matInput placeholder="Cliente_id" formControlName="Cliente_ID">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Negocio_id</mat-label>
+          <input matInput placeholder="Negocio_id" formControlName="Negocio_ID">
+        </mat-form-field>
+        <br>
+        <div style="text-align: center;">
+          <button mat-raised-button color="primary">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/compras">Cancelar</button>
+        </div>
+
+        <p>{{mensaje}}</p>
+      </form>
+    </div>
 </body>
 
 </html>
