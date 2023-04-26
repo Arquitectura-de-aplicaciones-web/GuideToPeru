@@ -14,13 +14,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NegocioDialogoComponent } from './component/negocio/negocio-listar/negocio-dialogo/negocio-dialogo.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
     NegocioComponent,
     NegocioListarComponent,
     NegocioCreaeditaComponent,
-    NegocioDialogoComponent,
+    NegocioDialogoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,10 @@ import { NegocioDialogoComponent } from './component/negocio/negocio-listar/nego
     FormsModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatButtonModule,
+    MatDialogModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
