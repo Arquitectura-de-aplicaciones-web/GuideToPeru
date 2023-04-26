@@ -2,15 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { compras } from 'src/app/model/compras';
 import { ComprasService } from 'src/app/service/compras.service';
 import { MatTableDataSource } from '@angular/material/table'
+import { MatDialog } from '@angular/material/dialog'
+import { ComprasDialogoComponent } from './compras-dialogo/compras-dialogo.component';
 @Component({
   selector: 'app-compras-listar',
   templateUrl: './compras-listar.component.html',
   styleUrls: ['./compras-listar.component.css']
 })
 export class ComprasListarComponent implements OnInit {
+
+  lista: compras[] = []
   dataSource: MatTableDataSource<compras> = new MatTableDataSource();
-  displayedColumns: string[] = ['codigo', 'cantidad', 'precio_total', 'descripcion', 'fecha', 'cliente_codigo', 'negocio_codigo','accion01']
-  constructor(private cS: ComprasService) {
+  idMayor: number = 0
+  displayedColumns: string[] = ['codigo', 'cantidad', 'precio_total', 'descripcion', 'fecha', 'cliente_codigo', 'negocio_codigo', 'accion01','accion02']
+  constructor(private cS: ComprasService, private dialog: MatDialog) {
 
   }
 
@@ -22,11 +27,29 @@ export class ComprasListarComponent implements OnInit {
     this.cS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     })
+
+    this.cS.getConfirmDelete().subscribe(data => {
+      data == true ? this.eliminar(this.idMayor) : false;
+    })
   }
 
-  filtrar(z:any){
-    this.dataSource.filter=z.target.value.trim();
+  filtrar(z: any) {
+    this.dataSource.filter = z.target.value.trim();
   }
 
+  confirm(id: number) {
+    this.idMayor = id;
+    this.dialog.open(ComprasDialogoComponent);
+  }
+
+  eliminar(id: number) {
+    this.cS.delete(id).subscribe(()=>{
+      this.cS.list().subscribe(data=>{
+        this.cS.setList(data);
+      })
+
+    })
+
+  }
 
 }
