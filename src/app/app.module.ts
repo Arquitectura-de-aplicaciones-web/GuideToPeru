@@ -18,6 +18,8 @@ import { MenuComponent } from './component/cliente/menu/menu.component';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {CdkTreeModule} from '@angular/cdk/tree'
+import { MatDialogModule } from '@angular/material/dialog';
+import { ClienteDialogoComponent } from './component/cliente/cliente-listar/cliente-dialogo/cliente-dialogo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {CdkTreeModule} from '@angular/cdk/tree'
     ClienteComponent,
     ClienteListarComponent,
     ClienteCreaeditaComponent,
-    MenuComponent
+    MenuComponent,
+    ClienteDialogoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import {CdkTreeModule} from '@angular/cdk/tree'
     MatTreeModule,
    MatIconModule,
    CdkTreeModule,
+   MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

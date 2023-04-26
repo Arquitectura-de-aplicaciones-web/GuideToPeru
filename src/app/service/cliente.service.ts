@@ -12,6 +12,7 @@ const base_url = environment.base
 export class ClienteService {
   private url = `${base_url}/clientes`
   private listaCambio = new Subject<Cliente[]>();
+  private confirmarEliminacion = new Subject<Boolean>()
   constructor(private http: HttpClient) { }
   list() {
     return this.http.get<Cliente[]>(this.url);
@@ -37,6 +38,17 @@ export class ClienteService {
   update(a: Cliente) {
     return this.http.put(this.url + "/" + a.id, a);
 
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`)
+  }
+
+  getConfirmDelete(){
+    return this.confirmarEliminacion.asObservable();
+  }
+  setConfirmDelete(estado:Boolean){
+    this.confirmarEliminacion.next(estado);
   }
 
 }
