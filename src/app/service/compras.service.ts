@@ -10,7 +10,9 @@ const base_url = environment.base
 })
 export class ComprasService {
   private url = `${base_url}/Compras`
+  private confirmarEliminacion = new Subject<Boolean>()
   private listaCambio = new Subject<compras[]>();
+
   constructor(private http: HttpClient) { }
   list() {
     return this.http.get<compras[]>(this.url);
@@ -21,18 +23,30 @@ export class ComprasService {
   }
 
   setList(listaNueva: compras[]) {
-this.listaCambio.next(listaNueva);
+    this.listaCambio.next(listaNueva);
   }
 
   getList() {
-return this.listaCambio.asObservable();
+    return this.listaCambio.asObservable();
   }
 
-  listId(id: number){
+  listId(id: number) {
     return this.http.get<compras>(`${this.url}/${id}`)
   }
 
-  update(c:compras){
+  update(c: compras) {
     return this.http.put(this.url + "/" + c.id, c)
+  }
+
+  delete(id:number){
+    return this.http.delete(`${this.url}/${id}`)
+  }
+
+  getConfirmDelete(){
+    return this.confirmarEliminacion.asObservable();
+  }
+
+  setConfirmDelete(estado:boolean){
+    this.confirmarEliminacion.next(estado);
   }
 }

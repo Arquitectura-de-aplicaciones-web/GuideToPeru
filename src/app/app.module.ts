@@ -13,12 +13,16 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog'
+import { ComprasDialogoComponent } from './component/compras/compras-listar/compras-dialogo/compras-dialogo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ComprasComponent,
     ComprasListarComponent,
-    ComprasCreaeditaComponent
+    ComprasCreaeditaComponent,
+    ComprasDialogoComponent
 
   ],
   imports: [
@@ -32,7 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
 
 
   ],
