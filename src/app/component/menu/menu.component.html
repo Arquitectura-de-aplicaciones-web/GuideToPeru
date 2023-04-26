@@ -1,1 +1,8 @@
-<p>menu works!</p>
+<div>
+    <div>
+        <li *ngFor="let element of list_links">
+            <a routerLink="{{element}}">{{element}}</a>
+            <router-outlet></router-outlet>
+        </li>
+    </div>
+</div>

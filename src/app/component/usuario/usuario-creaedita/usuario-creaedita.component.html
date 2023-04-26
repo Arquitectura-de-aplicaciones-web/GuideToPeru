@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()" >
+            <mat-form-field class="example-full-width">
+                <mat-label>ID</mat-label>
+                <input matInput placeholder="ID" formControlName="id">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" formControlName="nameAuthor">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="emailAuthor">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Birth Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birthDateAuthor" [max]="maxFecha">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <button mat-stroked-button color="primary">Aceptar</button>
+            <button mat-stroked-button color="warn" routerLink="/authors">Cancelar</button>
+            <p>{{mensaje}}</p>
+        </form>
+    </div>
+    
+</body>
+</html>

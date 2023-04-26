@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-
+  list_tables = ["usuarios", "negocios", "clientes"]
+  list_links  = ["usuarios", "negocios", "clientes"]
+  
+  constructor(){
+    this.list_links.length;
+    
+  }
 }
