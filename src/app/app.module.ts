@@ -13,12 +13,14 @@ import { NegocioCreaeditaComponent } from './component/negocio/negocio-creaedita
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NegocioDialogoComponent } from './component/negocio/negocio-listar/negocio-dialogo/negocio-dialogo.component';
 @NgModule({
   declarations: [
     AppComponent,
     NegocioComponent,
     NegocioListarComponent,
     NegocioCreaeditaComponent,
+    NegocioDialogoComponent,
   ],
   imports: [
     BrowserModule,
