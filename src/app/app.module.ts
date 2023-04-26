@@ -11,15 +11,14 @@ import { MatTableModule } from '@angular/material/table'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClienteCreaeditaComponent } from './component/cliente/cliente-creaedita/cliente-creaedita.component';
 import { MatInputModule } from '@angular/material/input'
-import {MatDatepickerModule} from '@angular/material/datepicker'
+import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MenuComponent } from './component/cliente/menu/menu.component';
-import {MatTreeModule} from '@angular/material/tree';
-import {MatIconModule} from '@angular/material/icon';
-import {CdkTreeModule} from '@angular/cdk/tree'
 import { MatDialogModule } from '@angular/material/dialog';
 import { ClienteDialogoComponent } from './component/cliente/cliente-listar/cliente-dialogo/cliente-dialogo.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 @NgModule({
   declarations: [
@@ -42,10 +41,8 @@ import { ClienteDialogoComponent } from './component/cliente/cliente-listar/clie
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatTreeModule,
-   MatIconModule,
-   CdkTreeModule,
-   MatDialogModule
+    MatDialogModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
