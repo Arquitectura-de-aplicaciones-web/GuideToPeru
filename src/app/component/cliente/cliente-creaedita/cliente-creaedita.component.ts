@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Cliente } from 'src/app/model/clientes';
 import * as moment from 'moment'
 import { ClienteService } from 'src/app/service/cliente.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-cliente-creaedita',
@@ -11,6 +12,15 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./cliente-creaedita.component.css']
 })
 export class ClienteCreaeditaComponent implements OnInit {
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  reason = '';
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  shouldRun = true;
 
   id: number = 0;
   edicion: boolean = false;

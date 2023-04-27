@@ -15,8 +15,5 @@ export class MenuComponent implements OnInit {
     this.sidenav.close();
   }
   shouldRun = true;
-  //shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
-  ngOnInit(): void {  
-
-  }
+  ngOnInit(): void {}
 }

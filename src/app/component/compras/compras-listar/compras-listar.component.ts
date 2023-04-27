@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { compras } from 'src/app/model/compras';
 import { ComprasService } from 'src/app/service/compras.service';
 import { MatTableDataSource } from '@angular/material/table'
 import { MatDialog } from '@angular/material/dialog'
 import { ComprasDialogoComponent } from './compras-dialogo/compras-dialogo.component';
+import {MatSidenav} from '@angular/material/sidenav';
+
+
 @Component({
   selector: 'app-compras-listar',
   templateUrl: './compras-listar.component.html',
   styleUrls: ['./compras-listar.component.css']
 })
 export class ComprasListarComponent implements OnInit {
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  reason = '';
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  shouldRun = true;
+
 
   lista: compras[] = []
   dataSource: MatTableDataSource<compras> = new MatTableDataSource();

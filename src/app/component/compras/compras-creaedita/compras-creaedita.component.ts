@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { compras } from 'src/app/model/compras';
 import * as moment from 'moment'
 import { ComprasService } from 'src/app/service/compras.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-compras-creaedita',
@@ -11,6 +12,15 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./compras-creaedita.component.css']
 })
 export class ComprasCreaeditaComponent implements OnInit {
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  reason = '';
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  shouldRun = true;
 
   id: number = 0
   edicion: boolean = false

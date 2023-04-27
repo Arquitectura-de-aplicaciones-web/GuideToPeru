@@ -7,12 +7,31 @@
   <title>Document</title>
 </head>
 <body>
+
+<mat-sidenav-container
+    class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/">Usuarios</button>
+    <br>
+    <button mat-button routerLink="/clientes">Clientes</button>
+    <br>
+    <button mat-button routerLink="/">Negocio</button>
+    <br>
+    <button mat-button routerLink="/clientes/compras">Compras</button>
+    <br>
+    <button mat-button routerLink="/"></button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.open()">Menu</button></p>
+
   <div class="container">
     <div style="text-align: center;">
       <h1>Lista de compras</h1>
     </div>
     <div style="text-align: right;">
-      <button mat-raised-button color="warn" routerLink="/compras/new">Agregar</button>
+      <button mat-raised-button color="warn" routerLink="/clientes/registrarcm">Agregar</button>
     </div>
     <mat-form-field>
       <input matInput (keyup)="filtrar($event)" placeholder="Buscar" class="src" autocomplete="off">
@@ -76,6 +95,9 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
+
+</mat-sidenav-content>
+</mat-sidenav-container>
 
 </body>
 </html>

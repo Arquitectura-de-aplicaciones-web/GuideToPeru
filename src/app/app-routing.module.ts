@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'clientes', component: ClienteComponent, children: [
       {
-        path: 'new', component: ClienteCreaeditaComponent
+        path: 'registrarcl', component: ClienteCreaeditaComponent
       },
       {
         path: 'edicion/:id', component: ClienteCreaeditaComponent
@@ -22,7 +22,9 @@ const routes: Routes = [
       },
       {
         path: 'compras', component: ComprasComponent,
-
+      },
+      {
+        path: 'registrarcm',component: ComprasCreaeditaComponent
       }
     ]
   }
