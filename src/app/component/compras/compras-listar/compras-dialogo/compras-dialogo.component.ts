@@ -17,6 +17,7 @@ export class ComprasDialogoComponent implements OnInit {
   confirmar(estado: boolean) {
     this.cS.setConfirmDelete(estado);
     this.dialogRef.close();
+
   }
 
 }

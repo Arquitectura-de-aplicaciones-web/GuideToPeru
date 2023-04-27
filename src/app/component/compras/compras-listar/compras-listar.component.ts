@@ -4,24 +4,38 @@ import { ComprasService } from 'src/app/service/compras.service';
 import { MatTableDataSource } from '@angular/material/table'
 import { MatDialog } from '@angular/material/dialog'
 import { ComprasDialogoComponent } from './compras-dialogo/compras-dialogo.component';
+
+
+
 @Component({
   selector: 'app-compras-listar',
   templateUrl: './compras-listar.component.html',
   styleUrls: ['./compras-listar.component.css']
 })
+
+
+
 export class ComprasListarComponent implements OnInit {
 
   lista: compras[] = []
+
   dataSource: MatTableDataSource<compras> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['codigo', 'cantidad', 'precio_total', 'descripcion', 'fecha', 'cliente_codigo', 'negocio_codigo', 'accion01','accion02']
-  constructor(private cS: ComprasService, private dialog: MatDialog) {
+  displayedColumns: string[] = ['codigo', 'cantidad', 'precio_total', 'descripcion', 'fecha', 'cliente_codigo', 'negocio_codigo', 'accion01', 'accion02']
 
-  }
+
+
+  constructor(private cS: ComprasService, private dialog: MatDialog) { }
+
+
+
 
   ngOnInit(): void {
+
     this.cS.list().subscribe(data => {
+
       this.dataSource = new MatTableDataSource(data);
+
     })
 
     this.cS.getList().subscribe(data => {
@@ -31,6 +45,8 @@ export class ComprasListarComponent implements OnInit {
     this.cS.getConfirmDelete().subscribe(data => {
       data == true ? this.eliminar(this.idMayor) : false;
     })
+
+
   }
 
   filtrar(z: any) {
@@ -43,8 +59,8 @@ export class ComprasListarComponent implements OnInit {
   }
 
   eliminar(id: number) {
-    this.cS.delete(id).subscribe(()=>{
-      this.cS.list().subscribe(data=>{
+    this.cS.delete(id).subscribe(() => {
+      this.cS.list().subscribe(data => {
         this.cS.setList(data);
       })
 
@@ -53,3 +69,5 @@ export class ComprasListarComponent implements OnInit {
   }
 
 }
+
+

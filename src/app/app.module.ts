@@ -15,6 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog'
 import { ComprasDialogoComponent } from './component/compras/compras-listar/compras-dialogo/compras-dialogo.component';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ComprasDialogoComponent } from './component/compras/compras-listar/comp
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
 
 
   ],
