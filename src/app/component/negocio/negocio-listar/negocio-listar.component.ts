@@ -3,7 +3,7 @@ import { Negocio } from 'src/app/model/negocio';
 import { NegocioService } from 'src/app/service/negocio.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { NegocioDialogoComponent } from './negocio-dialogo/negocio-dialogo.component';
-import { Dialog } from '@angular/cdk/dialog';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-negocio-listar',
   templateUrl: './negocio-listar.component.html',
@@ -15,7 +15,7 @@ export class NegocioListarComponent implements OnInit {
   idMayor: number = 0
   displayedColumns: string[] = ['id', 'nameNegocio', 'direccionNegocio','telefono','emailNegocio','tipoNegocio','IDUsuario','accion01','accion02'];
 
-  constructor(private uS: NegocioService,private dialog:Dialog) {}
+  constructor(private uS: NegocioService,private dialog:MatDialog) {}
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
