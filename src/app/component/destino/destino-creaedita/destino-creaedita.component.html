@@ -9,6 +9,25 @@
 </head>
 
 <body>
+
+  <mat-sidenav-container
+    class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+        <button mat-button routerLink="/clientes/usuario">Usuarios</button>
+        <br>
+        <button mat-button routerLink="/clientes">Clientes</button>
+        <br>
+        <button mat-button routerLink="/clientes/negocio">Negocio</button>
+        <br>
+        <button mat-button routerLink="/clientes/compras">Compras</button>
+        <br>
+        <button mat-button routerLink="/clientes/destino">Destinos</button>
+      </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.open()">Menu</button></p>
+
   <div class="container">
     <div style="text-align: center;">
 
@@ -35,14 +54,18 @@
       <br>
       <div style="text-align: center;">
 
-      <button mat-raised-button color="primary">aceptar</button>
-      <button mat-raised-button color="warn" routerLink="/destinos">Cancelar</button>
+      <button mat-raised-button color="primary"><span class="material-icons">save</span></button>
+      <button mat-raised-button color="warn" routerLink="/clientes"><span class="material-icons">delete</span></button>
       <br>
       </div>
 
       <p>{{mensaje}}</p>
     </form>
   </div>
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+
 </body>
 
 </html>

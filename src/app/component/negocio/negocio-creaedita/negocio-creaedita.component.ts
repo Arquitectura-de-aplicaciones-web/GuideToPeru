@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Negocio } from 'src/app/model/negocio';
 import * as moment from 'moment';
 import { NegocioService } from 'src/app/service/negocio.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import {MatSidenav} from '@angular/material/sidenav';
+
 @Component({
   selector: 'app-negocio-creaedita',
   templateUrl: './negocio-creaedita.component.html',
   styleUrls: ['./negocio-creaedita.component.css'],
 })
 export class NegocioCreaeditaComponent implements OnInit {
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  reason = '';
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  shouldRun = true;
+
   id: number = 0;
   edicion: boolean = false;
 

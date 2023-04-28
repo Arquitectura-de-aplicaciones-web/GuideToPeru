@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Destino } from 'src/app/Model/Destinos';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
+
+import { Destino } from 'src/app/model/Destinos';
 import { MatTableDataSource } from '@angular/material/table'
 import { DestinoService } from 'src/app/service/destino.service';
 import { MatDialog } from '@angular/material/dialog'
@@ -12,6 +14,15 @@ import { DestinoDialogoComponent } from './destino-dialogo/destino-dialogo.compo
 })
 
 export class DestinoListarComponent implements OnInit {
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  reason = '';
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  shouldRun = true;
 
   lista: Destino[] = []
   dataSource: MatTableDataSource<Destino> = new MatTableDataSource();
@@ -49,5 +60,5 @@ export class DestinoListarComponent implements OnInit {
   filter(e: any) {
     this.dataSource.filter = e.target.value.trim();
   }
-
 }
+export class PaginatorOverviewExample {}

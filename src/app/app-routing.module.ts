@@ -7,6 +7,8 @@ import { ComprasComponent } from './component/compras/ComprasComponent';
 import { ComprasCreaeditaComponent } from './component/compras/compras-creaedita/compras-creaedita.component';
 import { NegocioComponent } from './component/negocio/negocio.component';
 import { NegocioCreaeditaComponent } from './component/negocio/negocio-creaedita/negocio-creaedita.component';
+import { DestinoComponent } from './component/destino/destino.component';
+import { DestinoCreaeditaComponent } from './component/destino/destino-creaedita/destino-creaedita.component';
 
 const routes: Routes = [
 
@@ -32,6 +34,12 @@ const routes: Routes = [
       },
       {
         path: 'registrarng', component: NegocioCreaeditaComponent
+      },
+      {
+        path: 'destino', component: DestinoComponent
+      },
+      {
+        path: 'registrardt', component: DestinoCreaeditaComponent
       }
     ]
   }

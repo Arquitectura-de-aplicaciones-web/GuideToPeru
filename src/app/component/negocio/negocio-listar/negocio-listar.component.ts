@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
 import { Negocio } from 'src/app/model/negocio';
 import { NegocioService } from 'src/app/service/negocio.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { NegocioDialogoComponent } from './negocio-dialogo/negocio-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-negocio-listar',
   templateUrl: './negocio-listar.component.html',
   styleUrls: ['./negocio-listar.component.css'],
 })
 export class NegocioListarComponent implements OnInit {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  reason = '';
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  shouldRun = true;
+
   lista: Negocio[] = []
   dataSource: MatTableDataSource<Negocio> = new MatTableDataSource();
   idMayor: number = 0
@@ -42,5 +53,5 @@ export class NegocioListarComponent implements OnInit {
   filter(z:any){
 this.dataSource.filter= z.target.value.trim();
   }
-
 }
+export class PaginatorOverviewExample {}

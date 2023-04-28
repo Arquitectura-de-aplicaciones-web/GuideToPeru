@@ -8,37 +8,53 @@
   </head>
 
   <body>
+
+    <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+      <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+        <button mat-button routerLink="/clientes/usuario">Usuarios</button>
+        <br>
+        <button mat-button routerLink="/clientes">Clientes</button>
+        <br>
+        <button mat-button routerLink="/clientes/negocio">Negocio</button>
+        <br>
+        <button mat-button routerLink="/clientes/compras">Compras</button>
+        <br>
+        <button mat-button routerLink="/clientes/destino">Destinos</button>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+
     <div class="container">
       <div style="text-align: center">
         <h1>Lista de Negocios</h1>        
       </div>
 
-      <div style="text-align: ligth">
-        <button mat-raised-button color="primary"routerLink="/clientes/registrarng">Agregar </button>
+      <div style="text-align: rigth;">
+        <button mat-raised-button color="warn"routerLink="/clientes/registrarng"><span class="material-icons">add</span> </button>
       </div>
-
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input matInput (keyup)="filter($event)" placeholder="Buscar">
 
-      </mat-form-field>
+    </mat-form-field>
+
+      <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+                    aria-label="Select page">
+                </mat-paginator>
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
+      
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>ID.</th>
           <td mat-cell *matCellDef="let element">{{ element.id }}</td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="nameNegocio">
           <th mat-header-cell *matHeaderCellDef>NameNegocio</th>
           <td mat-cell *matCellDef="let element">{{ element.nameNegocio }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
         <ng-container matColumnDef="direccionNegocio">
           <th mat-header-cell *matHeaderCellDef>DireccionNegocio</th>
           <td mat-cell *matCellDef="let element">
@@ -46,25 +62,21 @@
           </td>
         </ng-container>
 
-        <!-- Symbol Column -->
         <ng-container matColumnDef="telefono">
           <th mat-header-cell *matHeaderCellDef>Telefono</th>
           <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
         <ng-container matColumnDef="emailNegocio">
           <th mat-header-cell *matHeaderCellDef>EmailNegocio</th>
           <td mat-cell *matCellDef="let element">{{ element.emailNegocio }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
         <ng-container matColumnDef="tipoNegocio">
           <th mat-header-cell *matHeaderCellDef>TipoNegocio</th>
           <td mat-cell *matCellDef="let element">{{ element.tipoNegocio }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
         <ng-container matColumnDef="IDUsuario">
           <th mat-header-cell *matHeaderCellDef>IDUsuario</th>
           <td mat-cell *matCellDef="let element">{{ element.IDUsuario }}</td>
@@ -73,7 +85,7 @@
         <ng-container matColumnDef="accion01">
           <th mat-header-cell *matHeaderCellDef>Actualizar</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="warn"[routerLink]="['edicion',element.id]">Actualizar</button>
+            <button mat-raised-button color="warn"[routerLink]="['edicion',element.id]"><span class="material-icons">settings</span></button>
           </td>
         </ng-container>
         <ng-container matColumnDef="accion02">
@@ -87,5 +99,9 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
     </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
   </body>
 </html>

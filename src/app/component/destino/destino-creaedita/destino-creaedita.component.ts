@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Destino } from 'src/app/Model/Destinos';
+import { Destino } from 'src/app/model/Destinos';
 
 import { DestinoService } from 'src/app/service/destino.service'
 import { ActivatedRoute, Params, Router } from '@angular/router'
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-destino-creaedita',
@@ -11,6 +12,16 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
   styleUrls: ['./destino-creaedita.component.css']
 })
 export class DestinoCreaeditaComponent implements OnInit {
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  reason = '';
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  shouldRun = true;
+
   form: FormGroup = new FormGroup({});
   destino: Destino = new Destino();
   mensaje: string = "";
