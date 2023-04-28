@@ -31,11 +31,16 @@
       <h1>Lista de compras</h1>
     </div>
     <div style="text-align: right;">
-      <button mat-raised-button color="warn" routerLink="/clientes/registrarcm">Agregar</button>
+      <button mat-raised-button color="warn" routerLink="/clientes/registrarcm"><span class="material-icons">add</span></button>
     </div>
-    <mat-form-field>
-      <input matInput (keyup)="filtrar($event)" placeholder="Buscar" class="src" autocomplete="off">
+    <mat-form-field appearance="outline">
+      <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
   </mat-form-field>
+
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page">
+</mat-paginator>
+
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 
@@ -80,7 +85,7 @@
       <ng-container matColumnDef="accion01">
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="accent" [routerLink]="['edicion', element.id]">Actualizar</button>
+        <button mat-raised-button color="warn" [routerLink]="['edicion',element.id]"><span class="material-icons">settings</span></button>
         </td>
       </ng-container>
 

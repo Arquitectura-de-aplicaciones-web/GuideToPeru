@@ -79,10 +79,8 @@
           <input matInput required placeholder="Negocio_id" formControlName="Negocio_ID">
         </mat-form-field>
         <br>
-        <div style="text-align: center;">
-          <button mat-raised-button color="primary">Aceptar</button>
-          <button mat-raised-button color="warn" routerLink="/compras">Cancelar</button>
-        </div>
+          <button mat-raised-button color="primary"><span class="material-icons">save</span></button>
+          <button mat-raised-button color="warn" routerLink="/clientes/compras"><span class="material-icons">delete</span></button>
 
         <p>{{mensaje}}</p>
       </form>

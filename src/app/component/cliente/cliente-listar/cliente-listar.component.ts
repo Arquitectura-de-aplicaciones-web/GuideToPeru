@@ -58,3 +58,4 @@ export class ClienteListarComponent implements OnInit {
     this.dataSource.filter = z.target.value.trim();
   }
 }
+export class PaginatorOverviewExample {}
