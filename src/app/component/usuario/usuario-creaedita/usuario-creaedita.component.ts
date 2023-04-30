@@ -70,7 +70,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['clientes/usuario']);
+      this.router.navigate(['usuarios']);
     } else {
       this.mensaje = "Ingrese los datos del usuario"
     }

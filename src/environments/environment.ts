@@ -1,4 +1,4 @@
 export const environment={
   production:false,
-  base:"http://localhost:5000"
+  base:"http://192.168.1.67:5000"
 }

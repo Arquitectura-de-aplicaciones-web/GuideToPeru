@@ -36,11 +36,10 @@ import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MenuComponent } from './component/cliente/menu/menu.component';
+import { MenuComponent } from './component/menu/menu.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
 
 
 @NgModule({

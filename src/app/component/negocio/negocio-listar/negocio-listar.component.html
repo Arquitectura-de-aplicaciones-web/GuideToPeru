@@ -1,107 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
+<div class="container">
+  <div style="text-align: center">
+    <h1>Lista de Negocios</h1>        
+  </div>
 
-  <body>
-
-    <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
-      <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-        <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-        <button mat-button routerLink="/clientes/usuario">Usuarios</button>
-        <br>
-        <button mat-button routerLink="/clientes">Clientes</button>
-        <br>
-        <button mat-button routerLink="/clientes/negocio">Negocio</button>
-        <br>
-        <button mat-button routerLink="/clientes/compras">Compras</button>
-        <br>
-        <button mat-button routerLink="/clientes/destino">Destinos</button>
-      </mat-sidenav>
+  <div style="text-align: right;">
+    <button mat-raised-button color="warn" [routerLink]="['registrarng']"><span class="material-icons">add</span></button>
+  </div>
   
-      <mat-sidenav-content>
-        <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+  <mat-form-field appearance="outline">
+    <input matInput (keyup)="filter($event)" placeholder="Buscar">
+  </mat-form-field>
 
-    <div class="container">
-      <div style="text-align: center">
-        <h1>Lista de Negocios</h1>        
-      </div>
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+            </mat-paginator>
 
-      <div style="text-align: rigth;">
-        <button mat-raised-button color="warn"routerLink="/clientes/registrarng"><span class="material-icons">add</span> </button>
-      </div>
-      <mat-form-field appearance="outline">
-        <input matInput (keyup)="filter($event)" placeholder="Buscar">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID.</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
 
-    </mat-form-field>
+    <ng-container matColumnDef="nameNegocio">
+      <th mat-header-cell *matHeaderCellDef>NameNegocio</th>
+      <td mat-cell *matCellDef="let element">{{ element.nameNegocio }}</td>
+    </ng-container>
 
-      <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
-                    aria-label="Select page">
-                </mat-paginator>
+    <ng-container matColumnDef="direccionNegocio">
+      <th mat-header-cell *matHeaderCellDef>DireccionNegocio</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.direccionNegocio }}
+      </td>
+    </ng-container>
 
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>ID.</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef>Telefono</th>
+      <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+    </ng-container>
 
-        <ng-container matColumnDef="nameNegocio">
-          <th mat-header-cell *matHeaderCellDef>NameNegocio</th>
-          <td mat-cell *matCellDef="let element">{{ element.nameNegocio }}</td>
-        </ng-container>
+    <ng-container matColumnDef="emailNegocio">
+      <th mat-header-cell *matHeaderCellDef>EmailNegocio</th>
+      <td mat-cell *matCellDef="let element">{{ element.emailNegocio }}</td>
+    </ng-container>
 
-        <ng-container matColumnDef="direccionNegocio">
-          <th mat-header-cell *matHeaderCellDef>DireccionNegocio</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.direccionNegocio }}
-          </td>
-        </ng-container>
+    <ng-container matColumnDef="tipoNegocio">
+      <th mat-header-cell *matHeaderCellDef>TipoNegocio</th>
+      <td mat-cell *matCellDef="let element">{{ element.tipoNegocio }}</td>
+    </ng-container>
 
-        <ng-container matColumnDef="telefono">
-          <th mat-header-cell *matHeaderCellDef>Telefono</th>
-          <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
-        </ng-container>
+    <ng-container matColumnDef="IDUsuario">
+      <th mat-header-cell *matHeaderCellDef>IDUsuario</th>
+      <td mat-cell *matCellDef="let element">{{ element.IDUsuario }}</td>
+    </ng-container>
 
-        <ng-container matColumnDef="emailNegocio">
-          <th mat-header-cell *matHeaderCellDef>EmailNegocio</th>
-          <td mat-cell *matCellDef="let element">{{ element.emailNegocio }}</td>
-        </ng-container>
+    <ng-container matColumnDef="accion01">
+      <th mat-header-cell *matHeaderCellDef>Modificar</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn"[routerLink]="['edicion',element.id]"><span class="material-icons">settings</span></button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="accion02">
+      <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="accent" (click)="confirm(element.id)"><span class="material-icons">delete</span></button>
+      </td>
+    </ng-container>        
 
-        <ng-container matColumnDef="tipoNegocio">
-          <th mat-header-cell *matHeaderCellDef>TipoNegocio</th>
-          <td mat-cell *matCellDef="let element">{{ element.tipoNegocio }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="IDUsuario">
-          <th mat-header-cell *matHeaderCellDef>IDUsuario</th>
-          <td mat-cell *matCellDef="let element">{{ element.IDUsuario }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="accion01">
-          <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-          <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="warn"[routerLink]="['edicion',element.id]"><span class="material-icons">settings</span></button>
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="accion02">
-          <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-          <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="accent" (click)="confirm(element.id)"><span class="material-icons">delete</span></button>
-          </td>
-        </ng-container>        
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-    </div>
-
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-  </body>
-</html>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

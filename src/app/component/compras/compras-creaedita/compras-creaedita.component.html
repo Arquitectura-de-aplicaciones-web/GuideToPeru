@@ -1,94 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-
-  <mat-sidenav-container
-    class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
-    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-      <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-      <button mat-button routerLink="/clientes/usuario">Usuarios</button>
-      <br>
-      <button mat-button routerLink="/clientes">Clientes</button>
-      <br>
-      <button mat-button routerLink="/clientes/negocio">Negocio</button>
-      <br>
-      <button mat-button routerLink="/clientes/compras">Compras</button>
-      <br>
-      <button mat-button routerLink="/clientes/destino">Destinos</button>
-    </mat-sidenav>
-
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.open()">Menu</button></p>
-
-  <div class="container">
-    <div style="text-align: center;">
-      <h1>Registro de compras</h1>
-    </div>
+<div class="container">
+  <div style="text-align: center;">
+    <h1>Registro de compras</h1>
   </div>
-    <div style="text-align: center;">
-      <form [formGroup]="form" (submit)="aceptar()">
-        <mat-form-field class="example-full-width">
-          <mat-label>Codigo</mat-label>
-          <input matInput  required placeholder="Codigo" formControlName="id">
-        </mat-form-field>
-        <br>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Cantidad</mat-label>
-          <input matInput required placeholder="Cantidad" formControlName="cantidad">
-        </mat-form-field>
-        <br>
+  <form [formGroup]="form" (submit)="aceptar()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Codigo</mat-label>
+      <input matInput required placeholder="Codigo" formControlName="id">
+    </mat-form-field>
+    <br>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Precio_Total</mat-label>
-          <input matInput required placeholder="Precio_Total" formControlName="precio_total">
-        </mat-form-field>
-        <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Cantidad</mat-label>
+      <input matInput required placeholder="Cantidad" formControlName="cantidad">
+    </mat-form-field>
+    <br>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Descripcion</mat-label>
-          <input matInput required placeholder="Descripcion" formControlName="descripcion">
-        </mat-form-field>
-        <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Precio_Total</mat-label>
+      <input matInput required placeholder="Precio_Total" formControlName="precio_total">
+    </mat-form-field>
+    <br>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Fecha_Compra</mat-label>
-          <input matInput required [matDatepicker]="picker" formControlName="fecha" [max]="fecha_max">
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripcion</mat-label>
+      <input matInput required placeholder="Descripcion" formControlName="descripcion">
+    </mat-form-field>
+    <br>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Cliente_id</mat-label>
-          <input matInput required placeholder="Cliente_id" formControlName="Cliente_ID">
-        </mat-form-field>
-        <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha_Compra</mat-label>
+      <input matInput required [matDatepicker]="picker" formControlName="fecha" [max]="fecha_max">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Negocio_id</mat-label>
-          <input matInput required placeholder="Negocio_id" formControlName="Negocio_ID">
-        </mat-form-field>
-        <br>
-          <button mat-raised-button color="primary"><span class="material-icons">save</span></button>
-          <button mat-raised-button color="warn" routerLink="/clientes/compras"><span class="material-icons">delete</span></button>
+    <mat-form-field class="example-full-width">
+      <mat-label>Cliente_id</mat-label>
+      <input matInput required placeholder="Cliente_id" formControlName="Cliente_ID">
+    </mat-form-field>
+    <br>
 
-        <p>{{mensaje}}</p>
-      </form>
-    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Negocio_id</mat-label>
+      <input matInput required placeholder="Negocio_id" formControlName="Negocio_ID">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary"><span class="material-icons">save</span></button>
+    <button mat-raised-button color="warn" routerLink="/clientes/compras"><span
+        class="material-icons">delete</span></button>
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-</body>
-
-</html>
+    <p>{{mensaje}}</p>
+  </form>
+</div>
