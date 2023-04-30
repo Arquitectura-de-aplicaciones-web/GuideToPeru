@@ -1,5 +1,13 @@
 module.exports = function () {
   var data = {
+    Usuarios: [
+      {
+        id: 0,
+        email: "AnaGonz@gmail.com",
+        contrasenia: "*********",
+        telefono: "928457131"
+      }
+    ],
     Destinos: [
       {
         id: 1,

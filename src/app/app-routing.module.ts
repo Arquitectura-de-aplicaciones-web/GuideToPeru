@@ -9,6 +9,8 @@ import { NegocioComponent } from './component/negocio/negocio.component';
 import { NegocioCreaeditaComponent } from './component/negocio/negocio-creaedita/negocio-creaedita.component';
 import { DestinoComponent } from './component/destino/destino.component';
 import { DestinoCreaeditaComponent } from './component/destino/destino-creaedita/destino-creaedita.component';
+import { UsuarioComponent } from './component/usuario/usuario.component';
+import { UsuarioCreaeditaComponent } from './component/usuario/usuario-creaedita/usuario-creaedita.component';
 
 const routes: Routes = [
 
@@ -40,11 +42,17 @@ const routes: Routes = [
       },
       {
         path: 'registrardt', component: DestinoCreaeditaComponent
-      }
+      },
+      {
+        path: 'usuario', component: UsuarioComponent,
+      },
+      {
+        path: 'registrarus', component: UsuarioCreaeditaComponent,
+      },
     ]
   }
-
-
+  
+  
 ];
 
 @NgModule({
