@@ -15,10 +15,11 @@ import { DestinoCreaeditaComponent } from './component/destino/destino-creaedita
 
 import { UsuarioComponent } from './component/usuario/usuario.component';
 import { UsuarioCreaeditaComponent } from './component/usuario/usuario-creaedita/usuario-creaedita.component';
+import { LandingPageComponent } from './component/landing-page/landing-page.component';
 
 const routes: Routes = [
   
-  { path: '', redirectTo: 'clientes', pathMatch: 'full' }, // when the landing page is added this path will be deleted
+  { path: '', component: LandingPageComponent },
   { path: 'clientes', component: ClienteComponent, children: [
     { path: 'registrarcl', component: ClienteCreaeditaComponent },
     { path: 'edicion/:id', component: ClienteCreaeditaComponent }

@@ -40,6 +40,7 @@ import { MenuComponent } from './component/menu/menu.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { LandingPageComponent } from './component/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     UsuarioComponent,
     UsuarioListarComponent,
     UsuarioCreaeditaComponent,
-    UsuarioDialogoComponent
+    UsuarioDialogoComponent,
+    LandingPageComponent
 
   ],
   imports: [
