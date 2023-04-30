@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from 'src/app/service/cliente.service';
+import { UsuarioService } from 'src/app/service/usuario.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -9,7 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class UsuarioDialogoComponent implements OnInit {
 
-  constructor(private uS: ClienteService, private dialogRef:MatDialogRef<UsuarioDialogoComponent>) {}
+  constructor(private uS: UsuarioService, private dialogRef:MatDialogRef<UsuarioDialogoComponent>) {}
 
   ngOnInit():void {}
   
