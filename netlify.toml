@@ -1,5 +1,5 @@
 [build]
-	command = "npm run build --prod && npm run server"
+	command = "npm run build --prod && npm run json-server"
 	publish = "ng serve --open"
 
 [dev]
