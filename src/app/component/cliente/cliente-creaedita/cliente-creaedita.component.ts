@@ -43,8 +43,6 @@ export class ClienteCreaeditaComponent implements OnInit {
       nameCliente: new FormControl(),
       apellidoCliente: new FormControl(),
       anioNacimiento: new FormControl(),
-      emailCliente: new FormControl(),
-      telefono: new FormControl(),
       direccion: new FormControl(),
       IDUsuario: new FormControl(),
       cuentaBancaria: new FormControl(),
@@ -60,15 +58,12 @@ export class ClienteCreaeditaComponent implements OnInit {
     this.cliente.nameCliente = this.form.value['nameCliente'];
     this.cliente.apellidoCliente = this.form.value['apellidoCliente'];
     this.cliente.anioNacimiento = this.form.value['anioNacimiento'];
-    this.cliente.emailCliente = this.form.value['emailCliente'];
-    this.cliente.telefono = this.form.value['telefono'];
     this.cliente.direccion = this.form.value['direccion'];
     this.cliente.IDUsuario = this.form.value['IDUsuario'];
     this.cliente.cuentaBancaria = this.form.value['cuentaBancaria']
 
     if (this.form.value['nameCliente'].length > 0 &&
       this.form.value['apellidoCliente'].length > 0 &&
-      this.form.value['emailCliente'].length > 0 &&
       this.form.value['cuentaBancaria'].length > 0) {
 
       if (this.edicion) {
@@ -100,8 +95,6 @@ export class ClienteCreaeditaComponent implements OnInit {
           nameCliente: new FormControl(data.nameCliente),
           apellidoCliente: new FormControl(data.apellidoCliente),
           anioNacimiento: new FormControl(data.anioNacimiento),
-          emailCliente: new FormControl(data.emailCliente),
-          telefono: new FormControl(data.telefono),
           direccion: new FormControl(data.direccion),
           IDUsuario: new FormControl(data.IDUsuario),
           cuentaBancaria: new FormControl(data.cuentaBancaria),

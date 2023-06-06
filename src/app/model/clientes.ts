@@ -3,8 +3,6 @@ export class Cliente {
     nameCliente: string = ""
     apellidoCliente: string = ""
     anioNacimiento: Date = new Date(Date.now())
-    emailCliente: string = ""
-    telefono: string = ""
     direccion: string = ""
     IDUsuario:number=0
     cuentaBancaria: string = ""
