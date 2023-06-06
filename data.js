@@ -11,18 +11,30 @@ module.exports = function () {
     Destinos: [
       {
         id: 1,
-        nombreDestino: "Destino 1",
-        historia: "historia... 1"
+        nombre: "Destino 1",
+        ubicacion: "historia... 1",
+        descripcion: "descripcion ... 1",
+        imagen: "imagen ... 1",
+        distrito: "distrito ... 1",
+        departarmento: "departarmento ... 1"
       },
       {
         id: 2,
-        nombreDestino: "Destino 2",
-        historia: "historia... 2"
+        nombre: "Destino 2",
+        ubicacion: "historia... 2",
+        descripcion: "descripcion ... 2",
+        imagen: "imagen ... 2",
+        distrito: "distrito ... 2",
+        departarmento: "departarmento ... 2"
       },
       {
         id: 3,
-        nombreDestino: "Destino 3",
-        historia: "historia... 3"
+        nombre: "Destino 3",
+        ubicacion: "historia... 3",
+        descripcion: "descripcion ... 3",
+        imagen: "imagen ... 3",
+        distrito: "distrito ... 3",
+        departarmento: "departarmento ... 3"
       }
     ],
 

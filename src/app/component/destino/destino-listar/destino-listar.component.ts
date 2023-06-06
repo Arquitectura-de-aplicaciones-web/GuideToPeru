@@ -27,7 +27,8 @@ export class DestinoListarComponent implements OnInit {
   lista: Destino[] = []
   dataSource: MatTableDataSource<Destino> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['codigo', 'Destino', 'historia', 'acciones1','acciones2']
+  displayedColumns: string[] = ['codigo', 'Nombre', 'Ubicacion', 'Descripcion',
+  'Imagen', 'Distrito', 'Departamento','acciones1','acciones2']
 
   constructor(private aS: DestinoService, private dialog: MatDialog) {
 
