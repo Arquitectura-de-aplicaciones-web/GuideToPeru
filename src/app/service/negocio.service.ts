@@ -9,7 +9,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class NegocioService {
-  private url = `${base_url}/Negocio`;
+  private url = `${base_url}/negocios`;
   private confirmarEliminacion = new Subject<Boolean>()
   private listaCambio = new Subject <Negocio[]>();
   constructor(private http: HttpClient) { }

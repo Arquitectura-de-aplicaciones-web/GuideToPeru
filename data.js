@@ -43,46 +43,41 @@ module.exports = function () {
         id: 1,
         nameNegocio: "Fast Market",
         direccionNegocio: "Av Jose Galvez #1345",
-        telefono: "5687943654",
-        emailNegocio: "fastmark@gmail.com",
-        tipoNegocio: "Productos primera necesidad",
+        tipoNegocio: "1",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 2,
         nameNegocio: "Tiendas Mass",
         direccionNegocio: "Av Nicolas Ayllon #1534",
-        telefono: "3467890126",
-        emailNegocio: "tiendmass@gmail.com",
-        tipoNegocio: "Comidas Pre_peradas",
+        tipoNegocio: "2",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 3,
         nameNegocio: "La Union",
         direccionNegocio: "Av Ricardo Palma #4365",
-        telefono: "5753698425",
-        emailNegocio: "launion@gmail.com",
-        tipoNegocio: "Venta de Productos Integrales",
+        tipoNegocio: "3",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 4,
         nameNegocio: "Papas King",
         direccionNegocio: "Av Primavera #1143",
-        telefono: "4673598124",
-        emailNegocio: "papaskin@gmail.com",
-        tipoNegocio: "Venta de comida rapida",
+        tipoNegocio: "3",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 5,
         nameNegocio: "Toro Mata",
         direccionNegocio: "Av Tomas Valle #4314",
-        telefono: "4675832198",
-        emailNegocio: "toromata@gmail.com",
-        tipoNegocio: "Venta de Productos",
+        tipoNegocio: "1",
         IDusuario: "0",
+        calificacion:"1"
       },
     ],
 

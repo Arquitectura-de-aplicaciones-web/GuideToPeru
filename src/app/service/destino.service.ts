@@ -10,7 +10,7 @@ const base_url = environment.base
   providedIn: 'root'
 })
 export class DestinoService {
-  private url = `${base_url}/Destinos`
+  private url = `${base_url}/destinos`
   private confirmarEliminacion = new Subject<Boolean>()
   private listaCambio = new Subject<Destino[]>()
 
