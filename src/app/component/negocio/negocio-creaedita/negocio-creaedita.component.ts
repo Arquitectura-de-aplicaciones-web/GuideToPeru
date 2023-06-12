@@ -41,7 +41,7 @@ export class NegocioCreaeditaComponent implements OnInit {
       nameNegocio: new FormControl(),
       direccionNegocio: new FormControl(),
       tipoNegocio: new FormControl(),
-      IDUsuario: new FormControl(),
+      idusuario: new FormControl(),
       calificacion: new FormControl(),
     });
   }
@@ -55,26 +55,21 @@ export class NegocioCreaeditaComponent implements OnInit {
     this.negocio.nameNegocio = this.form.value['nameNegocio'];
     this.negocio.direccionNegocio = this.form.value['direccionNegocio'];
     this.negocio.tipoNegocio = this.form.value['tipoNegocio'];
-    this.negocio.IDUsuario = this.form.value['IDUsuario'];
+    this.negocio.idusuario = this.form.value['idusuario'];
     this.negocio.calificacion=this.form.value['calificacion'];
-    if (
-      this.form.value['nameNegocio'].length > 0 &&
-      this.form.value['direccionNegocio'].length > 0 &&
-      this.form.value['tipoNegocio'].length > 0 &&
-      this.form.value['IDUsuario'].length > 0
-    ) {
+    if (this.form.value['nameNegocio'].length > 0 && this.form.value['direccionNegocio'].length > 0) {
       if (this.edicion) {
         this.aS.update(this.negocio).subscribe(()=>{
-          this.aS.list().subscribe((data) => {
-            this.aS.setList(data);
-          });
-        });
+          this.aS.list().subscribe(data => {
+            this.aS.setList(data)
+          })
+        })
       } else {
-        this.aS.insert(this.negocio).subscribe((data) => {
-          this.aS.list().subscribe((data) => {
+        this.aS.insert(this.negocio).subscribe(data => {
+          this.aS.list().subscribe(data => {
             this.aS.setList(data);
-          });
-        });
+          })
+        })
       }
       this.router.navigate(['negocios']);
     } else {
@@ -83,13 +78,13 @@ export class NegocioCreaeditaComponent implements OnInit {
   }
   init() {
     if (this.edicion) {
-      this.aS.listId(this.id).subscribe((data) => {
+      this.aS.listId(this.id).subscribe(data => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
           nameNegocio: new FormControl(data.nameNegocio),
           direccionNegocio: new FormControl(data.direccionNegocio),
           tipoNegocio: new FormControl(data.tipoNegocio),
-          IDUsuario: new FormControl(data.IDUsuario),
+          idusuario: new FormControl(data.idusuario),
           calificacion: new FormControl(data.calificacion),
         });
       });

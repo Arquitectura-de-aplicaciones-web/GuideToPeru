@@ -35,7 +35,7 @@ export class ComprasService {
   }
 
   update(c: compras) {
-    return this.http.put(this.url + "/" + c.id, c)
+    return this.http.put(this.url,c);
   }
 
   delete(id:number){

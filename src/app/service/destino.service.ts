@@ -32,9 +32,8 @@ export class DestinoService {
     return this.http.get<Destino>(`${this.url}/${id}`);
   }
   update(aut: Destino) {
-    return this.http.put(this.url + "/" + aut.id, aut);
+    return this.http.put(this.url,aut);
   }
-  //http- HttpClientModule: get-post-put-delete, hacer un cuadro comparativo
 
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`)

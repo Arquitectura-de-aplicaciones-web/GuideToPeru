@@ -44,7 +44,7 @@ export class ClienteCreaeditaComponent implements OnInit {
       apellidoCliente: new FormControl(),
       anioNacimiento: new FormControl(),
       direccion: new FormControl(),
-      IDUsuario: new FormControl(),
+      idusuario: new FormControl(),
       cuentaBancaria: new FormControl(),
     })
   }
@@ -59,16 +59,14 @@ export class ClienteCreaeditaComponent implements OnInit {
     this.cliente.apellidoCliente = this.form.value['apellidoCliente'];
     this.cliente.anioNacimiento = this.form.value['anioNacimiento'];
     this.cliente.direccion = this.form.value['direccion'];
-    this.cliente.IDUsuario = this.form.value['IDUsuario'];
+    this.cliente.idusuario = this.form.value['idusuario'];
     this.cliente.cuentaBancaria = this.form.value['cuentaBancaria']
 
     if (this.form.value['nameCliente'].length > 0 &&
-      this.form.value['apellidoCliente'].length > 0 &&
-      this.form.value['cuentaBancaria'].length > 0) {
+      this.form.value['apellidoCliente'].length > 0 && this.form.value['cuentaBancaria'].length>0 ){
 
       if (this.edicion) {
         this.cS.update(this.cliente).subscribe(() => {
-
           this.cS.list().subscribe(data => {
             this.cS.setList(data)
           })
@@ -96,7 +94,7 @@ export class ClienteCreaeditaComponent implements OnInit {
           apellidoCliente: new FormControl(data.apellidoCliente),
           anioNacimiento: new FormControl(data.anioNacimiento),
           direccion: new FormControl(data.direccion),
-          IDUsuario: new FormControl(data.IDUsuario),
+          idusuario: new FormControl(data.idusuario),
           cuentaBancaria: new FormControl(data.cuentaBancaria),
         })
       })

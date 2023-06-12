@@ -4,7 +4,7 @@ export class Cliente {
     apellidoCliente: string = ""
     anioNacimiento: Date = new Date(Date.now())
     direccion: string = ""
-    IDUsuario:number=0
+    idusuario:number=0
     cuentaBancaria: string = ""
 
 }

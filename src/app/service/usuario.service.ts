@@ -39,7 +39,7 @@ export class UsuarioService {
   }
 
   update(a:Usuario) {
-    return this.http.put(this.url + "/" + a.id, a);
+    return this.http.put(this.url,a);
 
   }
 

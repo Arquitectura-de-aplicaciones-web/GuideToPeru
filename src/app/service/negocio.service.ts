@@ -30,7 +30,7 @@ export class NegocioService {
     return this.http.get<Negocio>(`${this.url}/${id}`);
   }
   update(a:Negocio){
-    return this.http.put(this.url+"/"+a.id,a);
+    return this.http.put(this.url,a);
   }
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`)

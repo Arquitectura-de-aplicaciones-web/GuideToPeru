@@ -37,9 +37,9 @@ export class ClienteListarComponent implements OnInit {
     this.cS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     
+    })
       this.cS.getConfirmDelete().subscribe(data => {
         data == true ? this.eliminar(this.idMayor) : false;
-      })
     
     })
   }

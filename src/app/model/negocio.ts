@@ -3,6 +3,6 @@ export class Negocio {
   nameNegocio: string = '';
   direccionNegocio: string = '';
   tipoNegocio: number = 0;
-  IDUsuario: number = 0;
+  idusuario: number = 0;
   calificacion: number =0;
 }
