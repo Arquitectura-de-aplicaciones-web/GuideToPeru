@@ -5,6 +5,7 @@ import * as moment from 'moment'
 import { ClienteService } from 'src/app/service/cliente.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {MatSidenav} from '@angular/material/sidenav';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-cliente-creaedita',
@@ -28,6 +29,9 @@ export class ClienteCreaeditaComponent implements OnInit {
   cliente: Cliente = new Cliente();
   mensaje: string = "";
   maxFecha: Date = moment().add(1, 'days').toDate();
+lista: Usuario[]=[];
+idUsuarioSeleccionado: number=0;
+
 
   ngOnInit(): void {
 
@@ -44,7 +48,7 @@ export class ClienteCreaeditaComponent implements OnInit {
       apellidoCliente: new FormControl(),
       anioNacimiento: new FormControl(),
       direccion: new FormControl(),
-      idusuario: new FormControl(),
+      Usuario: new FormControl(),
       cuentaBancaria: new FormControl(),
     })
   }
@@ -59,7 +63,7 @@ export class ClienteCreaeditaComponent implements OnInit {
     this.cliente.apellidoCliente = this.form.value['apellidoCliente'];
     this.cliente.anioNacimiento = this.form.value['anioNacimiento'];
     this.cliente.direccion = this.form.value['direccion'];
-    this.cliente.idusuario = this.form.value['idusuario'];
+    this.cliente.idusuario.id = this.form.value['idusuario'];
     this.cliente.cuentaBancaria = this.form.value['cuentaBancaria']
 
     if (this.form.value['nameCliente'].length > 0 &&
@@ -94,7 +98,7 @@ export class ClienteCreaeditaComponent implements OnInit {
           apellidoCliente: new FormControl(data.apellidoCliente),
           anioNacimiento: new FormControl(data.anioNacimiento),
           direccion: new FormControl(data.direccion),
-          idusuario: new FormControl(data.idusuario),
+          idusuario: new FormControl(data.idusuario.id),
           cuentaBancaria: new FormControl(data.cuentaBancaria),
         })
       })

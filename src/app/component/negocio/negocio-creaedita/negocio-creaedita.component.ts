@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { NegocioService } from 'src/app/service/negocio.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {MatSidenav} from '@angular/material/sidenav';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-negocio-creaedita',
@@ -28,6 +29,8 @@ export class NegocioCreaeditaComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   negocio: Negocio = new Negocio();
   mensaje: string = '';
+  idUsuarioSeleccionado: number=0;
+  lista: Usuario[] = [];
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
@@ -55,7 +58,7 @@ export class NegocioCreaeditaComponent implements OnInit {
     this.negocio.nameNegocio = this.form.value['nameNegocio'];
     this.negocio.direccionNegocio = this.form.value['direccionNegocio'];
     this.negocio.tipoNegocio = this.form.value['tipoNegocio'];
-    this.negocio.idusuario = this.form.value['idusuario'];
+    this.negocio.idusuario.id = this.form.value['idusuario'];
     this.negocio.calificacion=this.form.value['calificacion'];
     if (this.form.value['nameNegocio'].length > 0 && this.form.value['direccionNegocio'].length > 0) {
       if (this.edicion) {
@@ -84,7 +87,7 @@ export class NegocioCreaeditaComponent implements OnInit {
           nameNegocio: new FormControl(data.nameNegocio),
           direccionNegocio: new FormControl(data.direccionNegocio),
           tipoNegocio: new FormControl(data.tipoNegocio),
-          idusuario: new FormControl(data.idusuario),
+          idusuario: new FormControl(data.idusuario.id),
           calificacion: new FormControl(data.calificacion),
         });
       });

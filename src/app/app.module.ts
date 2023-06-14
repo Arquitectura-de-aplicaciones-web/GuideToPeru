@@ -41,6 +41,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 @NgModule({
@@ -87,7 +89,8 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
     MatButtonModule,
     MatDialogModule,
     MatSidenavModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
 
   ],
   providers: [],

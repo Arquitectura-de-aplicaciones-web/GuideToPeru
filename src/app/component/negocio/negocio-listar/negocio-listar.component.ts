@@ -26,6 +26,7 @@ export class NegocioListarComponent implements OnInit {
   idMayor: number = 0
   displayedColumns: string[] = ['id', 'nameNegocio', 'direccionNegocio','tipoNegocio','idusuario','calificacion','accion01','accion02'];
 
+  
   constructor(private uS: NegocioService,private dialog:MatDialog) {}
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
