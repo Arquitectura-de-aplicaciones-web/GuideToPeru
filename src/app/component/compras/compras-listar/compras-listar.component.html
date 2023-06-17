@@ -1,4 +1,3 @@
-<p>compras-listar works!</p>
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
@@ -11,6 +10,16 @@
     <button mat-button routerLink="/compras">Compras</button>
     <br>
     <button mat-button routerLink="/destinos">Destinos</button>
+    <br>
+    <button mat-button routerLink="/comentariosproducto">ComentariosProductos</button>
+    <br>
+    <button mat-button routerLink="/etiqueta">Etiqueta</button>
+    <br>
+    <button mat-button routerLink="/etiquetaProducto">EtiquetaProducto</button>
+    <br>
+   <button mat-button routerLink="/comentariosnegocios">ComentariosNegocios</button>
+   <br>
+   <button mat-button routerLink="/productos">Productos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
