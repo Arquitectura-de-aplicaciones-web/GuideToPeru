@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
+
 import { Negocio } from 'src/app/model/negocio';
 import { NegocioService } from 'src/app/service/negocio.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -24,7 +25,7 @@ export class NegocioListarComponent implements OnInit {
   lista: Negocio[] = []
   dataSource: MatTableDataSource<Negocio> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['id', 'nameNegocio', 'direccionNegocio','tipoNegocio','IDUsuario','calificacion','accion01','accion02'];
+  displayedColumns: string[] = ['id', 'nameNegocio', 'direccionNegocio','tipoNegocio','IDusuario','calificacion','accion01','accion02'];
 
   constructor(private uS: NegocioService,private dialog:MatDialog) {}
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class NegocioListarComponent implements OnInit {
       data == true ? this.eliminar(this.idMayor) : false;
     })
   })
-  }  
+  }
   confirm(id: number) {
     this.idMayor = id;
     this.dialog.open(NegocioDialogoComponent);

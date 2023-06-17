@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ClienteComponent } from './component/cliente/cliente.component';
-import { ComprasComponent } from './component/compras/ComprasComponent';
+import { ComprasComponent } from './component/compras/compras.component';
 import { NegocioComponent } from './component/negocio/negocio.component';
 import { DestinoComponent } from './component/destino/destino.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
@@ -42,6 +42,28 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 
+import { ComentariosProductoComponent } from './component/comentarios-producto/comentarios-producto.component';
+import { ComentariosProductoCreaeditaComponent } from './component/comentarios-producto/comentarios-producto-creaedita/comentarios-producto-creaedita.component';
+import { ComentariosProductoListarComponent } from './component/comentarios-producto/comentarios-producto-listar/comentarios-producto-listar.component';
+import { ComentariosProductoDialogoComponent } from './component/comentarios-producto/comentarios-producto-listar/comentarios-producto-dialogo/comentarios-producto-dialogo.component';
+import { ProductoComponent } from './component/producto/producto.component';
+import { ProductoCreaeditaComponent } from './component/producto/producto-creaedita/producto-creaedita.component';
+import { ProductoListarComponent } from './component/producto/producto-listar/producto-listar.component';
+import { ProductoDialogoComponent } from './component/producto/producto-listar/producto-dialogo/producto-dialogo.component';
+import { ComentariosNegociosComponent } from './component/comentarios-negocios/comentarios-negocios.component';
+import { ComentariosNegociosCreaeditaComponent } from './component/comentarios-negocios/comentarios-negocios-creaedita/comentarios-negocios-creaedita.component';
+import { ComentariosNegociosListarComponent } from './component/comentarios-negocios/comentarios-negocios-listar/comentarios-negocios-listar.component';
+import { ComentariosNegociosDialogoComponent } from './component/comentarios-negocios/comentarios-negocios-listar/comentarios-negocios-dialogo/comentarios-negocios-dialogo.component';
+import { EtiquetaComponent } from './component/etiqueta/etiqueta.component';
+import { EtiquetaCreaditaComponent } from './component/etiqueta/etiqueta-creadita/etiqueta-creadita.component';
+import { EtiquetaListarComponent } from './component/etiqueta/etiqueta-listar/etiqueta-listar.component';
+import { EtiquetaDialogoComponent } from './component/etiqueta/etiqueta-listar/etiqueta-dialogo/etiqueta-dialogo.component';
+import { EtiquetaProductoComponent } from './component/etiqueta-producto/etiqueta-producto.component';
+import { EtiquetaProductoCreaeditaComponent } from './component/etiqueta-producto/etiqueta-producto-creaedita/etiqueta-producto-creaedita.component';
+import { EtiquetaProductoListarComponent } from './component/etiqueta-producto/etiqueta-producto-listar/etiqueta-producto-listar.component';
+import { EtiquetaProductoDialogoComponent } from './component/etiqueta-producto/etiqueta-producto-listar/etiqueta-producto-dialogo/etiqueta-producto-dialogo.component';
+
+
 
 @NgModule({
   declarations: [
@@ -70,7 +92,28 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
     UsuarioListarComponent,
     UsuarioCreaeditaComponent,
     UsuarioDialogoComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ComentariosProductoComponent,
+    ComentariosProductoCreaeditaComponent,
+    ComentariosProductoListarComponent,
+    ComentariosProductoDialogoComponent,
+    ProductoComponent,
+    ProductoCreaeditaComponent,
+    ProductoListarComponent,
+    ProductoDialogoComponent,
+    ComentariosNegociosComponent,
+    ComentariosNegociosCreaeditaComponent,
+    ComentariosNegociosListarComponent,
+    ComentariosNegociosDialogoComponent,
+    EtiquetaComponent,
+    EtiquetaCreaditaComponent,
+    EtiquetaListarComponent,
+    EtiquetaDialogoComponent,
+    EtiquetaProductoComponent,
+    EtiquetaProductoCreaeditaComponent,
+    EtiquetaProductoListarComponent,
+    EtiquetaProductoDialogoComponent
+
 
   ],
   imports: [

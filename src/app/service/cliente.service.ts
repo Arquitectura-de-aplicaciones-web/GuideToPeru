@@ -36,7 +36,7 @@ export class ClienteService {
   }
 
   update(a: Cliente) {
-    return this.http.put(this.url + "/" + a.id, a);
+    return this.http.put(this.url + "/" + a.idCliente, a);
 
   }
 

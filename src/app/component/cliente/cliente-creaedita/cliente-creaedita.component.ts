@@ -54,7 +54,7 @@ export class ClienteCreaeditaComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   aceptar(): void {
-    this.cliente.id = this.form.value['id'];
+    this.cliente.idCliente = this.form.value['id'];
     this.cliente.nameCliente = this.form.value['nameCliente'];
     this.cliente.apellidoCliente = this.form.value['apellidoCliente'];
     this.cliente.anioNacimiento = this.form.value['anioNacimiento'];
@@ -91,7 +91,7 @@ export class ClienteCreaeditaComponent implements OnInit {
     if (this.edicion) {
       this.cS.listID(this.id).subscribe(data => {
         this.form = new FormGroup({
-          id: new FormControl(data.id),
+          id: new FormControl(data.idCliente),
           nameCliente: new FormControl(data.nameCliente),
           apellidoCliente: new FormControl(data.apellidoCliente),
           anioNacimiento: new FormControl(data.anioNacimiento),

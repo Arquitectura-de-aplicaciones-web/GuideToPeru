@@ -41,12 +41,28 @@
 			"id": 1,
 			"nameNegocio": "Fast Market",
 			"direccionNegocio": "Av Jose Galvez #1345",
-			"telefono": "5687943654",
-			"emailNegocio": "fastmark@gmail.com",
-			"tipoNegocio": "Productos primera necesidad",
-			"IDusuario": "0"
+      "tipoNegocio": "1",
+      "IDusuario": "0",
+			"calificacion": "1"
+		},
+    {
+			"id": 2,
+			"nameNegocio": "Tiendas Mass",
+			"direccionNegocio": "Av Nicolas Ayllon #1534",
+      "tipoNegocio": "2",
+      "IDusuario": "0",
+			"calificacion": "1"
+		},
+    {
+			"id": 3,
+			"nameNegocio": "La Union",
+			"direccionNegocio":"Av Ricardo Palma #4365",
+      "tipoNegocio": "3",
+      "IDusuario": "0",
+			"calificacion": "1"
 		}
 	],
+
 	"clientes": [
 		{
 			"id": 1,
@@ -70,5 +86,63 @@
 			"Cliente_ID": "0",
 			"Negocio_ID": "0"
 		}
-	]
+	],
+  "TipoNegocio":[
+        {
+        "idTipoNegocio":1,
+        "nombre":"Comida Rapida",
+        "descripcion":"Ventas de comida rapida "
+      }
+       ],
+
+   "ComentariosProducto":[
+         {
+        "idComentariosProducto":1,
+        "comentario":"En opinion a la tienda x",
+        "calificacion":"excelente",
+        "producto":"0",
+        "cliente":"0"
+
+      }
+    ],
+
+    "ComentarioNegocio":[
+         {
+        "idComentarioNegocio":1,
+        "comentario":"recomendado",
+        "calificacion":"buena",
+        "negocio":"...............",
+        "cliente":"........"
+      }
+    ],
+
+   "Etiqueta":[
+ {
+        "idEtiqueta":1,
+        "nombreEtiqueta":"etiqueta"
+      }
+
+],
+
+  "EtiquetaProducto":[
+ {
+        "idEtiquetaProducto":1,
+        "producto":"...........",
+        "etiqueta":"..........."
+      }
+],
+
+  "producto":[
+ {
+        "idProducto":1,
+        "imagen":"logo",
+        "nombre":"leche",
+        "descripcion":"leche evaporada",
+        "precio":"5",
+        "visible":"verdadero",
+        "calificacion":"2",
+        "idNegocio":"1",
+        "cantidad":"3"
+      }
+]
 }
