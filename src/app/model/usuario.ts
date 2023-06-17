@@ -3,4 +3,6 @@ export class Usuario {
     email:string = "";
     contrasenia:string = "";
     telefono:string = "";
+    Username:String="";
+    
 }

@@ -11,7 +11,7 @@ const base_url = environment.base
 })
 
 export class UsuarioService {
-  private url = `${base_url}/Usuarios`
+  private url = `${base_url}/usuarios`
   private listaCambio = new Subject<Usuario[]>();
   private confirmarEliminacion = new Subject<Boolean>()
   
@@ -39,7 +39,7 @@ export class UsuarioService {
   }
 
   update(a:Usuario) {
-    return this.http.put(this.url + "/" + a.id, a);
+    return this.http.put(this.url,a);
 
   }
 

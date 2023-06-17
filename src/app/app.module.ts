@@ -41,6 +41,35 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ComentarioProductoComponent } from './component/comentario-producto/comentario-producto.component';
+import { ComentariosNegocioComponent } from './component/comentarios-negocio/comentarios-negocio.component';
+import { EtiquetaComponent } from './component/etiqueta/etiqueta.component';
+import { EtiquetaProductoComponent } from './component/etiqueta-producto/etiqueta-producto.component';
+import { ProductoComponent } from './component/producto/producto.component';
+import { TipoNegocioComponent } from './component/tipo-negocio/tipo-negocio.component';
+import { ComentarioNegocioCreaeditaComponent } from './component/comentario-negocio/comentario-negocio-creaedita/comentario-negocio-creaedita.component';
+import { ComentarionegocioCreaeditaComponent } from './component/comentarionegocio/comentarionegocio-creaedita/comentarionegocio-creaedita.component';
+import { ComentariosNegocioCreaeditaComponent } from './component/comentarios-negocio/comentarios-negocio-creaedita/comentarios-negocio-creaedita.component';
+import { ComentariosNegocioListarComponent } from './component/comentarios-negocio/comentarios-negocio-listar/comentarios-negocio-listar.component';
+import { ComentariosNegocioListarDialogoComponent } from './component/comentarios-negocio/comentarios-negocio-listar/comentarios-negocio-listar-dialogo/comentarios-negocio-listar-dialogo.component';
+import { ComentariosNegocioDialogoComponent } from './component/comentarios-negocio/comentarios-negocio-listar/comentarios-negocio-dialogo/comentarios-negocio-dialogo.component';
+import { ComentarioProductoCreaeditaComponent } from './component/comentario-producto/comentario-producto-creaedita/comentario-producto-creaedita.component';
+import { ComentarioProductoListarComponent } from './component/comentario-producto/comentario-producto-listar/comentario-producto-listar.component';
+import { ComentarioProductoDialogoComponent } from './component/comentario-producto/comentario-producto-listar/comentario-producto-dialogo/comentario-producto-dialogo.component';
+import { EtiquetaCreaeditaComponent } from './component/etiqueta/etiqueta-creaedita/etiqueta-creaedita.component';
+import { EtiquetaListarComponent } from './component/etiqueta/etiqueta-listar/etiqueta-listar.component';
+import { EtiquetaDialogoComponent } from './component/etiqueta/etiqueta-listar/etiqueta-dialogo/etiqueta-dialogo.component';
+import { EtiquetaProductoCreaeditaComponent } from './component/etiqueta-producto/etiqueta-producto-creaedita/etiqueta-producto-creaedita.component';
+import { EtiquetaProductoListarComponent } from './component/etiqueta-producto/etiqueta-producto-listar/etiqueta-producto-listar.component';
+import { EtiquetaProductoDialogoComponent } from './component/etiqueta-producto/etiqueta-producto-listar/etiqueta-producto-dialogo/etiqueta-producto-dialogo.component';
+import { ProductoCreaeditaComponent } from './component/producto/producto-creaedita/producto-creaedita.component';
+import { ProductoListarComponent } from './component/producto/producto-listar/producto-listar.component';
+import { ProductoDialogoComponent } from './component/producto/producto-listar/producto-dialogo/producto-dialogo.component';
+import { TipoNegocioCreaeditaComponent } from './component/tipo-negocio/tipo-negocio-creaedita/tipo-negocio-creaedita.component';
+import { TipoNegocioListarComponent } from './component/tipo-negocio/tipo-negocio-listar/tipo-negocio-listar.component';
+import { TipoNegocioDialogoComponent } from './component/tipo-negocio/tipo-negocio-listar/tipo-negocio-dialogo/tipo-negocio-dialogo.component';
+
 
 
 @NgModule({
@@ -70,7 +99,34 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
     UsuarioListarComponent,
     UsuarioCreaeditaComponent,
     UsuarioDialogoComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ComentarioProductoComponent,
+    ComentariosNegocioComponent,
+    EtiquetaComponent,
+    EtiquetaProductoComponent,
+    ProductoComponent,
+    TipoNegocioComponent,
+    ComentarioNegocioCreaeditaComponent,
+    ComentarionegocioCreaeditaComponent,
+    ComentariosNegocioCreaeditaComponent,
+    ComentariosNegocioListarComponent,
+    ComentariosNegocioListarDialogoComponent,
+    ComentariosNegocioDialogoComponent,
+    ComentarioProductoCreaeditaComponent,
+    ComentarioProductoListarComponent,
+    ComentarioProductoDialogoComponent,
+    EtiquetaCreaeditaComponent,
+    EtiquetaListarComponent,
+    EtiquetaDialogoComponent,
+    EtiquetaProductoCreaeditaComponent,
+    EtiquetaProductoListarComponent,
+    EtiquetaProductoDialogoComponent,
+    ProductoCreaeditaComponent,
+    ProductoListarComponent,
+    ProductoDialogoComponent,
+    TipoNegocioCreaeditaComponent,
+    TipoNegocioListarComponent,
+    TipoNegocioDialogoComponent
 
   ],
   imports: [
@@ -87,7 +143,8 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
     MatButtonModule,
     MatDialogModule,
     MatSidenavModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
 
   ],
   providers: [],

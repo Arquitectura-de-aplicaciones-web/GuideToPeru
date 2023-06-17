@@ -39,20 +39,29 @@ export class DestinoCreaeditaComponent implements OnInit {
     })
     this.form = new FormGroup({
       id: new FormControl(),
-      nombreDestino: new FormControl(),
-      historia: new FormControl(),
+      nombre: new FormControl(),
+      ubicacion: new FormControl(),
+      descripcion: new FormControl(),
+      imagen: new FormControl(),
+      distrito: new FormControl(),
+      departarmento: new FormControl()
     });
   }
 
   //del modelo
   aceptar(): void {
     this.destino.id = this.form.value['id'];
-    this.destino.nombreDestino= this.form.value['nombreDestino'];
-    this.destino.historia = this.form.value['historia'];
+    this.destino.nombre= this.form.value['nombre'];
+    this.destino.ubicacion = this.form.value['ubicacion'];
+    this.destino.descripcion = this.form.value['descripcion'];
+    this.destino.imagen = this.form.value['imagen'];
+    this.destino.distrito = this.form.value['distrito'];
+    this.destino.departarmento = this.form.value['departarmento'];
 
 
-    if (this.form.value['nombreDestino'].length > 0 &&
-      this.form.value['historia'].length > 0)       {
+
+    if (this.form.value['nombre'].length > 0 &&
+      this.form.value['ubicacion'].length > 0)       {
 
       if (this.edicion) {
         this.aS.update(this.destino).subscribe((data) => {
@@ -78,8 +87,12 @@ export class DestinoCreaeditaComponent implements OnInit {
       this.aS.listId(this.id).subscribe(data => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          nombreDestino: new FormControl(data.nombreDestino),
-          historia: new FormControl(data.historia),
+          nombre: new FormControl(data.nombre),
+          ubicacion: new FormControl(data.ubicacion),
+          descripcion: new FormControl(data.descripcion),
+          imagen: new FormControl(data.imagen),
+          distrito: new FormControl(data.distrito),
+          departarmento: new FormControl(data.departarmento)
         })
       })
     }

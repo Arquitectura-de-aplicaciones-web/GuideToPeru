@@ -11,18 +11,30 @@ module.exports = function () {
     Destinos: [
       {
         id: 1,
-        nombreDestino: "Destino 1",
-        historia: "historia... 1"
+        nombre: "Destino 1",
+        ubicacion: "historia... 1",
+        descripcion: "descripcion ... 1",
+        imagen: "imagen ... 1",
+        distrito: "distrito ... 1",
+        departarmento: "departarmento ... 1"
       },
       {
         id: 2,
-        nombreDestino: "Destino 2",
-        historia: "historia... 2"
+        nombre: "Destino 2",
+        ubicacion: "historia... 2",
+        descripcion: "descripcion ... 2",
+        imagen: "imagen ... 2",
+        distrito: "distrito ... 2",
+        departarmento: "departarmento ... 2"
       },
       {
         id: 3,
-        nombreDestino: "Destino 3",
-        historia: "historia... 3"
+        nombre: "Destino 3",
+        ubicacion: "historia... 3",
+        descripcion: "descripcion ... 3",
+        imagen: "imagen ... 3",
+        distrito: "distrito ... 3",
+        departarmento: "departarmento ... 3"
       }
     ],
 
@@ -31,46 +43,41 @@ module.exports = function () {
         id: 1,
         nameNegocio: "Fast Market",
         direccionNegocio: "Av Jose Galvez #1345",
-        telefono: "5687943654",
-        emailNegocio: "fastmark@gmail.com",
-        tipoNegocio: "Productos primera necesidad",
+        tipoNegocio: "1",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 2,
         nameNegocio: "Tiendas Mass",
         direccionNegocio: "Av Nicolas Ayllon #1534",
-        telefono: "3467890126",
-        emailNegocio: "tiendmass@gmail.com",
-        tipoNegocio: "Comidas Pre_peradas",
+        tipoNegocio: "2",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 3,
         nameNegocio: "La Union",
         direccionNegocio: "Av Ricardo Palma #4365",
-        telefono: "5753698425",
-        emailNegocio: "launion@gmail.com",
-        tipoNegocio: "Venta de Productos Integrales",
+        tipoNegocio: "3",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 4,
         nameNegocio: "Papas King",
         direccionNegocio: "Av Primavera #1143",
-        telefono: "4673598124",
-        emailNegocio: "papaskin@gmail.com",
-        tipoNegocio: "Venta de comida rapida",
+        tipoNegocio: "3",
         IDusuario: "0",
+        calificacion:"1"
       },
       {
         id: 5,
         nameNegocio: "Toro Mata",
         direccionNegocio: "Av Tomas Valle #4314",
-        telefono: "4675832198",
-        emailNegocio: "toromata@gmail.com",
-        tipoNegocio: "Venta de Productos",
+        tipoNegocio: "1",
         IDusuario: "0",
+        calificacion:"1"
       },
     ],
 
@@ -169,7 +176,219 @@ module.exports = function () {
       },
 
     ],
+    TipoNegocio:[
+      {
+        idTipoNegocio:1,
+        nombre:"Comida Rapida",
+        descripcion:"Ventas de comida rapida "
+      },
+      {
+        idTipoNegocio:2,
+        nombre:"Cafeteria",
+        descripcion:"Cafe de distintas variedades para el disgusto del publico"
+      },
+      {
+        idTipoNegocio:3,
+        nombre:"Restaurant",
+        descripcion:"Venta de comidad variadas"
+      },
+      {
+        idTipoNegocio:4,
+        nombre:"Abarrotes",
+        descripcion:"Ventas de productos de primera necesidad"
+      },
+      {
+        idTipoNegocio:5,
+        nombre:"Shopper",
+        descripcion:"Ventas de servicios....."
+      },
 
+    ],
+    ComentarioProducto:[
+      {
+        idComentarioProducto:1,
+        comentario:"En opinion a la tienda x",
+        calificacion:"excelente",
+        producto:"..............",
+        cliente:"............", 
+        
+      },
+      {
+        idComentarioProducto:2,
+        comentario:"En opinion a la tienda x",
+        calificacion:"buena",
+        producto:"..............",
+        cliente:"............", 
+        
+      },
+      {
+        idComentarioProducto:3,
+        comentario:"En opinion a la tienda x",
+        calificacion:"Regular",
+        producto:"..............",
+        cliente:"............", 
+        
+      },
+      {
+        idComentarioProducto:4,
+        comentario:"En opinion a la tienda x",
+        calificacion:"buena",
+        producto:"..............",
+        cliente:"............", 
+        
+      },
+      {
+        idComentarioProducto:5,
+        comentario:"En opinion a la tienda x",
+        calificacion:"regular",
+        producto:"..............",
+        cliente:"............", 
+        
+      },
+    ],
+    ComentarioNegocio:[
+      {
+        idComentarioNegocio:1,
+        comentario:"recomendado",
+        calificacion:"buena",
+        negocio:"...............",
+        cliente:"........",
+      },
+      {
+        idComentarioNegocio:2,
+        comentario:"recomendado",
+        calificacion:"buena",
+        negocio:"...............",
+        cliente:"........",
+      },
+      {
+        idComentarioNegocio:3,
+        comentario:"recomendado",
+        calificacion:"buena",
+        negocio:"...............",
+        cliente:"........",
+      },
+      {
+        idComentarioNegocio:4,
+        comentario:"recomendado",
+        calificacion:"buena",
+        negocio:"...............",
+        cliente:"........",
+      },
+      {
+        idComentarioNegocio:5,
+        comentario:"recomendado",
+        calificacion:"buena",
+        negocio:"...............",
+        cliente:"........",
+      },      
+    ],
+    Etiqueta:[
+      {
+        idEtiqueta:1,
+        nombreEtiqueta:"etiqueta",
+      },
+      {
+        idEtiqueta:2,
+        nombreEtiqueta:"etiqueta.......x",
+      },
+      {
+        idEtiqueta:3,
+        nombreEtiqueta:"etiqueta.....x",
+      },
+      {
+        idEtiqueta:4,
+        nombreEtiqueta:"etiqueta.....x",
+      },
+      {
+        idEtiqueta:5,
+        nombreEtiqueta:"etiqueta.......x",
+      },
+    ],
+    EtiquetaProducto:[
+      {
+        idEtiquetaProducto:1,
+        producto:"...........",
+        etiqueta:"...........",
+      },
+      {
+        idEtiquetaProducto:2,
+        producto:"...........",
+        etiqueta:"...........",
+      },
+      {
+        idEtiquetaProducto:3,
+        producto:"...........",
+        etiqueta:"...........",
+      },
+      {
+        idEtiquetaProducto:4,
+        producto:"...........",
+        etiqueta:"...........",
+      },
+      {
+        idEtiquetaProducto:5,
+        producto:"...........",
+        etiqueta:"...........",
+      },
+    ],
+    producto:[
+      {
+        idProducto:1,
+        imagen:"logo",
+        nombre:"leche",
+        descripcion:"leche evaporada",
+        precio:5,
+        visible:"verdadero",
+        calificacion:2,
+        idNegocio:"1",
+        cantidad:3,
+      },
+      {
+        idProducto:2,
+        imagen:"logo",
+        nombre:"fideos",
+        descripcion:"spaguetti",
+        precio:6,
+        visible:"verdadero",
+        calificacion:4,
+        idNegocio:"2",
+        cantidad:2,
+      },
+      {
+        idProducto:3,
+        imagen:"logo",
+        nombre:"mantequilla",
+        descripcion:"buena calidad",
+        precio:5,
+        visible:"verdadero",
+        calificacion:4,
+        idNegocio:"3",
+        cantidad:4,
+      },
+      {
+        idProducto:4,
+        imagen:"logo",
+        nombre:"galletas",
+        descripcion:"bañadas en chocolate",
+        precio:4,
+        visible:"verdadero",
+        calificacion:2,
+        idNegocio:"4",
+        cantidad:1,
+      },
+      {
+        idProducto:5,
+        imagen:"logo",
+        nombre:"yogurt",
+        descripcion:"las mejores frutas existentes",
+        precio:7,
+        visible:"verdadero",
+        calificacion:2,
+        idNegocio:"5",
+        cantidad:2,
+      },      
+    ],
   }
   return data
 }

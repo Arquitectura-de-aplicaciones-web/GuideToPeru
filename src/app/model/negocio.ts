@@ -1,9 +1,11 @@
+import { Usuario } from "./usuario"
+
+
 export class Negocio {
   id: number = 0;
   nameNegocio: string = '';
   direccionNegocio: string = '';
-  telefono: string = '';
-  emailNegocio: string = '';
-  tipoNegocio: string = '';
-  IDUsuario: string = '';
+  tipoNegocio: number = 0;
+  idusuario: Usuario=new Usuario
+  calificacion: number =0;
 }

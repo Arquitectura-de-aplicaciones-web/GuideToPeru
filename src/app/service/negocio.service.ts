@@ -4,19 +4,18 @@ import { environment } from 'src/environments/environment';
 import { Negocio } from '../model/negocio';
 import { Subject } from 'rxjs';
 
-const base_url = environment.base;
+const base_url = environment.base
 @Injectable({
   providedIn: 'root',
 })
 export class NegocioService {
-  private url = `${base_url}/Negocio`;
+  private url = `${base_url}/negocios`;
   private confirmarEliminacion = new Subject<Boolean>()
   private listaCambio = new Subject <Negocio[]>();
   constructor(private http: HttpClient) { }
   list() {
     return this.http.get<Negocio[]>(this.url);
   }
-
   insert(negocio: Negocio) {
     return this.http.post(this.url, negocio);
   }
@@ -30,7 +29,7 @@ export class NegocioService {
     return this.http.get<Negocio>(`${this.url}/${id}`);
   }
   update(a:Negocio){
-    return this.http.put(this.url+"/"+a.id,a);
+    return this.http.put(this.url,a);
   }
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`)

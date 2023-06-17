@@ -24,8 +24,9 @@ export class NegocioListarComponent implements OnInit {
   lista: Negocio[] = []
   dataSource: MatTableDataSource<Negocio> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['id', 'nameNegocio', 'direccionNegocio','telefono','emailNegocio','tipoNegocio','IDUsuario','accion01','accion02'];
+  displayedColumns: string[] = ['id', 'nameNegocio', 'direccionNegocio','tipoNegocio','idusuario','calificacion','accion01','accion02'];
 
+  
   constructor(private uS: NegocioService,private dialog:MatDialog) {}
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
@@ -33,10 +34,10 @@ export class NegocioListarComponent implements OnInit {
     });
     this.uS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
-    })
     this.uS.getConfirmDelete().subscribe(data => {
       data == true ? this.eliminar(this.idMayor) : false;
     })
+  })
   }  
   confirm(id: number) {
     this.idMayor = id;

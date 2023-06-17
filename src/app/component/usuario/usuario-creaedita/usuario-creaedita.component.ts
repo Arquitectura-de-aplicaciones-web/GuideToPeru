@@ -58,7 +58,6 @@ export class UsuarioCreaeditaComponent implements OnInit {
 
       if (this.edicion) {
         this.uS.update(this.usuario).subscribe(() => {
-
           this.uS.list().subscribe(data => {
             this.uS.setList(data)
           })
