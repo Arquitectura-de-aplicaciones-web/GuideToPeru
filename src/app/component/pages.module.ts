@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ClienteComponent } from './cliente/cliente.component';
-import { ComprasComponent } from './compras/compras.component';
+import { ComprasComponent } from './compras/ComprasComponent';
 import { NegocioComponent } from './negocio/negocio.component';
 import { DestinoComponent } from './destino/destino.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -64,6 +64,7 @@ import { LoginComponent } from './login/login.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PagesRoutingModule } from './pages-routing.module';
 
 
 @NgModule({
@@ -132,8 +133,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSidenavModule,
     MatPaginatorModule,
     MatToolbarModule,
-    MatIconModule
-
+    MatIconModule,
+    PagesRoutingModule
   ],
   exports: [
     MatFormFieldModule

@@ -23,7 +23,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioCreaeditaComponent } from './usuario/usuario-creaedita/usuario-creaedita.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MenuComponent } from './menu/menu.component';
-import { ComprasComponent } from './compras/compras.component';
+import { ComprasComponent } from './compras/ComprasComponent';
 import { ComprasCreaeditaComponent } from './compras/compras-creaedita/compras-creaedita.component';
 import { ComentariosNegociosComponent } from './comentarios-negocios/comentarios-negocios.component';
 import { EtiquetaComponent } from './etiqueta/etiqueta.component';
