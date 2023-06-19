@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../model/usuario';
 import { Subject } from 'rxjs';
@@ -18,12 +18,17 @@ export class UsuarioService {
   constructor(private http:HttpClient) {}
   
   list() {
-    return this.http.get<Usuario[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Usuario[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   insert(cliente:Usuario) {
-
-    return this.http.post(this.url, cliente)
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, cliente, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   setList(ListaNueva:Usuario[]) {
@@ -35,16 +40,26 @@ export class UsuarioService {
   }
 
   listID(id:number) {
-    return this.http.get<Usuario>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Usuario>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   update(a:Usuario) {
-    return this.http.put(this.url,a);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,a, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  
 
   }
 
   delete(id:number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   getConfirmDelete(){

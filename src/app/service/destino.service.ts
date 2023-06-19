@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Destino } from '../model/Destinos';
@@ -16,10 +16,16 @@ export class DestinoService {
 
   constructor(private http: HttpClient) { }
   list() {
-    return this.http.get<Destino[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Destino[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   insert(Destino: Destino) {
-    return this.http.post(this.url, Destino);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, Destino, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   setList(listaNueva: Destino[]) {
@@ -29,14 +35,23 @@ export class DestinoService {
     return this.listaCambio.asObservable();
   }
   listId(id: number) {
-    return this.http.get<Destino>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Destino>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   update(aut: Destino) {
-    return this.http.put(this.url,aut);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,aut, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   getConfirmDelete(){

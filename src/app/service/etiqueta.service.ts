@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Etiqueta } from '../model/Etiqueta';
@@ -14,10 +14,16 @@ export class EtiquetaService {
   private listaCambio = new Subject <Etiqueta[]>();
   constructor(private http: HttpClient) { }
   list(){
-    return this.http.get<Etiqueta[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Etiqueta[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   insert(etiqueta: Etiqueta){
-    return this.http.post(this.url, etiqueta);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, etiqueta, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   setList(listaNueva: Etiqueta[]) {
     this.listaCambio.next(listaNueva);
@@ -26,13 +32,22 @@ export class EtiquetaService {
     return this.listaCambio.asObservable();
   }
   listId(id:number){
-    return this.http.get< Etiqueta>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get< Etiqueta>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   update(a:Etiqueta){
-    return this.http.put(this.url,a);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,a, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   getConfirmDelete(){

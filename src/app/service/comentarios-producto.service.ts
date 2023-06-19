@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ComentariosProducto } from '../model/ComentariosProducto';
+import { ComentarioProducto } from '../model/ComentarioProducto';
 import {Subject} from 'rxjs';
 
 const base_url = environment.base
@@ -11,28 +11,44 @@ const base_url = environment.base
 export class ComentariosProductoService {
   private url = `${base_url}/comentarioproductos`;
   private confirmarEliminacion = new Subject<Boolean>()
-  private listaCambio = new Subject <ComentariosProducto[]>();
+  private listaCambio = new Subject <ComentarioProducto[]>();
   constructor(private http: HttpClient) { }
   list(){
-    return this.http.get<ComentariosProducto[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<ComentarioProducto[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
-  insert(comentarioproducto: ComentariosProducto){
-    return this.http.post(this.url, comentarioproducto);
+  insert(comentarioproducto: ComentarioProducto){
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, comentarioproducto, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
-  setList(listaNueva:ComentariosProducto[]) {
+  setList(listaNueva:ComentarioProducto[]) {
     this.listaCambio.next(listaNueva);
   }
   getList() {
     return this.listaCambio.asObservable();
   }
   listId(id:number){
-    return this.http.get<ComentariosProducto>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<ComentarioProducto>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  
   }
-  update(a:ComentariosProducto){
-    return this.http.put(this.url,a);
+  update(a:ComentarioProducto){
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,a, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   getConfirmDelete(){

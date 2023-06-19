@@ -2,9 +2,9 @@ import { Cliente } from "./clientes";
 import { Producto } from "./producto";
 
 
-export class ComentarioNegocio{
+export class ComentarioProducto{
 
-    idComentarioNegocio:number=0;
+    idComentarioProducto:number=0;
     comentario: String="";
     calificacion: String = "";
     producto: Producto=new Producto;
