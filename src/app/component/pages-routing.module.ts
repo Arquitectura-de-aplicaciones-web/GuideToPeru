@@ -35,7 +35,6 @@ import { EtiquetaProductoCreaeditaComponent } from './etiqueta-producto/etiqueta
 
 const routes: Routes = [
 
-  { path: '', component: LandingPageComponent },
   { path: 'clientes', component: ClienteComponent, children: [
     { path: 'registrarcl', component: ClienteCreaeditaComponent },
     { path: 'edicion/:id', component: ClienteCreaeditaComponent }
