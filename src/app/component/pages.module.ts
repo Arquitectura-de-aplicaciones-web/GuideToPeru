@@ -62,18 +62,15 @@ import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MenuComponent } from './menu/menu.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 
-
-import { LoginComponent } from './login/login.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PagesRoutingModule } from './pages-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -82,7 +79,6 @@ import { PagesRoutingModule } from './pages-routing.module';
     ClienteComponent,
     ClienteListarComponent,
     ClienteCreaeditaComponent,
-    MenuComponent,
     ClienteDialogoComponent,
 
     ComprasComponent,
@@ -103,7 +99,6 @@ import { PagesRoutingModule } from './pages-routing.module';
     UsuarioListarComponent,
     UsuarioCreaeditaComponent,
     UsuarioDialogoComponent,
-    LandingPageComponent,
     ComentariosProductoComponent,
     ComentariosProductoCreaeditaComponent,
     ComentariosProductoListarComponent,
@@ -124,7 +119,6 @@ import { PagesRoutingModule } from './pages-routing.module';
     EtiquetaProductoCreaeditaComponent,
     EtiquetaProductoListarComponent,
     EtiquetaProductoDialogoComponent,
-    LoginComponent
 
   ],
   imports: [
@@ -143,7 +137,9 @@ import { PagesRoutingModule } from './pages-routing.module';
     MatPaginatorModule,
     MatToolbarModule,
     MatIconModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    MatFormFieldModule,
+    CommonModule
   ],
   exports: [
     MatFormFieldModule
