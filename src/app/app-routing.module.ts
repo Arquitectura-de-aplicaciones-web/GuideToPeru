@@ -1,5 +1,7 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+<<<<<<< Updated upstream
 
 import { ClienteComponent } from './component/cliente/cliente.component';
 import { ClienteCreaeditaComponent } from './component/cliente/cliente-creaedita/cliente-creaedita.component';
@@ -41,6 +43,24 @@ const routes: Routes = [
     { path: 'registrarus', component: UsuarioCreaeditaComponent },
     { path: 'edicion/:id', component: UsuarioCreaeditaComponent }
   ]}
+=======
+import { LoginComponent } from './component/login/login.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login', pathMatch: 'full'
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'pages',
+    loadChildren: () => import('./component/pages.module').then((m) => m.PagesModule),
+  },
+
+
+>>>>>>> Stashed changes
 ];
 
 @NgModule({

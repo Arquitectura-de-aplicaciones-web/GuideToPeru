@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
+<<<<<<< Updated upstream
 import { ClienteComponent } from './component/cliente/cliente.component';
 import { ComprasComponent } from './component/compras/ComprasComponent';
 import { NegocioComponent } from './component/negocio/negocio.component';
@@ -29,6 +30,8 @@ import { NegocioDialogoComponent } from './component/negocio/negocio-listar/nego
 import { DestinoDialogoComponent } from './component/destino/destino-listar/destino-dialogo/destino-dialogo.component';
 import { UsuarioDialogoComponent } from './component/usuario/usuario-listar/usuario-dialogo/usuario-dialogo.component';
 
+=======
+>>>>>>> Stashed changes
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatTableModule } from '@angular/material/table'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -41,17 +44,21 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
+<<<<<<< Updated upstream
 import { MatSelectModule } from '@angular/material/select';
 
 
+=======
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './component/login/login.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClienteComponent,
-    ClienteListarComponent,
-    ClienteCreaeditaComponent,
     MenuComponent,
+<<<<<<< Updated upstream
     ClienteDialogoComponent,
 
     ComprasComponent,
@@ -73,6 +80,10 @@ import { MatSelectModule } from '@angular/material/select';
     UsuarioCreaeditaComponent,
     UsuarioDialogoComponent,
     LandingPageComponent
+=======
+    LandingPageComponent,
+    LoginComponent
+>>>>>>> Stashed changes
 
   ],
   imports: [
@@ -90,7 +101,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     MatSidenavModule,
     MatPaginatorModule,
+<<<<<<< Updated upstream
     MatSelectModule
+=======
+    MatToolbarModule,
+    MatIconModule
+>>>>>>> Stashed changes
 
   ],
   providers: [],

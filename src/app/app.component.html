@@ -1,1 +1,19 @@
+<p>
+    <mat-toolbar *ngIf="verificar()">
+        <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon"
+         *ngIf="validarRol()" routerLink="/pages/autores">
+            <span>Autores</span>
+        </button>
+        <button mat-menu-item  class="example-icon" aria-label="Example icon-button with menu icon"
+        *ngIf="role=='USER'"  routerLink="/pages/libros">
+            <span>Libros</span>
+        </button>
+        <button mat-menu-item  class="example-icon" aria-label="Example icon-button with menu icon"
+        routerLink="/login" (click)="cerrar()">
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar sesiòn</span>
+        </button>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+  </p>
 <router-outlet></router-outlet>
