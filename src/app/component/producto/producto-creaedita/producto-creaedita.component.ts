@@ -90,13 +90,13 @@ export class ProductoCreaeditaComponent implements OnInit{
     if (this.edicion) {
       this.aS.listId(this.idproducto).subscribe(data => {
         this.form = new FormGroup({
-          id: new FormControl(data.idproducto),
+          idproducto: new FormControl(data.idproducto),
           nombre: new FormControl(data.nombre),
           descripcion: new FormControl(data.descripcion),
           precio: new FormControl(data.precio),
           visible: new FormControl(data.visible),
           calificacion: new FormControl(data.calificacion),
-          idNegocio: new FormControl(data.idnegocio),
+          idnegocio: new FormControl(data.idnegocio),
           cantidad: new FormControl(data.cantidad)
         })
       })
