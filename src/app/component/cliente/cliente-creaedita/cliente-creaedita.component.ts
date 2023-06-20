@@ -4,8 +4,9 @@ import { Cliente } from 'src/app/model/clientes';
 import * as moment from 'moment'
 import { ClienteService } from 'src/app/service/cliente.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import {MatSidenav} from '@angular/material/sidenav';
+import { MatSidenav } from '@angular/material/sidenav';
 import { Usuario } from 'src/app/model/usuario';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-cliente-creaedita',
@@ -29,18 +30,12 @@ export class ClienteCreaeditaComponent implements OnInit {
   cliente: Cliente = new Cliente();
   mensaje: string = "";
   maxFecha: Date = moment().add(1, 'days').toDate();
-lista: Usuario[]=[];
-idUsuarioSeleccionado: number=0;
+  lista: Usuario[] = [];
+  idUsuarioSeleccionado: number = 0;
 
 
   ngOnInit(): void {
-
-    this.route.params.subscribe((data: Params) => {
-
-      this.id = data['id'];
-      this.edicion = data['id'] != null;
-      this.init();
-    })
+    this.uS.list().subscribe(data => { this.lista = data })
 
     this.form = new FormGroup({
       id: new FormControl(),
@@ -50,12 +45,12 @@ idUsuarioSeleccionado: number=0;
       direccion: new FormControl(),
       Usuario: new FormControl(),
       cuentaBancaria: new FormControl(),
-    })
+    });
   }
 
   constructor(private cS: ClienteService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private uS: UsuarioService) { }
 
   aceptar(): void {
     this.cliente.id = this.form.value['id'];
@@ -67,15 +62,21 @@ idUsuarioSeleccionado: number=0;
     this.cliente.cuentaBancaria = this.form.value['cuentaBancaria']
 
     if (this.form.value['nameCliente'].length > 0 &&
-      this.form.value['apellidoCliente'].length > 0 && this.form.value['cuentaBancaria'].length>0 ){
+      this.form.value['apellidoCliente'].length > 0 && this.form.value['cuentaBancaria'].length > 0 && this.idUsuarioSeleccionado > 0) {
 
       if (this.edicion) {
+        let a = new Usuario();
+        a.id = this.idUsuarioSeleccionado;
+        this.cliente.idusuario = a;
         this.cS.update(this.cliente).subscribe(() => {
           this.cS.list().subscribe(data => {
             this.cS.setList(data)
           })
         })
       } else {
+        let a = new Usuario();
+        a.id = this.idUsuarioSeleccionado;
+        this.cliente.idusuario = a;
         this.cS.insert(this.cliente).subscribe(data => {
           this.cS.list().subscribe(data => {
             this.cS.setList(data)

@@ -71,6 +71,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CommonModule } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -139,7 +140,8 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     PagesRoutingModule,
     MatFormFieldModule,
-    CommonModule
+    CommonModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule

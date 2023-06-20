@@ -6,6 +6,7 @@ import { ClienteService } from 'src/app/service/cliente.service';
 import { MatTableDataSource } from '@angular/material/table'
 import { MatDialog } from '@angular/material/dialog'
 import { ClienteDialogoComponent } from './cliente-dialogo/cliente-dialogo.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-cliente-listar',
@@ -25,10 +26,13 @@ export class ClienteListarComponent implements OnInit {
   lista: Cliente[] = []
   idMayor: number = 0
   displayedColumns:string[]=['Codigo','Nombre','Apellido','Fecha','Direccion','Usuario','N°Cuenta','accion01','acciones2']
+  role:string="";
 
-  constructor(private cS: ClienteService, private dialog: MatDialog) { }
+  constructor(private cS: ClienteService, private dialog: MatDialog,private ls:LoginService) { }
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
 
     this.cS.list().subscribe(data => {
 

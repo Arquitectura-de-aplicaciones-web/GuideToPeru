@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatTableDataSource } from '@angular/material/table'
-import { ComentariosNegocio } from 'src/app/model/ComentariosNegocio';
+import { ComentarioNegocio } from 'src/app/model/comentariosNegocio';
 import { ComentariosNegocioService } from 'src/app/service/comentarios-negocio.service';
 import { ComentariosNegociosDialogoComponent } from './comentarios-negocios-dialogo/comentarios-negocios-dialogo.component';
 
@@ -13,7 +13,7 @@ import { ComentariosNegociosDialogoComponent } from './comentarios-negocios-dial
   styleUrls: ['./comentarios-negocios-listar.component.css']
 })
 export class ComentariosNegociosListarComponent implements OnInit{
-  dataSource:MatTableDataSource<ComentariosNegocio> = new MatTableDataSource();
+  dataSource:MatTableDataSource<ComentarioNegocio> = new MatTableDataSource();
   displayedColumns:string[] = ["comentario", "calificacion", "idNegocio", "idCliente"];
 
   @ViewChild('sidenav') sidenav!: MatSidenav;

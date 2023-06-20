@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import { Producto } from 'src/app/model/producto';
-import { ComentariosProducto } from 'src/app/model/ComentariosProducto';
+import { ComentarioProducto } from 'src/app/model/ComentarioProducto';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ComentariosProductoService } from 'src/app/service/comentarios-producto.service';
@@ -23,7 +23,7 @@ export class ComentariosProductoListarComponent implements OnInit {
   shouldRun = true;
 
   lista: Producto[]=[]
-  dataSource: MatTableDataSource<ComentariosProducto> = new MatTableDataSource();
+  dataSource: MatTableDataSource<ComentarioProducto> = new MatTableDataSource();
   idMayor: number = 0
   displayedColumns: string[] = ['id', 'comentario', 'calificacion','producto','cliente','accion01','accion02'];
   constructor(private uS: ComentariosProductoService,private dialog:MatDialog) {}

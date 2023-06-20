@@ -46,8 +46,8 @@ export class EtiquetaProductoCreaeditaComponent {
   aceptar(): void {
 
     this.etiquetaProducto.idEtiquetaProducto = this.form.value['idEtiquetaProducto'];
-    this.etiquetaProducto.idProducto = this.form.value['idProducto'];
-    this.etiquetaProducto.idEtiqueta = this.form.value['idEtiqueta'];
+    this.etiquetaProducto.producto = this.form.value['idProducto'];
+    this.etiquetaProducto.etiqueta = this.form.value['idEtiqueta'];
 
     if (this.form.value['idProducto'].length > 0 &&
       this.form.value['idEtiqueta'].length > 0)       {
@@ -76,8 +76,8 @@ export class EtiquetaProductoCreaeditaComponent {
       this.aS.listId(this.idEtiquetaProducto).subscribe(data => {
         this.form = new FormGroup({
           idEtiquetaProducto: new FormControl(data.idEtiquetaProducto),
-          idProducto: new FormControl(data.idEtiquetaProducto),
-          idEtiqueta: new FormControl(data.idEtiqueta),
+          idProducto: new FormControl(data.producto.idProducto),
+          idEtiqueta: new FormControl(data.etiqueta.idEtiqueta),
 
         })
       })

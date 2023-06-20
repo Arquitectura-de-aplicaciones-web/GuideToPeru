@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ComentariosProducto } from 'src/app/model/ComentariosProducto';
-import { Cliente } from 'src/app/model/clientes';
+import { ComentarioProducto } from 'src/app/model/ComentarioProducto';
 import { Producto } from 'src/app/model/producto';
 import { ComentariosProductoService } from 'src/app/service/comentarios-producto.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -24,7 +23,7 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
   id: number = 0;
   edicion: boolean = false;
   form: FormGroup = new FormGroup({});
-  comentarioproducto: ComentariosProducto= new ComentariosProducto();
+  comentarioproducto: ComentarioProducto= new ComentarioProducto();
   mensaje: string = '';
   idProducto: number=0;
   lista: Producto[] = [];
