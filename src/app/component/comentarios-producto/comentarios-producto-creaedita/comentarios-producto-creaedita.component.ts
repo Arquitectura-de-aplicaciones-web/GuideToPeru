@@ -64,7 +64,7 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
         let a = new Cliente();
         a.id=this.idClienteSeleccionado;
         let b = new Producto();
-        b.idProducto=this.idProductoSeleccionado;
+        b.idproducto=this.idProductoSeleccionado;
         this.aS.update(this.comentarioproducto).subscribe(() => {
           this.aS.list().subscribe(data => {
             this.aS.setList(data)
@@ -74,14 +74,14 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
         let a = new Cliente();
         a.id=this.idClienteSeleccionado;
         let b = new Producto();
-        b.idProducto=this.idProductoSeleccionado;
+        b.idproducto=this.idProductoSeleccionado;
         this.aS.insert(this.comentarioproducto).subscribe(data => {
           this.aS.list().subscribe(data => {
             this.aS.setList(data);
           })
         })
       }
-      this.router.navigate(['comentariosproducto']);
+      this.router.navigate(['/pages/etiquetaProducto']);
     } else {
       this.mensaje = 'Ingrese el comentario';
     }
@@ -93,7 +93,7 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
           idComentarioProducto: new FormControl(data.idComentarioProducto),
           comentario: new FormControl(data.comentario),
           calificacion: new FormControl(data.calificacion),
-          producto: new FormControl(data.producto.idProducto),
+          producto: new FormControl(data.producto.idproducto),
           cliente: new FormControl(data.cliente.id),
 
         });

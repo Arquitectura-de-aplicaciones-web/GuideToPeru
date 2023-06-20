@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table'
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { UsuarioDialogoComponent } from './usuario-dialogo/usuario-dialogo.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-usuario-listar',
@@ -23,9 +24,13 @@ export class UsuarioListarComponent implements OnInit {
   }
   shouldRun = true;
   idMayor: number = 0
+  role:string="";
+  lista: Usuario[] = []
 
-  constructor(private uS:UsuarioService, private dialog:MatDialog) {}
+  constructor(private uS:UsuarioService, private dialog:MatDialog, private ls:LoginService) {}
   ngOnInit():void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.uS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     })

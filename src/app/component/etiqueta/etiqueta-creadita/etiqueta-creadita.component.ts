@@ -63,7 +63,7 @@ export class EtiquetaCreaditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['destinos']);
+      this.router.navigate(['/pages/etiqueta']);
     } else {
       this.mensaje = "Complete los campos requeridos!!!";
     }

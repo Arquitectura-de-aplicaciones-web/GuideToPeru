@@ -26,7 +26,7 @@ export class ProductoCreaeditaComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   producto: Producto = new Producto();
   mensaje: string = "";
-  idProducto: number = 0;
+  idproducto: number = 0;
   edicion: boolean = false;
 
   constructor(private aS: ProductoService, private router: Router, private route: ActivatedRoute) {
@@ -34,33 +34,32 @@ export class ProductoCreaeditaComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
-      this.idProducto = data['idProducto'];
-      this.edicion = data['idProducto'] != null;
+      this.idproducto = data['idproducto'];
+      this.edicion = data['idproducto'] != null;
       this.init();
     })
     this.form = new FormGroup({
-      idProducto: new FormControl(),
+      idproducto: new FormControl(),
       imagen: new FormControl(),
       nombre: new FormControl(),
       descripcion: new FormControl(),
       precio: new FormControl(),
       visible: new FormControl(),
       calificacion: new FormControl(),
-      idNegocio: new FormControl(),
+      idnegocio: new FormControl(),
       cantidad: new FormControl()
     });
   }
 
   //del modelo
   aceptar(): void {
-    this.producto.idProducto = this.form.value['idProducto'];
-    this.producto.imagen= this.form.value['imagen'];
+    this.producto.idproducto = this.form.value['idproducto'];
     this.producto.nombre = this.form.value['nombre'];
     this.producto.descripcion = this.form.value['descripcion'];
     this.producto.precio = this.form.value['precio'];
     this.producto.visible = this.form.value['visible'];
     this.producto.calificacion = this.form.value['calificacion'];
-    this.producto.idNegocio = this.form.value['idNegocio'];
+    this.producto.idnegocio = this.form.value['idnegocio'];
     this.producto.cantidad = this.form.value['cantidad'];
 
 
@@ -81,7 +80,7 @@ export class ProductoCreaeditaComponent implements OnInit{
           })
         })
       }
-      this.router.navigate(['productos']);
+      this.router.navigate(['/pages/productos']);
     } else {
       this.mensaje = "Complete los campos requeridos!!!";
     }
@@ -89,16 +88,15 @@ export class ProductoCreaeditaComponent implements OnInit{
 
   init() {
     if (this.edicion) {
-      this.aS.listId(this.idProducto).subscribe(data => {
+      this.aS.listId(this.idproducto).subscribe(data => {
         this.form = new FormGroup({
-          id: new FormControl(data.idProducto),
-          imagen: new FormControl(data.imagen),
+          id: new FormControl(data.idproducto),
           nombre: new FormControl(data.nombre),
           descripcion: new FormControl(data.descripcion),
           precio: new FormControl(data.precio),
           visible: new FormControl(data.visible),
           calificacion: new FormControl(data.calificacion),
-          idNegocio: new FormControl(data.idNegocio),
+          idNegocio: new FormControl(data.idnegocio),
           cantidad: new FormControl(data.cantidad)
         })
       })

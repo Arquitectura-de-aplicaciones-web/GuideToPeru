@@ -78,7 +78,7 @@ export class ComentariosNegociosCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['comentariosproducto']);
+      this.router.navigate(['/pages/comentario_negocio']);
     } else {
       this.mensaje = 'Ingrese el comentario';
     }

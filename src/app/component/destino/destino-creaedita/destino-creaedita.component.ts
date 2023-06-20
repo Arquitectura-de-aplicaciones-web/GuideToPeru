@@ -76,7 +76,7 @@ export class DestinoCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['destinos']);
+      this.router.navigate(['/pages/destinos']);
     } else {
       this.mensaje = "Complete los campos requeridos!!!";
     }

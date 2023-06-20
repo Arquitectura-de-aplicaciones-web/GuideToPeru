@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table'
 import { ProductoService } from 'src/app/service/producto.service';
 import { MatDialog } from '@angular/material/dialog'
 import { ProductoDialogoComponent } from './producto-dialogo/producto-dialogo.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-producto-listar',
@@ -25,13 +26,15 @@ export class ProductoListarComponent implements OnInit {
   lista: Producto[] = []
   dataSource: MatTableDataSource<Producto> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['idProducto', 'imagen', 'nombre', 'descripcion',
-  'precio','cantidad', 'visible', 'calificacion','idNegocio','acciones1','acciones2']
-
-  constructor(private aS: ProductoService, private dialog: MatDialog) {
+  displayedColumns: string[] = ['idproducto', 'nombre', 'descripcion',
+  'precio','cantidad', 'visible', 'calificacion','idnegocio','acciones1','acciones2']
+  role:string="";
+  constructor(private aS: ProductoService, private dialog: MatDialog,private ls:LoginService) {
 
   }
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.aS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     })
@@ -45,12 +48,12 @@ export class ProductoListarComponent implements OnInit {
     })
 
   }
-  confirm(idProducto: number) {
-    this.idMayor = idProducto;
+  confirm(idproducto: number) {
+    this.idMayor = idproducto;
     this.dialog.open(ProductoDialogoComponent);
   }
-  eliminar(idProducto: number) {
-    this.aS.delete(idProducto).subscribe(() => {
+  eliminar(idproducto: number) {
+    this.aS.delete(idproducto).subscribe(() => {
       this.aS.list().subscribe(data => {
         this.aS.setList(data);
       })

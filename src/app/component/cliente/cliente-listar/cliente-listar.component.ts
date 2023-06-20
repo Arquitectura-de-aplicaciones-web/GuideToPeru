@@ -25,7 +25,7 @@ export class ClienteListarComponent implements OnInit {
   dataSource: MatTableDataSource<Cliente> = new MatTableDataSource();
   lista: Cliente[] = []
   idMayor: number = 0
-  displayedColumns:string[]=['Codigo','Nombre','Apellido','Fecha','Direccion','Usuario','N°Cuenta','accion01','acciones2']
+  displayedColumns:string[]=['Codigo','Nombre','Apellido','Fecha','Direccion','idusuario','N°Cuenta','accion01','acciones2']
   role:string="";
 
   constructor(private cS: ClienteService, private dialog: MatDialog,private ls:LoginService) { }

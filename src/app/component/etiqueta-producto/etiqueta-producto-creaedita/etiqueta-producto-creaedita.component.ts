@@ -65,7 +65,7 @@ export class EtiquetaProductoCreaeditaComponent {
           })
         })
       }
-      this.router.navigate(['etiquetaProducto']);
+      this.router.navigate(['/pages/etiquetaProducto']);
     } else {
       this.mensaje = "Complete los campos requeridos!!!";
     }
@@ -76,7 +76,7 @@ export class EtiquetaProductoCreaeditaComponent {
       this.aS.listId(this.idEtiquetaProducto).subscribe(data => {
         this.form = new FormGroup({
           idEtiquetaProducto: new FormControl(data.idEtiquetaProducto),
-          idProducto: new FormControl(data.producto.idProducto),
+          idProducto: new FormControl(data.producto.idproducto),
           idEtiqueta: new FormControl(data.etiqueta.idEtiqueta),
 
         })

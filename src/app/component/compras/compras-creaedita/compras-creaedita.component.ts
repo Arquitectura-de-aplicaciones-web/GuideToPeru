@@ -83,7 +83,7 @@ export class ComprasCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['compras']);
+      this.router.navigate(['/pages/compras']);
 
     }
     else {

@@ -74,7 +74,7 @@ export class NegocioCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['negocios']);
+      this.router.navigate(['/pages/negocios']);
     } else {
       this.mensaje = 'Ingrese los datos del negocio';
     }

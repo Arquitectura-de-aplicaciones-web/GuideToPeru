@@ -9,7 +9,7 @@ const base_url = environment.base
   providedIn: 'root'
 })
 export class ProductoService {
-  private url = `${base_url}/productos`;
+  private url = `${base_url}/producto`;
   private confirmarEliminacion = new Subject<Boolean>()
   private listaCambio = new Subject <Producto[]>();
   constructor(private http: HttpClient) { }

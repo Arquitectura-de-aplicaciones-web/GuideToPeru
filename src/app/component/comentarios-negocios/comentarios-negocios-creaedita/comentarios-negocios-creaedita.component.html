@@ -1,25 +1,25 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <button mat-button routerLink="/pages/usuarios">Usuarios</button>
     <br>
-    <button mat-button routerLink="/clientes">Clientes</button>
+    <button mat-button routerLink="/pages/clientes">Clientes</button>
     <br>
-    <button mat-button routerLink="/negocios">Negocio</button>
+    <button mat-button routerLink="/pages/negocios">Negocio</button>
     <br>
-    <button mat-button routerLink="/compras">Compras</button>
+    <button mat-button routerLink="/pages/compras">Compras</button>
     <br>
-    <button mat-button routerLink="/destinos">Destinos</button>
+    <button mat-button routerLink="/pages/destinos">Destinos</button>
     <br>
-    <button mat-button routerLink="/comentariosproducto">ComentariosProductos</button>
+    <button mat-button routerLink="/pages/comentariosproducto">ComentariosProductos</button>
     <br>
-    <button mat-button routerLink="/etiqueta">Etiqueta</button>
+    <button mat-button routerLink="/pages/etiqueta">Etiqueta</button>
     <br>
-    <button mat-button routerLink="/etiquetaProducto">EtiquetaProducto</button>
+    <button mat-button routerLink="/pages/etiquetaProducto">EtiquetaProducto</button>
     <br>
-   <button mat-button routerLink="/comentario_negocio">ComentariosNegocios</button>
+   <button mat-button routerLink="/pages/comentario_negocio">ComentariosNegocios</button>
    <br>
-   <button mat-button routerLink="/productos">Productos</button>
+   <button mat-button routerLink="/pages/productos">Productos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -65,7 +65,7 @@
 
           <div style="text-align: center">
             <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
-            <button mat-raised-button color="warn" routerLink="/comentariosnegocios"><span
+            <button mat-raised-button color="warn" routerLink="/pages/comentario_negocio"><span
                 class="material-icons">delete</span></button>
             <br>
           </div>

@@ -58,7 +58,7 @@ export class ClienteCreaeditaComponent implements OnInit {
     this.cliente.apellidoCliente = this.form.value['apellidoCliente'];
     this.cliente.anioNacimiento = this.form.value['anioNacimiento'];
     this.cliente.direccion = this.form.value['direccion'];
-    this.cliente.idusuario.id = this.form.value['idusuario'];
+    this.cliente.idusuario.Username = this.form.value['idusuario.Username'];
     this.cliente.cuentaBancaria = this.form.value['cuentaBancaria']
 
     if (this.form.value['nameCliente'].length > 0 &&
@@ -83,7 +83,7 @@ export class ClienteCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['clientes']);
+      this.router.navigate(['/pages/clientes']);
     } else {
       this.mensaje = "Ingrese los datos del cliente"
     }
