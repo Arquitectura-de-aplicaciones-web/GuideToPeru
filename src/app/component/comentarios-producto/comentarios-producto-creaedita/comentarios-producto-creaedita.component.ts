@@ -4,7 +4,10 @@ import { ComentarioProducto } from 'src/app/model/ComentarioProducto';
 import { Producto } from 'src/app/model/producto';
 import { ComentariosProductoService } from 'src/app/service/comentarios-producto.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import {MatSidenav} from '@angular/material/sidenav';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Cliente } from 'src/app/model/clientes';
+import { ClienteService } from 'src/app/service/cliente.service';
+import { ProductoService } from 'src/app/service/producto.service';
 @Component({
   selector: 'app-comentarios-producto-creaedita',
   templateUrl: './comentarios-producto-creaedita.component.html',
@@ -23,17 +26,17 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
   id: number = 0;
   edicion: boolean = false;
   form: FormGroup = new FormGroup({});
-  comentarioproducto: ComentarioProducto= new ComentarioProducto();
+  comentarioproducto: ComentarioProducto = new ComentarioProducto();
   mensaje: string = '';
-  idProducto: number=0;
-  lista: Producto[] = [];
-  cliente: number = 0;
+  idProductoSeleccionado: number = 0;
+  lista1: Producto[] = [];
+  idClienteSeleccionado: number = 0;
+  lista2: Cliente[] = [];
+
   ngOnInit(): void {
-    this.route.params.subscribe((data: Params) => {
-      this.id = data['id'];
-      this.edicion = data['id'] != null;
-      this.init();
-    });
+    this.pS.list().subscribe(data => { this.lista1 = data });
+    this.cS.list().subscribe(data => { this.lista2 = data });
+
     this.form = new FormGroup({
       idComentarioProducto: new FormControl(),
       comentario: new FormControl(),
@@ -45,23 +48,33 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
   constructor(
     private aS: ComentariosProductoService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private cS: ClienteService,
+    private pS: ProductoService
+  ) { }
   aceptar(): void {
     this.comentarioproducto.idComentarioProducto = this.form.value['idComentarioProducto'];
     this.comentarioproducto.comentario = this.form.value['comentario'];
     this.comentarioproducto.calificacion = this.form.value['calificacion'];
-    this.comentarioproducto.producto = this.form.value['producto'];
-    this.comentarioproducto.cliente = this.form.value['cliente'];
+    this.comentarioproducto.producto.nombre = this.form.value['producto.nombre'];
+    this.comentarioproducto.cliente.nameCliente = this.form.value['cliente.nameCliente'];
 
-    if (this.form.value['comentario'].length > 0 && this.form.value['calificacion'].length > 0) {
+    if (this.form.value['comentario'].length > 0 && this.form.value['calificacion'].length > 0 && this.idClienteSeleccionado > 0 && this.idProductoSeleccionado > 0) {
       if (this.edicion) {
-        this.aS.update(this.comentarioproducto).subscribe(()=>{
+        let a = new Cliente();
+        a.id=this.idClienteSeleccionado;
+        let b = new Producto();
+        b.idProducto=this.idProductoSeleccionado;
+        this.aS.update(this.comentarioproducto).subscribe(() => {
           this.aS.list().subscribe(data => {
             this.aS.setList(data)
           })
         })
       } else {
+        let a = new Cliente();
+        a.id=this.idClienteSeleccionado;
+        let b = new Producto();
+        b.idProducto=this.idProductoSeleccionado;
         this.aS.insert(this.comentarioproducto).subscribe(data => {
           this.aS.list().subscribe(data => {
             this.aS.setList(data);
@@ -80,8 +93,8 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
           idComentarioProducto: new FormControl(data.idComentarioProducto),
           comentario: new FormControl(data.comentario),
           calificacion: new FormControl(data.calificacion),
-          producto: new FormControl(data.producto),
-          cliente: new FormControl(data.cliente),
+          producto: new FormControl(data.producto.idProducto),
+          cliente: new FormControl(data.cliente.id),
 
         });
       });

@@ -22,7 +22,7 @@ export class ComentariosProductoListarComponent implements OnInit {
   }
   shouldRun = true;
 
-  lista: Producto[]=[]
+  lista: ComentarioProducto[]=[]
   dataSource: MatTableDataSource<ComentarioProducto> = new MatTableDataSource();
   idMayor: number = 0
   displayedColumns: string[] = ['id', 'comentario', 'calificacion','producto','cliente','accion01','accion02'];

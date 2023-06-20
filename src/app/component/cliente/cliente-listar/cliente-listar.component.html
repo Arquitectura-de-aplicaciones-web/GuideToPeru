@@ -1,15 +1,25 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <button mat-button routerLink="/pages/usuarios">Usuarios</button>
     <br>
-    <button mat-button routerLink="/clientes">Clientes</button>
+    <button mat-button routerLink="/pages/clientes">Clientes</button>
     <br>
-    <button mat-button routerLink="/negocios">Negocio</button>
+    <button mat-button routerLink="/pages/negocios">Negocio</button>
     <br>
-    <button mat-button routerLink="/compras">Compras</button>
+    <button mat-button routerLink="/pages/compras">Compras</button>
     <br>
-    <button mat-button routerLink="/destinos">Destinos</button>
+    <button mat-button routerLink="/pages/destinos">Destinos</button>
+    <br>
+    <button mat-button routerLink="/pages/comentariosproducto">ComentariosProductos</button>
+    <br>
+    <button mat-button routerLink="/pages/etiqueta">Etiqueta</button>
+    <br>
+    <button mat-button routerLink="/pages/etiquetaProducto">EtiquetaProducto</button>
+    <br>
+   <button mat-button routerLink="/pages/comentario_negocio">ComentariosNegocios</button>
+   <br>
+   <button mat-button routerLink="/pages/productos">Productos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -75,9 +85,9 @@
 
         <ng-container matColumnDef="Usuario">
 
-          <th mat-header-cell *matHeaderCellDef> IDUsuario </th>
+          <th mat-header-cell *matHeaderCellDef> Nombre usuario </th>
 
-          <td mat-cell *matCellDef="let element"> {{element.idusuario.id}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.idusuario.Username}} </td>
 
         </ng-container>
 
@@ -91,8 +101,8 @@
 
         <ng-container matColumnDef="accion01">
 
-          <th mat-header-cell [hidden]="role=='ADMIN'" *matHeaderCellDef> Modificar </th>
-          <td mat-cell [hidden]="role=='USER'" *matCellDef="let element">
+          <th mat-header-cell [hidden]="role=='Cliente'" *matHeaderCellDef> Modificar </th>
+          <td mat-cell [hidden]="role=='Cliente'" *matCellDef="let element">
             <button mat-raised-button color="warn" [routerLink]="['edicion',element.id]"><span
                 class="material-icons">settings</span></button>
           </td>

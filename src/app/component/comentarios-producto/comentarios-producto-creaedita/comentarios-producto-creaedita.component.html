@@ -43,15 +43,24 @@
           </mat-form-field>
           <br>
 
-          <mat-form-field class="example-full-width">
+          <mat-form-field appearance="fill">
             <mat-label>id Producto</mat-label>
-            <input matInput placeholder="Tipo" formControlName="producto" />
+            <mat-select formControlName="producto" [(value)]="idProductoSeleccionado" required>
+              <mat-option *ngFor="let a of lista1" [value]="a.idProducto">
+                {{a.nombre}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <br>
 
-          <mat-form-field class="example-full-width">
+          
+          <mat-form-field appearance="fill">
             <mat-label>id Cliente</mat-label>
-            <input matInput placeholder="Tipo" formControlName="cliente" />
+            <mat-select formControlName="cliente" [(value)]="idClienteSeleccionado" required>
+              <mat-option *ngFor="let a of lista2" [value]="a.id">
+                {{a.nameCliente}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <br>
 

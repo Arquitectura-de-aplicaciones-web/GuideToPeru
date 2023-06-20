@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { HttpClientModule } from '@angular/common/http';
 
 import { ClienteComponent } from './cliente/cliente.component';
@@ -53,9 +51,6 @@ import { ComentariosNegociosDialogoComponent } from './comentarios-negocios/come
 import { EtiquetaDialogoComponent } from './etiqueta/etiqueta-listar/etiqueta-dialogo/etiqueta-dialogo.component';
 import { EtiquetaProductoDialogoComponent } from './etiqueta-producto/etiqueta-producto-listar/etiqueta-producto-dialogo/etiqueta-producto-dialogo.component';
 
-
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatTableModule } from '@angular/material/table'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
@@ -123,9 +118,8 @@ import { MatSelectModule } from '@angular/material/select';
 
   ],
   imports: [
-    BrowserModule,
+    
     HttpClientModule,
-    BrowserAnimationsModule,
     MatTableModule,
     ReactiveFormsModule,
     FormsModule,

@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table'
 import { ComentarioNegocio } from 'src/app/model/comentariosNegocio';
 import { ComentariosNegocioService } from 'src/app/service/comentarios-negocio.service';
 import { ComentariosNegociosDialogoComponent } from './comentarios-negocios-dialogo/comentarios-negocios-dialogo.component';
+import { LoginService } from 'src/app/service/login.service';
 
 
 @Component({
@@ -24,8 +25,9 @@ export class ComentariosNegociosListarComponent implements OnInit{
   }
   shouldRun = true;
   idMayor: number = 0
+  lista: ComentarioNegocio[] = []
 
-  constructor(private uS:ComentariosNegocioService, private dialog:MatDialog) {}
+  constructor(private uS:ComentariosNegocioService, private dialog:MatDialog,private ls:LoginService) {}
   ngOnInit():void {
     this.uS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);

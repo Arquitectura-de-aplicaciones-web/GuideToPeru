@@ -35,7 +35,7 @@ export class ComentariosNegociosCreaeditaComponent implements OnInit {
   idNegocioSeleccionado: number = 0;
 
   ngOnInit(): void {
-    this.cS.list().subscribe(data => { this.lista2 });
+    this.cS.list().subscribe(data => { this.lista2=data });
     this.nS.list().subscribe(data => { this.lista = data });
 
     this.form = new FormGroup({

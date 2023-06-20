@@ -9,7 +9,7 @@ const base_url = environment.base
   providedIn: 'root'
 })
 export class ComentariosNegocioService {
-  private url=`${base_url}/comentariosnegocios`;
+  private url=`${base_url}/comentario_negocio`;
   private confirmarEliminacion = new Subject<Boolean>()
   private listaCambio = new Subject <ComentarioNegocio[]>();
 

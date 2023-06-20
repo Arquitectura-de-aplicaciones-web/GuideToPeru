@@ -5,7 +5,15 @@ module.exports = function () {
         id: 0,
         email: "AnaGonz@gmail.com",
         contrasenia: "*********",
-        telefono: "928457131"
+        telefono: "928457131",
+        Username: "juan"
+      },
+      {
+        id: 1,
+        email: "AnaGonz@gmail.com",
+        contrasenia: "*********",
+        telefono: "928457131",
+        Username: "luis"
       }
     ],
     Destinos: [

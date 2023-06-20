@@ -32,49 +32,51 @@ import { EtiquetaCreaditaComponent } from './etiqueta/etiqueta-creadita/etiqueta
 import { EtiquetaProductoComponent } from './etiqueta-producto/etiqueta-producto.component';
 import { EtiquetaProductoCreaeditaComponent } from './etiqueta-producto/etiqueta-producto-creaedita/etiqueta-producto-creaedita.component';
 
+import { GuardService } from '../service/guard.service';
+
 
 const routes: Routes = [
 
   { path: 'clientes', component: ClienteComponent, children: [
     { path: 'registrarcl', component: ClienteCreaeditaComponent },
     { path: 'edicion/:id', component: ClienteCreaeditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'compras', component: ComprasComponent, children: [
     { path: 'registrarcm', component: ComprasCreaeditaComponent },
     { path: 'edicion/:id', component: ComprasCreaeditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'destinos', component: DestinoComponent, children: [
     { path: 'registrardt', component: DestinoCreaeditaComponent },
     { path: 'edicion/:id', component: DestinoCreaeditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'negocios', component: NegocioComponent, children: [
     { path: 'registrarng', component: NegocioCreaeditaComponent },
     { path: 'edicion/:id', component: NegocioCreaeditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'usuarios', component: UsuarioComponent, children: [
     { path: 'registrarus', component: UsuarioCreaeditaComponent },
     { path: 'edicion/:id', component: UsuarioCreaeditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'comentariosproducto', component: ComentariosProductoComponent, children: [
     { path: 'registrarus', component: ComentariosProductoCreaeditaComponent },
     { path: 'edicion/:id', component: ComentariosProductoCreaeditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'productos', component: ProductoComponent, children: [
     { path: 'registrardt', component: ProductoCreaeditaComponent },
     { path: 'edicion/:id', component: ProductoCreaeditaComponent }
-  ]},
-  { path: 'comentariosnegocios', component: ComentariosNegociosComponent, children: [
+  ],canActivate:[GuardService]},
+  { path: 'comentario_negocio', component: ComentariosNegociosComponent, children: [
     { path: 'registrarus', component: ComentariosNegociosCreaeditaComponent },
     { path: 'edicion/:id', component: ComentariosNegociosCreaeditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'etiqueta', component: EtiquetaComponent, children: [
     { path: 'registrarus', component: EtiquetaCreaditaComponent },
     { path: 'edicion/:id', component: EtiquetaCreaditaComponent }
-  ]},
+  ],canActivate:[GuardService]},
   { path: 'etiquetaProducto', component: EtiquetaProductoComponent, children: [
     { path: 'registrarus', component: EtiquetaProductoCreaeditaComponent },
     { path: 'edicion/:id', component: EtiquetaProductoCreaeditaComponent }
-  ]}
+  ],canActivate:[GuardService]}
 
 ];
 

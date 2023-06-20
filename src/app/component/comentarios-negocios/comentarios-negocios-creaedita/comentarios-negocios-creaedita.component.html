@@ -17,7 +17,7 @@
     <br>
     <button mat-button routerLink="/etiquetaProducto">EtiquetaProducto</button>
     <br>
-   <button mat-button routerLink="/comentariosnegocios">ComentariosNegocios</button>
+   <button mat-button routerLink="/comentario_negocio">ComentariosNegocios</button>
    <br>
    <button mat-button routerLink="/productos">Productos</button>
   </mat-sidenav>
@@ -43,15 +43,23 @@
           </mat-form-field>
           <br>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>id Negocio</mat-label>
-            <input matInput placeholder="Tipo" formControlName="idNegocio" />
+          <mat-form-field appearance="fill">
+            <mat-label>id Cliente</mat-label>
+            <mat-select formControlName="negocio" [(value)]="idNegocioSeleccionado" required>
+              <mat-option *ngFor="let a of lista" [value]="a.id">
+                {{a.nameNegocio}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <br>
 
-          <mat-form-field class="example-full-width">
+          <mat-form-field appearance="fill">
             <mat-label>id Cliente</mat-label>
-            <input matInput placeholder="Tipo" formControlName="idCliente" />
+            <mat-select formControlName="cliente" [(value)]="idClienteSeleccionado" required>
+              <mat-option *ngFor="let a of lista2" [value]="a.id">
+                {{a.nameCliente}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <br>
 
