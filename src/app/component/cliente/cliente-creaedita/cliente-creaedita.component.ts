@@ -35,6 +35,11 @@ export class ClienteCreaeditaComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+    })
     this.uS.list().subscribe(data => { this.lista = data })
 
     this.form = new FormGroup({
@@ -43,7 +48,7 @@ export class ClienteCreaeditaComponent implements OnInit {
       apellidoCliente: new FormControl(),
       anioNacimiento: new FormControl(),
       direccion: new FormControl(),
-      Usuario: new FormControl(),
+      idusuario: new FormControl(),
       cuentaBancaria: new FormControl(),
     });
   }
@@ -99,7 +104,7 @@ export class ClienteCreaeditaComponent implements OnInit {
           apellidoCliente: new FormControl(data.apellidoCliente),
           anioNacimiento: new FormControl(data.anioNacimiento),
           direccion: new FormControl(data.direccion),
-          idusuario: new FormControl(data.idusuario.id),
+          idusuario: new FormControl(data.idusuario.Username),
           cuentaBancaria: new FormControl(data.cuentaBancaria),
         })
       })

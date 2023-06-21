@@ -76,7 +76,7 @@ export class EtiquetaProductoCreaeditaComponent {
       this.aS.listId(this.idEtiquetaProducto).subscribe(data => {
         this.form = new FormGroup({
           idEtiquetaProducto: new FormControl(data.idEtiquetaProducto),
-          idProducto: new FormControl(data.producto.idproducto),
+          idProducto: new FormControl(data.producto.idProducto),
           idEtiqueta: new FormControl(data.etiqueta.idEtiqueta),
 
         })

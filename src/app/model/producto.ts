@@ -3,7 +3,7 @@ import { Negocio } from "./negocio";
 
 export class Producto {
 
-    idproducto: number = 0;
+    idProducto: number = 0;
     nombre: String = "";
     descripcion: String = "";
     precio: number = 0;

@@ -26,7 +26,7 @@ export class ProductoCreaeditaComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   producto: Producto = new Producto();
   mensaje: string = "";
-  idproducto: number = 0;
+  idProducto: number = 0;
   edicion: boolean = false;
 
   constructor(private aS: ProductoService, private router: Router, private route: ActivatedRoute) {
@@ -34,8 +34,8 @@ export class ProductoCreaeditaComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
-      this.idproducto = data['idproducto'];
-      this.edicion = data['idproducto'] != null;
+      this.idProducto = data['idProducto'];
+      this.edicion = data['idProducto'] != null;
       this.init();
     })
     this.form = new FormGroup({
@@ -53,7 +53,7 @@ export class ProductoCreaeditaComponent implements OnInit{
 
   //del modelo
   aceptar(): void {
-    this.producto.idproducto = this.form.value['idproducto'];
+    this.producto.idProducto = this.form.value['idProducto'];
     this.producto.nombre = this.form.value['nombre'];
     this.producto.descripcion = this.form.value['descripcion'];
     this.producto.precio = this.form.value['precio'];
@@ -88,9 +88,9 @@ export class ProductoCreaeditaComponent implements OnInit{
 
   init() {
     if (this.edicion) {
-      this.aS.listId(this.idproducto).subscribe(data => {
+      this.aS.listId(this.idProducto).subscribe(data => {
         this.form = new FormGroup({
-          idproducto: new FormControl(data.idproducto),
+          idProducto: new FormControl(data.idProducto),
           nombre: new FormControl(data.nombre),
           descripcion: new FormControl(data.descripcion),
           precio: new FormControl(data.precio),

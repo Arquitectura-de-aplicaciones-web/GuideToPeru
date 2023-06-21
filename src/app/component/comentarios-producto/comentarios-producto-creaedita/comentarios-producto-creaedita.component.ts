@@ -64,7 +64,7 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
         let a = new Cliente();
         a.id=this.idClienteSeleccionado;
         let b = new Producto();
-        b.idproducto=this.idProductoSeleccionado;
+        b.idProducto=this.idProductoSeleccionado;
         this.aS.update(this.comentarioproducto).subscribe(() => {
           this.aS.list().subscribe(data => {
             this.aS.setList(data)
@@ -74,7 +74,7 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
         let a = new Cliente();
         a.id=this.idClienteSeleccionado;
         let b = new Producto();
-        b.idproducto=this.idProductoSeleccionado;
+        b.idProducto=this.idProductoSeleccionado;
         this.aS.insert(this.comentarioproducto).subscribe(data => {
           this.aS.list().subscribe(data => {
             this.aS.setList(data);
@@ -93,7 +93,7 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
           idComentarioProducto: new FormControl(data.idComentarioProducto),
           comentario: new FormControl(data.comentario),
           calificacion: new FormControl(data.calificacion),
-          producto: new FormControl(data.producto.idproducto),
+          producto: new FormControl(data.producto.idProducto),
           cliente: new FormControl(data.cliente.id),
 
         });
