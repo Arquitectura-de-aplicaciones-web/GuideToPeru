@@ -9,7 +9,7 @@ const base_url = environment.base
   providedIn: 'root'
 })
 export class EtiquetaService {
-  private url = `${base_url}/etiquetas`;
+  private url = `${base_url}/etiqueta`;
   private confirmarEliminacion = new Subject<Boolean>()
   private listaCambio = new Subject <Etiqueta[]>();
   constructor(private http: HttpClient) { }

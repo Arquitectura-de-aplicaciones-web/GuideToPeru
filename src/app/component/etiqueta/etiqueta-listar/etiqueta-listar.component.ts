@@ -26,7 +26,7 @@ export class EtiquetaListarComponent {
   lista: Etiqueta[] = []
   dataSource: MatTableDataSource<Etiqueta> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['idEtiqueta', 'nombre','acciones1','acciones2']
+  displayedColumns: string[] = ['idEtiqueta', 'nombreEtiqueta','acciones2']
 
   constructor(private aS: EtiquetaService, private dialog: MatDialog) {
 

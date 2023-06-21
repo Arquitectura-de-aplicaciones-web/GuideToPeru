@@ -32,8 +32,8 @@ export class EtiquetaCreaditaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
-      this.idEtiqueta = data['id'];
-      this.edicion = data['id'] != null;
+      this.idEtiqueta = data['idEtiqueta'];
+      this.edicion = data['idEtiqueta'] != null;
       this.init();
     })
     this.form = new FormGroup({
@@ -42,13 +42,12 @@ export class EtiquetaCreaditaComponent implements OnInit {
     });
   }
 
-  //del modelo
-  aceptar(): void {
-    this.etiqueta.idEtiqueta = this.form.value['id'];
-    this.etiqueta.nombreEtiqueta= this.form.value['nombre'];
 
-    if (this.form.value['nombre'].length > 0 &&
-      this.form.value['ubicacion'].length > 0)       {
+  aceptar(): void {
+    this.etiqueta.idEtiqueta = this.form.value['idEtiqueta'];
+    this.etiqueta.nombreEtiqueta= this.form.value['nombreEtiqueta'];
+
+    if (this.form.value['nombreEtiqueta'].length > 0)       {
 
       if (this.edicion) {
         this.aS.update(this.etiqueta).subscribe((data) => {
