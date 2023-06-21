@@ -41,42 +41,42 @@
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="codigo">
+        <ng-container matColumnDef="idCompra">
           <th mat-header-cell *matHeaderCellDef> codigo </th>
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.idCompra}} </td>
         </ng-container>
 
 
-        <ng-container matColumnDef="cantidad">
+        <ng-container matColumnDef="cantidadCompra">
           <th mat-header-cell *matHeaderCellDef> cantidad </th>
-          <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.cantidadCompra}} </td>
         </ng-container>
 
 
-        <ng-container matColumnDef="precio_total">
+        <ng-container matColumnDef="precioCompra">
           <th mat-header-cell *matHeaderCellDef> precio_total </th>
-          <td mat-cell *matCellDef="let element"> {{element.precio_total}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.precioCompra}} </td>
         </ng-container>
 
 
-        <ng-container matColumnDef="descripcion">
+        <ng-container matColumnDef="descripcionCompra">
           <th mat-header-cell *matHeaderCellDef> descripcion </th>
-          <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.descripcionCompra}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="fecha">
+        <ng-container matColumnDef="fechaCompra">
           <th mat-header-cell *matHeaderCellDef> fecha </th>
-          <td mat-cell *matCellDef="let element"> {{element.fecha|date: 'dd/MM/yyyy'}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.fechaCompra|date: 'dd/MM/yyyy'}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="cliente_codigo">
+        <ng-container matColumnDef="clienteCompra">
           <th mat-header-cell *matHeaderCellDef> cliente_codigo </th>
-          <td mat-cell *matCellDef="let element"> {{element.Cliente_ID}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.clienteCompra}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="negocio_codigo">
+        <ng-container matColumnDef="productoCompra">
           <th mat-header-cell *matHeaderCellDef> negocio_codigo </th>
-          <td mat-cell *matCellDef="let element"> {{element.Negocio_ID}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.productoCompra}} </td>
         </ng-container>
 
         <ng-container matColumnDef="accion01">

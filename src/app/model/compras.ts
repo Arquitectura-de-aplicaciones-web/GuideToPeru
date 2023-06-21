@@ -1,9 +1,9 @@
 export class compras {
-  id: number = 0
-  cantidad: number = 0
-  precio_total: number = 3.1416
-  descripcion: string = ""
-  fecha: Date = new Date(Date.now())
-  Cliente_ID: string = ""
-  Negocio_ID: string = ""
+  idCompra: number = 0
+  cantidadCompra: number = 0
+  precioCompra: number = 3.1416
+  descripcionCompra: string = ""
+  fechaCompra: Date = new Date(Date.now())
+  clienteCompra: string = ""
+  productoCompra: string = ""
 }

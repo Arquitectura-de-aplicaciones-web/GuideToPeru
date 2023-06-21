@@ -32,31 +32,31 @@
       <form [formGroup]="form" (submit)="aceptar()">
         <mat-form-field class="example-full-width">
           <mat-label>Codigo</mat-label>
-          <input matInput required placeholder="Codigo" formControlName="id">
+          <input matInput required placeholder="Codigo" formControlName="idCompra">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
           <mat-label>Cantidad</mat-label>
-          <input matInput required placeholder="Cantidad" formControlName="cantidad">
+          <input matInput required placeholder="Cantidad" formControlName="cantidadCompra">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
           <mat-label>Precio_Total</mat-label>
-          <input matInput required placeholder="Precio_Total" formControlName="precio_total">
+          <input matInput required placeholder="Precio_Total" formControlName="precioCompra">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
           <mat-label>Descripcion</mat-label>
-          <input matInput required placeholder="Descripcion" formControlName="descripcion">
+          <input matInput required placeholder="Descripcion" formControlName="descripcionCompra">
         </mat-form-field>
         <br>
 
         <mat-form-field appearance="fill">
           <mat-label>Fecha_Compra</mat-label>
-          <input matInput required [matDatepicker]="picker" formControlName="fecha" [max]="fecha_max">
+          <input matInput required [matDatepicker]="picker" formControlName="fechaCompra" [max]="fecha_max">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -65,13 +65,13 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Cliente_id</mat-label>
-          <input matInput required placeholder="Cliente_id" formControlName="Cliente_ID">
+          <input matInput required placeholder="Cliente_id" formControlName="clienteCompra">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
           <mat-label>Negocio_id</mat-label>
-          <input matInput required placeholder="Negocio_id" formControlName="Negocio_ID">
+          <input matInput required placeholder="Negocio_id" formControlName="productoCompra">
         </mat-form-field>
         <br>
         <button mat-raised-button color="accent"><span class="material-icons">save</span></button>

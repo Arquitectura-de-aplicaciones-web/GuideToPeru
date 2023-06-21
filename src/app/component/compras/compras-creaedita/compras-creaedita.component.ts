@@ -41,13 +41,13 @@ export class ComprasCreaeditaComponent implements OnInit {
 
 
     this.form = new FormGroup({
-      id: new FormControl(),
-      cantidad: new FormControl(),
-      precio_total: new FormControl(),
-      descripcion: new FormControl(),
-      fecha: new FormControl(),
-      Cliente_ID: new FormControl(),
-      Negocio_ID: new FormControl(),
+      idCompra: new FormControl(),
+      cantidadCompra: new FormControl(),
+      precioCompra: new FormControl(),
+      descripcionCompra: new FormControl(),
+      fechaCompra: new FormControl(),
+      clienteCompra: new FormControl(),
+      productoCompra: new FormControl(),
     })
 
   }
@@ -55,23 +55,22 @@ export class ComprasCreaeditaComponent implements OnInit {
   constructor(private cS: ComprasService, private router: Router, private route: ActivatedRoute) { }
 
   aceptar(): void {
-    this.compras.id = this.form.value['id'];
-    this.compras.cantidad = this.form.value['cantidad'];
-    this.compras.precio_total = this.form.value['precio_total'];
-    this.compras.descripcion = this.form.value['descripcion'];
-    this.compras.fecha = this.form.value['fecha'];
-    this.compras.Cliente_ID = this.form.value['Cliente_ID'];
-    this.compras.Negocio_ID = this.form.value['Negocio_ID'];
-    if (this.form.value['cantidad'] > 0 &&
-      this.form.value['precio_total'] > 0 &&
-      this.form.value['descripcion'].length > 0) {
+    this.compras.idCompra = this.form.value['idCompra'];
+    this.compras.cantidadCompra = this.form.value['cantidadCompra'];
+    this.compras.precioCompra = this.form.value['precioCompra'];
+    this.compras.descripcionCompra = this.form.value['descripcionCompra'];
+    this.compras.fechaCompra = this.form.value['fechaCompra'];
+    this.compras.clienteCompra = this.form.value['clienteCompra'];
+    this.compras.productoCompra = this.form.value['productoCompra'];
+    if (this.form.value['cantidadCompra'] > 0 &&
+      this.form.value['precioCompra'] > 0 &&
+      this.form.value['descripcionCompra'].length > 0) {
 
       if (this.edicion) {
         this.cS.update(this.compras).subscribe(() => {
           this.cS.list().subscribe(data => {
             this.cS.setList(data)
           })
-
 
         })
 
@@ -98,14 +97,13 @@ export class ComprasCreaeditaComponent implements OnInit {
       this.cS.listId(this.id).subscribe(data => {
         this.form = new FormGroup({
 
-          id: new FormControl(data.id),
-          cantidad: new FormControl(data.cantidad),
-          precio_total: new FormControl(data.precio_total),
-          descripcion: new FormControl(data.descripcion),
-          fecha: new FormControl(data.fecha),
-          Cliente_ID: new FormControl(data.Cliente_ID),
-          Negocio_ID: new FormControl(data.Negocio_ID)
-
+          idCompra: new FormControl(data.idCompra),
+          cantidadCompra: new FormControl(data.cantidadCompra),
+          precioCompra: new FormControl(data.precioCompra),
+          descripcionCompra: new FormControl(data.descripcionCompra),
+          fechaCompra: new FormControl(data.fechaCompra),
+          clienteCompra: new FormControl(data.clienteCompra),
+          productoCompra: new FormControl(data.productoCompra)
 
         })
 

@@ -17,9 +17,9 @@
     <br>
     <button mat-button routerLink="/pages/etiquetaProducto">EtiquetaProducto</button>
     <br>
-   <button mat-button routerLink="/pages/comentario_negocio">ComentariosNegocios</button>
-   <br>
-   <button mat-button routerLink="/pages/productos">Productos</button>
+    <button mat-button routerLink="/pages/comentario_negocio">ComentariosNegocios</button>
+    <br>
+    <button mat-button routerLink="/pages/productos">Productos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -55,19 +55,17 @@
 
         <ng-container matColumnDef="direccionNegocio">
           <th mat-header-cell *matHeaderCellDef>Direccion</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.direccionNegocio }}
-          </td>
+          <td mat-cell *matCellDef="let element">{{ element.direccionNegocio }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="tipoNegocio">
+        <ng-container matColumnDef="TipoNegocio">
           <th mat-header-cell *matHeaderCellDef>Tipo</th>
-          <td mat-cell *matCellDef="let element">{{ element.tipoNegocio }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.TipoNegocio }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="idusuario">
+        <ng-container matColumnDef="IDusuario">
           <th mat-header-cell *matHeaderCellDef>IDUsuario</th>
-          <td mat-cell *matCellDef="let element">{{ element.idusuario.id }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.IDusuario.id }}</td>
         </ng-container>
 
         <ng-container matColumnDef="calificacion">
