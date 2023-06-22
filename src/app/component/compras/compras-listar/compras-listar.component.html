@@ -71,12 +71,12 @@
 
         <ng-container matColumnDef="clienteCompra">
           <th mat-header-cell *matHeaderCellDef> cliente_codigo </th>
-          <td mat-cell *matCellDef="let element"> {{element.clienteCompra}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.clienteCompra.nameCliente}} </td>
         </ng-container>
 
         <ng-container matColumnDef="productoCompra">
           <th mat-header-cell *matHeaderCellDef> negocio_codigo </th>
-          <td mat-cell *matCellDef="let element"> {{element.productoCompra}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.productoCompra.nombre}} </td>
         </ng-container>
 
         <ng-container matColumnDef="accion01">
