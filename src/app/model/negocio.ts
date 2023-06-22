@@ -6,6 +6,6 @@ export class Negocio {
   nameNegocio: string = '';
   direccionNegocio: string = '';
   TipoNegocio: String = '';
-  IDusuario: Usuario=new Usuario
-  calificacion: number =0;
+  IDusuario: Usuario = new Usuario;
+  calificacion: number = 0;
 }

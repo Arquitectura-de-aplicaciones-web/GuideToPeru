@@ -26,7 +26,7 @@
     <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
         <div class="container">
           <div style="text-align: center">
-            <h1>Comentarios de Productos</h1>
+            <h1>Comentarios de Negocios</h1>
           </div>
 
           <div style="text-align: right;">
@@ -43,6 +43,11 @@
 
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+            <ng-container matColumnDef="idComentarioNegocio">
+              <th mat-header-cell *matHeaderCellDef>id</th>
+              <td mat-cell *matCellDef="let element">{{ element.idComentarioNegocio }}</td>
+            </ng-container>
+
             <ng-container matColumnDef="comentario">
               <th mat-header-cell *matHeaderCellDef>comentario</th>
               <td mat-cell *matCellDef="let element">{{ element.comentario }}</td>
@@ -55,13 +60,13 @@
 
             <ng-container matColumnDef="idNegocio">
               <th mat-header-cell *matHeaderCellDef>idNegocio</th>
-              <td mat-cell *matCellDef="let element">{{ element.idNegocio.id }}
+              <td mat-cell *matCellDef="let element">{{ element.negocio.nameNegocio }}
               </td>
             </ng-container>
 
             <ng-container matColumnDef="idCliente">
               <th mat-header-cell *matHeaderCellDef>idCliente</th>
-              <td mat-cell *matCellDef="let element">{{ element.idCliente.id }}
+              <td mat-cell *matCellDef="let element">{{ element.cliente.nameCliente }}
               </td>
             </ng-container>
 

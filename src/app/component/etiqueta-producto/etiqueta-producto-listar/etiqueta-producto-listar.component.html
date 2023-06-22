@@ -49,12 +49,12 @@
 
         <ng-container matColumnDef="idProducto">
           <th mat-header-cell *matHeaderCellDef> id Producto</th>
-          <td mat-cell *matCellDef="let element"> {{element.idProducto}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.producto.nombre}} </td>
         </ng-container>
 
         <ng-container matColumnDef="idEtiqueta">
           <th mat-header-cell *matHeaderCellDef>id Etiqueta</th>
-          <td mat-cell *matCellDef="let element"> {{element.idEtiqueta}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.etiqueta.nombreEtiqueta}} </td>
         </ng-container>
 
 

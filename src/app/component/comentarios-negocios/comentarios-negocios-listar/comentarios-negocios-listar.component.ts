@@ -15,7 +15,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class ComentariosNegociosListarComponent implements OnInit{
   dataSource:MatTableDataSource<ComentarioNegocio> = new MatTableDataSource();
-  displayedColumns:string[] = ["comentario", "calificacion", "idNegocio", "idCliente"];
+  displayedColumns:string[] = ['idComentarioNegocio','comentario', 'calificacion', 'idNegocio', 'idCliente','accion01','accion02'];
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
   reason = '';
