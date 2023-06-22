@@ -44,7 +44,7 @@ export class NegocioCreaeditaComponent implements OnInit {
       nameNegocio: new FormControl(),
       direccionNegocio: new FormControl(),
       TipoNegocio: new FormControl(),
-      IDusuario: new FormControl(),
+      idusuario: new FormControl(),
       calificacion: new FormControl(),
     });
   }
@@ -57,8 +57,8 @@ export class NegocioCreaeditaComponent implements OnInit {
     this.negocio.id = this.form.value['id'];
     this.negocio.nameNegocio = this.form.value['nameNegocio'];
     this.negocio.direccionNegocio = this.form.value['direccionNegocio'];
-    this.negocio.TipoNegocio = this.form.value['TipoNegocio'];
-    this.negocio.IDusuario = this.form.value['IDusuario'];
+    this.negocio.tiponegocio = this.form.value['tiponegocio'];
+    this.negocio.idusuario = this.form.value['idusuario'];
     this.negocio.calificacion=this.form.value['calificacion'];
     if (this.form.value['nameNegocio'].length > 0 && this.form.value['direccionNegocio'].length > 0) {
       if (this.edicion) {
@@ -86,8 +86,8 @@ export class NegocioCreaeditaComponent implements OnInit {
           id: new FormControl(data.id),
           nameNegocio: new FormControl(data.nameNegocio),
           direccionNegocio: new FormControl(data.direccionNegocio),
-          TipoNegocio: new FormControl(data.TipoNegocio),
-          IDusuario: new FormControl(data.IDusuario),
+          TipoNegocio: new FormControl(data.tiponegocio),
+          idusuario: new FormControl(data.idusuario),
           calificacion: new FormControl(data.calificacion),
         });
       });

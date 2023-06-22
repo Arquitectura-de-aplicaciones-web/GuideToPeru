@@ -51,10 +51,10 @@ export class UsuarioCreaeditaComponent implements OnInit {
   aceptar():void {
     this.usuario.id = this.form.value['id'];
     this.usuario.email = this.form.value['emailUsuario'];
-    this.usuario.contrasenia = this.form.value['contraseniaUsuario'];
-    this.usuario.telefono = this.form.value['telefonoUsuario'];
+    this.usuario.password = this.form.value['password'];
+    this.usuario.telefono = this.form.value['telefono'];
 
-    if (this.form.value['emailUsuario'].length > 0 && this.form.value['contraseniaUsuario'].length > 0 && this.form.value['telefonoUsuario'].length > 0) {
+    if (this.form.value['emailUsuario'].length > 0 && this.form.value['password'].length > 0 && this.form.value['telefono'].length > 0) {
 
       if (this.edicion) {
         this.uS.update(this.usuario).subscribe(() => {
@@ -81,7 +81,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
         this.form = new FormGroup({
           id: new FormControl(data.id),
           emailUsuario: new FormControl(data.email),
-          contraseniaUsuario: new FormControl(data.contrasenia),
+          contraseniaUsuario: new FormControl(data.password),
           telefonoUsuario: new FormControl(data.telefono)
         })
       })

@@ -63,17 +63,26 @@
         </mat-form-field>
         <br>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Cliente_id</mat-label>
-          <input matInput required placeholder="Cliente_id" formControlName="clienteCompra">
+        <mat-form-field appearance="fill">
+          <mat-label>id Cliente</mat-label>
+          <mat-select formControlName="cliente" [(value)]="idClienteSeleccionado" required>
+            <mat-option *ngFor="let a of lista2" [value]="a.id">
+              {{a.nameCliente}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>id Producto</mat-label>
+          <mat-select formControlName="producto" [(value)]="idProductoSeleccionado" required>
+            <mat-option *ngFor="let a of lista1" [value]="a.idProducto">
+              {{a.nombre}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <br>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Negocio_id</mat-label>
-          <input matInput required placeholder="Negocio_id" formControlName="productoCompra">
-        </mat-form-field>
-        <br>
         <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
         <button mat-raised-button color="warn" routerLink="/pages/compras"><span class="material-icons">delete</span></button>
 

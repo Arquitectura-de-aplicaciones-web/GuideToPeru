@@ -48,7 +48,6 @@ export class DestinoCreaeditaComponent implements OnInit {
     });
   }
 
-  //del modelo
   aceptar(): void {
     this.destino.id = this.form.value['id'];
     this.destino.nombre= this.form.value['nombre'];

@@ -1,8 +1,10 @@
 export class Usuario {
     id: number = 0;
     email:string = "";
-    contrasenia:string = "";
+    password:string = "";
     telefono:string = "";
-    Username:String="";
-    
+    username:String="";
+    enabled: boolean=false;
+    roles: String[]=[];
+
 }
