@@ -44,6 +44,7 @@ export class ComentariosProductoService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }
+
   delete(id: number) {
     let token = sessionStorage.getItem("token");
     return this.http.delete(`${this.url}/${id}`, {

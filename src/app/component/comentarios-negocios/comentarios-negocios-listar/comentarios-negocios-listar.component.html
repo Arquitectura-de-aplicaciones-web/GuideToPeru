@@ -74,14 +74,14 @@
             <ng-container matColumnDef="accion01">
               <th mat-header-cell *matHeaderCellDef>Modificar</th>
               <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="warn" [routerLink]="['edicion',element.id]"><span
+                <button mat-raised-button color="warn" [routerLink]="['edicion',element.idComentarioNegocio]"><span
                     class="material-icons">settings</span></button>
               </td>
             </ng-container>
             <ng-container matColumnDef="accion02">
               <th mat-header-cell *matHeaderCellDef>Eliminar</th>
               <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="accent" (click)="confirm(element.id)"><span
+                <button mat-raised-button color="accent" (click)="confirm(element.idComentarioNegocio)"><span
                     class="material-icons">delete</span></button>
               </td>
             </ng-container>

@@ -28,7 +28,6 @@ export class ComprasCreaeditaComponent implements OnInit {
 
   id: number = 0
   edicion: boolean = false
-
   form: FormGroup = new FormGroup({});
   compras: compras = new compras();
   mensaje: string = "";
@@ -41,6 +40,7 @@ export class ComprasCreaeditaComponent implements OnInit {
   ngOnInit(): void {
     this.pS.list().subscribe(data => { this.lista1 = data });
     this.lS.list().subscribe(data => { this.lista2 = data });
+
     this.route.params.subscribe((data: Params) => {
       this.id = data['idCompra'];
       this.edicion = data['idCompra'] != null;
@@ -68,7 +68,7 @@ export class ComprasCreaeditaComponent implements OnInit {
     this.compras.precioCompra = this.form.value['precioCompra'];
     this.compras.descripcionCompra = this.form.value['descripcionCompra'];
     this.compras.fechaCompra = this.form.value['fechaCompra'];
-    this.compras.clienteCompra.nameCliente = this.form.value['clienteCompra.nameCliente'];
+    this.compras.clienteCompra = this.form.value['clienteCompra'];
     this.compras.productoCompra.nombre = this.form.value['productoCompra.nombre'];
     if (this.form.value['cantidadCompra'] > 0 &&
       this.form.value['precioCompra'] > 0 &&

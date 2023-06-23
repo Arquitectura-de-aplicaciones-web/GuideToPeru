@@ -62,7 +62,7 @@ export class ComprasListarComponent implements OnInit {
       })
 
     })
-
   }
+
 
 }

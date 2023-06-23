@@ -41,8 +41,8 @@ export class ComentariosNegociosCreaeditaComponent implements OnInit {
     this.form = new FormGroup({
       comentario: new FormControl(),
       calificacion: new FormControl(),
-      idNegocio: new FormControl(),
-      idCliente: new FormControl(),
+      negocio: new FormControl(),
+      cliente: new FormControl(),
     });
   }
   constructor(
@@ -55,8 +55,8 @@ export class ComentariosNegociosCreaeditaComponent implements OnInit {
   aceptar(): void {
     this.comentariosnegocio.comentario = this.form.value['comentario'];
     this.comentariosnegocio.calificacion = this.form.value['calificacion'];
-    this.comentariosnegocio.negocio.id = this.form.value['idNegocio'];
-    this.comentariosnegocio.cliente.id = this.form.value['idCliente'];
+    this.comentariosnegocio.negocio.id = this.form.value['negocio.id'];
+    this.comentariosnegocio.cliente.id = this.form.value['cliente.id'];
 
     if (this.form.value['comentario'].length > 0 && this.form.value['calificacion'].length > 0 && this.idClienteSeleccionado > 0 && this.idNegocioSeleccionado > 0) {
       if (this.edicion) {
@@ -89,8 +89,8 @@ export class ComentariosNegociosCreaeditaComponent implements OnInit {
         this.form = new FormGroup({
           comentario: new FormControl(data.comentario),
           calificacion: new FormControl(data.calificacion),
-          idNegocio: new FormControl(data.negocio.id),
-          idCliente: new FormControl(data.cliente.id)
+          negocio: new FormControl(data.negocio.id),
+          cliente: new FormControl(data.cliente.id)
 
         });
       });

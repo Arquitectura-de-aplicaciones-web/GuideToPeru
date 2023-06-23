@@ -13,7 +13,6 @@ import { EtiquetaComponent } from './etiqueta/etiqueta.component';
 import { EtiquetaProductoComponent } from './etiqueta-producto/etiqueta-producto.component';
 
 
-
 import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
 import { ComprasListarComponent } from './compras/compras-listar/compras-listar.component';
 import { NegocioListarComponent } from './negocio/negocio-listar/negocio-listar.component';
@@ -67,6 +66,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 
 
 @NgModule({
@@ -115,6 +116,8 @@ import { MatSelectModule } from '@angular/material/select';
     EtiquetaProductoCreaeditaComponent,
     EtiquetaProductoListarComponent,
     EtiquetaProductoDialogoComponent,
+    ReportesComponent,
+    Reporte1Component,
 
   ],
   imports: [
