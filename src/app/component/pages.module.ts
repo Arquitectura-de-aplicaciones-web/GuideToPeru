@@ -68,13 +68,16 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
-import { Reporte2Component } from './reportes/reporte2/reporte2.component';
-import { Reporte3Component } from './reportes/reporte3/reporte3.component';
+import { Reporte2Component } from './reportes2/reporte2/reporte2.component';
+import { Reportes2Component } from './reportes2/reportes2.component';
+import { Reportes3Component } from './reportes3/reportes3.component';
+import { Reporte3Component } from './reportes3/reporte3/reporte3.component';
+
 
 
 @NgModule({
   declarations: [
-    
+
     ClienteComponent,
     ClienteListarComponent,
     ClienteCreaeditaComponent,
@@ -121,11 +124,13 @@ import { Reporte3Component } from './reportes/reporte3/reporte3.component';
     ReportesComponent,
     Reporte1Component,
     Reporte2Component,
-    Reporte3Component,
+    Reportes2Component,
+    Reportes3Component,
+    Reporte3Component
 
   ],
   imports: [
-    
+
     HttpClientModule,
     MatTableModule,
     ReactiveFormsModule,

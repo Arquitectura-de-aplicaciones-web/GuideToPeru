@@ -2,7 +2,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../model/producto';
-import { Subject } from 'rxjs';
+import { Subject,Observable } from 'rxjs';
+import { ProductoComentario } from '../model/ProductoComentario';
 
 const base_url = environment.base
 @Injectable({
@@ -56,4 +57,11 @@ export class ProductoService {
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
   }
+  getProductosConComentarios(): Observable<ProductoComentario[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<ProductoComentario[]>(`${this.url}/producto-comentario`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
 }
