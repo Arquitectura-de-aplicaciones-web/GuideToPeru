@@ -68,6 +68,8 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
+import { Reporte2Component } from './reportes/reporte2/reporte2.component';
+import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 
 
 @NgModule({
@@ -118,6 +120,8 @@ import { Reporte1Component } from './reportes/reporte1/reporte1.component';
     EtiquetaProductoDialogoComponent,
     ReportesComponent,
     Reporte1Component,
+    Reporte2Component,
+    Reporte3Component,
 
   ],
   imports: [

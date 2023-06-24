@@ -2,7 +2,9 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Destino } from '../model/Destinos';
-import { Subject } from 'rxjs';
+import { Subject,Observable } from 'rxjs';
+import { DepartamentosVisitados } from '../model/DepartamentosVisitados';
+import { DistritosVisitados } from '../model/DistritosVisitados';
 
 const base_url = environment.base
 
@@ -60,4 +62,22 @@ export class DestinoService {
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
   }
+
+
+  //query
+  getdepartamentovisitados(): Observable<DepartamentosVisitados[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<DepartamentosVisitados[]>(`${this.url}/departamento-count`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
+  getdistritosvisitados(): Observable<DistritosVisitados[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<DistritosVisitados[]>(`${this.url}/distritos-count`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
+
 }
