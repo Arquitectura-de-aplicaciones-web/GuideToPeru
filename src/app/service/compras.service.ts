@@ -4,6 +4,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { compras } from '../model/compras';
 import { Subject,Observable } from 'rxjs';
 import { qCompraProducto } from '../model/qCompraProducto';
+import { qCompraCliente } from '../model/qCompraCliente';
 
 const base_url = environment.base
 @Injectable({
@@ -76,5 +77,13 @@ export class ComprasService {
     });
   }
 
+
+
+  getcompracliente(): Observable<qCompraCliente[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<qCompraCliente[]>(`${this.url}/cliente-count`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
 
 }
