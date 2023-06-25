@@ -29,7 +29,7 @@ export class ProductoListarComponent implements OnInit {
   dataSource: MatTableDataSource<Producto> = new MatTableDataSource();
   idMayor: number = 0
   displayedColumns: string[] = ['idProducto', 'nombre', 'descripcion',
-  'precio','cantidad', 'visible', 'calificacion','idnegocio','acciones1','acciones2']
+  'precio','cantidad', 'visible', 'calificacion','Negocio','acciones1','acciones2']
   role:string="";
   constructor(private aS: ProductoService, private dialog: MatDialog,private ls:LoginService) {
 
