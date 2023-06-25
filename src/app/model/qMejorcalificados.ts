@@ -1,3 +1,3 @@
 export interface qMejorcalificados {
-    name: string;
+  nameNegocio: string;
   }

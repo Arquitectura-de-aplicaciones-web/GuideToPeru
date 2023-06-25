@@ -42,6 +42,7 @@ import { Reportes3Component } from './reportes3/reportes3.component';
 import { Reporte3Component } from './reportes3/reporte3/reporte3.component';
 import { Reportes4Component } from './reportes4/reportes4.component';
 import { Reporte4Component } from './reportes4/reporte4/reporte4.component';
+import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 
 const routes: Routes = [
 
@@ -107,7 +108,8 @@ const routes: Routes = [
   },
   {
     path: 'reportes', component: ReportesComponent, children: [
-      { path: 'reporte1', component: Reporte1Component }
+      { path: 'reporte1', component: Reporte1Component },
+      { path: 'reporte5', component: Reporte5Component }
     ], canActivate: [GuardService]
   },
   {
