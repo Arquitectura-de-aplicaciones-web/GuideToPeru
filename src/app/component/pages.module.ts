@@ -75,6 +75,8 @@ import { Reporte3Component } from './reportes3/reporte3/reporte3.component';
 import { Reportes4Component } from './reportes4/reportes4.component';
 import { Reporte4Component } from './reportes4/reporte4/reporte4.component';
 import { Reporte5Component } from './reportes/reporte5/reporte5.component';
+import { Reporte6Component } from './reportes/reporte6/reporte6.component';
+import { Reporte7Component } from './reportes/reporte7/reporte7.component';
 
 @NgModule({
   declarations: [
@@ -130,7 +132,9 @@ import { Reporte5Component } from './reportes/reporte5/reporte5.component';
     Reporte3Component,
     Reportes4Component,
     Reporte4Component,
-    Reporte5Component
+    Reporte5Component,
+    Reporte6Component,
+    Reporte7Component
 
   ],
   imports: [

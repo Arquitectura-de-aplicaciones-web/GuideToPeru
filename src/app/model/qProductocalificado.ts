@@ -1,3 +1,3 @@
-export interface qMejorcalificados {
-  nameNegocio: string;
-  }
+export interface qProductocalificados {
+  nombre: string;
+}

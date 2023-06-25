@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import * as moment from 'moment'
 import { PasswordService } from 'src/app/service/password.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-usuario-creaedita',
@@ -19,7 +20,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
   usuario:Usuario = new Usuario();
   mensaje:string = "";
   maxFecha:Date = moment().add(1, 'days').toDate();
-
+  role:string="";
   password_generated: string = "";
 
   @ViewChild('sidenav') sidenav!:MatSidenav;
@@ -31,7 +32,9 @@ export class UsuarioCreaeditaComponent implements OnInit {
   shouldRun = true;
 
   ngOnInit():void {
-
+    this.role=this.ls.showRole();
+    console.log(this.role);
+    
     this.route.params.subscribe((data: Params) => {
 
       this.id = data['id'];
@@ -49,7 +52,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
 
   constructor(private uS:UsuarioService, private pS: PasswordService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private ls:LoginService) { }
 
   aceptar():void {
     this.usuario.id = this.form.value['id'];

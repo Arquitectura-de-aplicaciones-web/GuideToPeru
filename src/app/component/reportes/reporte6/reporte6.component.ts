@@ -1,17 +1,17 @@
 import { Component,OnInit, ViewChild } from '@angular/core';
-import { qCompraProducto } from 'src/app/model/qCompraProducto';
 import { ComprasService } from 'src/app/service/compras.service';
 import { MatTableDataSource } from '@angular/material/table'
 import { MatDialog } from '@angular/material/dialog'
 import {MatSidenav} from '@angular/material/sidenav';
+import { qCompraCliente } from 'src/app/model/qCompraCliente';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
-  selector: 'app-reporte1',
-  templateUrl: './reporte1.component.html',
-  styleUrls: ['./reporte1.component.css']
+  selector: 'app-reporte6',
+  templateUrl: './reporte6.component.html',
+  styleUrls: ['./reporte6.component.css']
 })
-export class Reporte1Component {
+export class Reporte6Component {
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
@@ -20,28 +20,33 @@ export class Reporte1Component {
     this.reason = reason;
     this.sidenav.close();
   }
+
   shouldRun = true;
-  qcompraCount: qCompraProducto[] = [];
-  dataSource: MatTableDataSource<qCompraProducto> = new MatTableDataSource();
+  qcompraCount: qCompraCliente[] = [];
+  dataSource: MatTableDataSource<qCompraCliente> = new MatTableDataSource();
   role:string="";
   displayedColumns: string[] = ['name','compraCount']
 
   constructor(private bS: ComprasService,private ls:LoginService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.role=this.ls.showRole();
     console.log(this.role);
-
-    this.bS.getcompraproducto().subscribe(data => {
+    this.bS.getcompracliente().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     })
   }
 
   getcompraproducto(): void {
-    this.bS.getcompraproducto()
-      .subscribe((data: qCompraProducto[]) => {
+    this.bS.getcompracliente()
+      .subscribe((data: qCompraCliente[]) => {
         this.qcompraCount = data;
       });
   }
+
+
+
+
+
 
 }

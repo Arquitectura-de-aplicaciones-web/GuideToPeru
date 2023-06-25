@@ -1,0 +1,64 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+        <button mat-button routerLink="/pages/usuarios" *ngIf="role == 'ADMIN'">Usuarios</button>
+        <br>
+        <button mat-button routerLink="/pages/clientes">Clientes</button>
+        <br>
+        <button mat-button routerLink="/pages/negocios">Negocio</button>
+        <br>
+        <button mat-button routerLink="/pages/compras">Compras</button>
+        <br>
+        <button mat-button routerLink="/pages/destinos">Destinos</button>
+        <br>
+        <button mat-button routerLink="/pages/comentariosproducto">ComentariosProductos</button>
+        <br>
+        <button mat-button routerLink="/pages/etiqueta" *ngIf="role == 'ADMIN'">Etiqueta</button>
+        <br>
+        <button mat-button routerLink="/pages/etiquetaProducto" >EtiquetaProducto</button>
+        <br>
+       <button mat-button routerLink="/pages/comentario_negocio">ComentariosNegocios</button>
+       <br>
+       <button mat-button routerLink="/pages/productos">Productos</button>
+       <br>
+       <button mat-button routerLink="/pages/reportes" *ngIf="role == 'ADMIN'">Reporte1</button>
+       <br>
+       <button mat-button routerLink="/pages/reportes2" *ngIf="role == 'ADMIN'">Reporte2</button>
+       <br>
+       <button mat-button routerLink="/pages/reportes3" *ngIf="role == 'ADMIN'">Reporte3</button>
+       <br>
+       <button mat-button routerLink="/pages/reportes4" *ngIf="role == 'ADMIN'">Reporte4</button>
+       <br>
+       <button mat-button routerLink="/pages/reportes/reporte5" *ngIf="role == 'ADMIN'">Reporte5</button>
+       <br>
+       <button mat-button routerLink="/pages/reportes/reporte6" *ngIf="role == 'ADMIN'">Reporte6</button>
+       <br>
+       <button mat-button routerLink="/pages/reportes/reporte7" *ngIf="role == 'ADMIN'">Reporte7</button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button>
+        </p>
+        <div class="container">
+            <div style="text-align: center;">
+                <h1>Clientes con mas compras</h1>
+            </div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Clientes </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="compraCount">
+                    <th mat-header-cell *matHeaderCellDef> Compras</th>
+                    <td mat-cell *matCellDef="let element"> {{element.compraCount}} </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

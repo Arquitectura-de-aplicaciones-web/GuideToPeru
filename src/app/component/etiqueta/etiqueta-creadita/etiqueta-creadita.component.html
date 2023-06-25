@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-    <button mat-button routerLink="/pages/usuarios">Usuarios</button>
+    <button mat-button routerLink="/pages/usuarios" *ngIf="role == 'ADMIN'">Usuarios</button>
     <br>
     <button mat-button routerLink="/pages/clientes">Clientes</button>
     <br>
@@ -13,13 +13,27 @@
     <br>
     <button mat-button routerLink="/pages/comentariosproducto">ComentariosProductos</button>
     <br>
-    <button mat-button routerLink="/pages/etiqueta">Etiqueta</button>
+    <button mat-button routerLink="/pages/etiqueta" *ngIf="role == 'ADMIN'">Etiqueta</button>
     <br>
-    <button mat-button routerLink="/pages/etiquetaProducto">EtiquetaProducto</button>
+    <button mat-button routerLink="/pages/etiquetaProducto" *ngIf="role == 'ADMIN'">EtiquetaProducto</button>
     <br>
    <button mat-button routerLink="/pages/comentario_negocio">ComentariosNegocios</button>
    <br>
    <button mat-button routerLink="/pages/productos">Productos</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes" *ngIf="role == 'ADMIN'">Reporte1</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes2" *ngIf="role == 'ADMIN'">Reporte2</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes3" *ngIf="role == 'ADMIN'">Reporte3</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes4" *ngIf="role == 'ADMIN'">Reporte4</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes/reporte5" *ngIf="role == 'ADMIN'">Reporte5</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes/reporte6" *ngIf="role == 'ADMIN'">Reporte6</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes/reporte7" *ngIf="role == 'ADMIN'">Reporte7</button>
   </mat-sidenav>
 
 

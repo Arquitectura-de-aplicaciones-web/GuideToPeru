@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Producto } from '../model/producto';
 import { Subject,Observable } from 'rxjs';
 import { ProductoComentario } from '../model/ProductoComentario';
+import { qProductocalificados } from '../model/qProductocalificado';
 
 const base_url = environment.base
 @Injectable({
@@ -57,11 +58,23 @@ export class ProductoService {
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
   }
+
+
+
+ //querry
   getProductosConComentarios(): Observable<ProductoComentario[]> {
     let token = sessionStorage.getItem("token");
     return this.http.get<ProductoComentario[]>(`${this.url}/producto-comentario`,{
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }
+
+
+ getmejorcalificados(): Observable<qProductocalificados[]> {
+  let token = sessionStorage.getItem("token");
+  return this.http.get<qProductocalificados[]>(`${this.url}/productocalificado`,{
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
+}
 
 }

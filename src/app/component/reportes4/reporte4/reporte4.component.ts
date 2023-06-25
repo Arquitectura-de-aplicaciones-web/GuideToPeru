@@ -3,7 +3,7 @@ import { DistritosVisitados } from 'src/app/model/DistritosVisitados';
 import { DestinoService } from 'src/app/service/destino.service';
 import { MatTableDataSource } from '@angular/material/table'
 import {MatSidenav} from '@angular/material/sidenav';
-
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-reporte4',
@@ -22,10 +22,10 @@ export class Reporte4Component implements OnInit {
   shouldRun = true;
   departamentoCount: DistritosVisitados[] = [];
   dataSource: MatTableDataSource<DistritosVisitados> = new MatTableDataSource();
-
+  role:string="";
   displayedColumns: string[] = ['distrito','distritoCount']
 
-  constructor(private bS: DestinoService) { }
+  constructor(private bS: DestinoService,private ls:LoginService) { }
 
   ngOnInit(): void {
     this.bS.getdistritosvisitados().subscribe(data => {
