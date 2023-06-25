@@ -5,6 +5,8 @@ import { ComentarioProducto } from 'src/app/model/ComentarioProducto';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ComentariosProductoService } from 'src/app/service/comentarios-producto.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
 
 
 @Component({
@@ -13,7 +15,9 @@ import { ComentariosProductoService } from 'src/app/service/comentarios-producto
   styleUrls: ['./comentarios-producto-listar.component.css']
 })
 export class ComentariosProductoListarComponent implements OnInit {
+
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   reason = '';
   close(reason: string) {
@@ -26,13 +30,23 @@ export class ComentariosProductoListarComponent implements OnInit {
   dataSource: MatTableDataSource<ComentarioProducto> = new MatTableDataSource();
   idMayor: number = 0
   displayedColumns: string[] = ['id', 'comentario', 'calificacion','producto','cliente','accion01','accion02'];
-  constructor(private uS: ComentariosProductoService,private dialog:MatDialog) {}
+  role:string="";
+
+  constructor(private uS: ComentariosProductoService,private dialog:MatDialog, private ls:LoginService) {}
   ngOnInit(): void {
+
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.uS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
+
     });
     this.uS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
+
     this.uS.getConfirmDelete().subscribe(data => {
       data == true ? this.eliminar(this.idMayor) : false;
     })
@@ -53,4 +67,3 @@ export class ComentariosProductoListarComponent implements OnInit {
     this.dataSource.filter= z.target.value.trim();
       }
 }
-export class PaginatorOverviewExample {}

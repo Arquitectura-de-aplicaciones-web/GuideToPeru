@@ -5,6 +5,8 @@ import { EtiquetaProducto } from 'src/app/model/EtiquetaProducto';
 import { EtiquetaProductoService } from 'src/app/service/etiqueta-producto.service'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import {MatSidenav} from '@angular/material/sidenav';
+import { LoginService } from 'src/app/service/login.service';
+
 @Component({
   selector: 'app-etiqueta-producto-creaedita',
   templateUrl: './etiqueta-producto-creaedita.component.html',
@@ -25,11 +27,15 @@ export class EtiquetaProductoCreaeditaComponent {
   mensaje: string = "";
   idEtiquetaProducto: number = 0;
   edicion: boolean = false;
+  role:string="";
 
-  constructor(private aS: EtiquetaProductoService, private router: Router, private route: ActivatedRoute) {
+  constructor(private aS: EtiquetaProductoService, private router: Router, private route: ActivatedRoute, private ls :LoginService) {
   }
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.route.params.subscribe((data: Params) => {
       this.idEtiquetaProducto = data['id'];
       this.edicion = data['id'] != null;

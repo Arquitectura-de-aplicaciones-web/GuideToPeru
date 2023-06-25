@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table'
 import { MatDialog } from '@angular/material/dialog'
 import { ClienteDialogoComponent } from './cliente-dialogo/cliente-dialogo.component';
 import { LoginService } from 'src/app/service/login.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-cliente-listar',
@@ -15,7 +16,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class ClienteListarComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   reason = '';
   close(reason: string) {
     this.reason = reason;
@@ -28,7 +29,8 @@ export class ClienteListarComponent implements OnInit {
   displayedColumns:string[]=['Codigo','Nombre','Apellido','Fecha','Direccion','idusuario','N°Cuenta','accion01','acciones2']
   role:string="";
 
-  constructor(private cS: ClienteService, private dialog: MatDialog,private ls:LoginService) { }
+  constructor(private cS: ClienteService, private dialog: MatDialog, private ls:LoginService) { }
+
 
   ngOnInit(): void {
     this.role=this.ls.showRole();
@@ -37,10 +39,11 @@ export class ClienteListarComponent implements OnInit {
     this.cS.list().subscribe(data => {
 
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
     })
     this.cS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
-    
+      this.dataSource.paginator=this.paginator
     })
       this.cS.getConfirmDelete().subscribe(data => {
         data == true ? this.eliminar(this.idMayor) : false;
@@ -62,4 +65,3 @@ export class ClienteListarComponent implements OnInit {
     this.dataSource.filter = z.target.value.trim();
   }
 }
-export class PaginatorOverviewExample {}

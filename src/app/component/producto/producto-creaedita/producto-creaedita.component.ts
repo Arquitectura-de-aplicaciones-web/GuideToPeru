@@ -5,7 +5,7 @@ import { Producto } from 'src/app/model/producto';
 import { ProductoService } from 'src/app/service/producto.service'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import {MatSidenav} from '@angular/material/sidenav';
-
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-producto-creaedita',
@@ -28,11 +28,15 @@ export class ProductoCreaeditaComponent implements OnInit{
   mensaje: string = "";
   idProducto: number = 0;
   edicion: boolean = false;
+  role:string="";
 
-  constructor(private aS: ProductoService, private router: Router, private route: ActivatedRoute) {
+  constructor(private aS: ProductoService, private router: Router, private route: ActivatedRoute, private ls :LoginService) {
   }
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+    
     this.route.params.subscribe((data: Params) => {
       this.idProducto = data['idProducto'];
       this.edicion = data['idProducto'] != null;

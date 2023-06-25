@@ -9,6 +9,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { NegocioService } from 'src/app/service/negocio.service';
 import { Negocio } from 'src/app/model/negocio';
+import { LoginService } from 'src/app/service/login.service';
+
 
 @Component({
   selector: 'app-comentarios-negocios-creaedita',
@@ -33,8 +35,11 @@ export class ComentariosNegociosCreaeditaComponent implements OnInit {
   lista2: Cliente[] = [];
   idClienteSeleccionado: number = 0;
   idNegocioSeleccionado: number = 0;
+  role:string="";
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.cS.list().subscribe(data => { this.lista2=data });
     this.nS.list().subscribe(data => { this.lista = data });
 
@@ -50,7 +55,8 @@ export class ComentariosNegociosCreaeditaComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private cS: ClienteService,
-    private nS: NegocioService
+    private nS: NegocioService,
+    private ls:LoginService
   ) { }
   aceptar(): void {
     this.comentariosnegocio.comentario = this.form.value['comentario'];

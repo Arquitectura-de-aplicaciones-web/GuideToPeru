@@ -5,6 +5,7 @@ import { Etiqueta } from 'src/app/model/Etiqueta';
 import { EtiquetaService } from 'src/app/service/etiqueta.service'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import {MatSidenav} from '@angular/material/sidenav';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-etiqueta-creadita',
@@ -26,11 +27,15 @@ export class EtiquetaCreaditaComponent implements OnInit {
   mensaje: string = "";
   idEtiqueta: number = 0;
   edicion: boolean = false;
+  role:string="";
 
-  constructor(private aS: EtiquetaService, private router: Router, private route: ActivatedRoute) {
+  constructor(private aS: EtiquetaService, private router: Router, private route: ActivatedRoute, private ls :LoginService) {
   }
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+    
     this.route.params.subscribe((data: Params) => {
       this.idEtiqueta = data['idEtiqueta'];
       this.edicion = data['idEtiqueta'] != null;

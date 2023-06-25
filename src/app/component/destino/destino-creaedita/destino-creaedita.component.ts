@@ -5,6 +5,7 @@ import { Destino } from 'src/app/model/Destinos';
 import { DestinoService } from 'src/app/service/destino.service'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import {MatSidenav} from '@angular/material/sidenav';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-destino-creaedita',
@@ -27,11 +28,15 @@ export class DestinoCreaeditaComponent implements OnInit {
   mensaje: string = "";
   id: number = 0;
   edicion: boolean = false;
+  role:string="";
 
-  constructor(private aS: DestinoService, private router: Router, private route: ActivatedRoute) {
+  constructor(private aS: DestinoService, private router: Router, private route: ActivatedRoute, private ls :LoginService) {
   }
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+    
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;

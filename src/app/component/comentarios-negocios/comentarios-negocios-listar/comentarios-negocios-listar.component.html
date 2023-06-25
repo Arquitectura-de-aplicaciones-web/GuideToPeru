@@ -30,16 +30,13 @@
           </div>
 
           <div style="text-align: right;">
-            <button mat-raised-button color="warn" [routerLink]="['registrarus']"><span
+            <button mat-raised-button color="warn" [routerLink]="['registrarus']" [hidden]="role=='NEGOCIO'"><span
                 class="material-icons">add</span></button>
           </div>
 
           <mat-form-field appearance="outline">
             <input matInput (keyup)="filter($event)" placeholder="Buscar">
           </mat-form-field>
-
-          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
-          </mat-paginator>
 
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -49,39 +46,39 @@
             </ng-container>
 
             <ng-container matColumnDef="comentario">
-              <th mat-header-cell *matHeaderCellDef>comentario</th>
+              <th mat-header-cell *matHeaderCellDef>Comentario</th>
               <td mat-cell *matCellDef="let element">{{ element.comentario }}</td>
             </ng-container>
 
             <ng-container matColumnDef="calificacion">
-              <th mat-header-cell *matHeaderCellDef>calificacion</th>
+              <th mat-header-cell *matHeaderCellDef>Calificacion</th>
               <td mat-cell *matCellDef="let element">{{ element.calificacion }}</td>
             </ng-container>
 
             <ng-container matColumnDef="idNegocio">
-              <th mat-header-cell *matHeaderCellDef>idNegocio</th>
+              <th mat-header-cell *matHeaderCellDef>Negocio</th>
               <td mat-cell *matCellDef="let element">{{ element.negocio.nameNegocio }}
               </td>
             </ng-container>
 
             <ng-container matColumnDef="idCliente">
-              <th mat-header-cell *matHeaderCellDef>idCliente</th>
+              <th mat-header-cell *matHeaderCellDef>Cliente</th>
               <td mat-cell *matCellDef="let element">{{ element.cliente.nameCliente }}
               </td>
             </ng-container>
 
 
             <ng-container matColumnDef="accion01">
-              <th mat-header-cell *matHeaderCellDef>Modificar</th>
+              <th mat-header-cell *matHeaderCellDef [hidden]="role=='CLIENTE' || role=='NEGOCIO'">Modificar</th>
               <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="warn" [routerLink]="['edicion',element.idComentarioNegocio]"><span
+                <button mat-raised-button color="warn" [routerLink]="['edicion',element.idComentarioNegocio]" [hidden]="role=='CLIENTE' || role=='NEGOCIO'"><span
                     class="material-icons">settings</span></button>
               </td>
             </ng-container>
             <ng-container matColumnDef="accion02">
-              <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+              <th mat-header-cell *matHeaderCellDef [hidden]="role=='CLIENTE' || role=='NEGOCIO'">Eliminar</th>
               <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="accent" (click)="confirm(element.idComentarioNegocio)"><span
+                <button mat-raised-button color="accent" (click)="confirm(element.idComentarioNegocio)" [hidden]="role=='CLIENTE' || role=='NEGOCIO'"><span
                     class="material-icons">delete</span></button>
               </td>
             </ng-container>
@@ -89,6 +86,12 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
+          <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page"
+      >
+      </mat-paginator>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>

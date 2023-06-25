@@ -6,6 +6,7 @@ import { NegocioService } from 'src/app/service/negocio.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {MatSidenav} from '@angular/material/sidenav';
 import { Usuario } from 'src/app/model/usuario';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-negocio-creaedita',
@@ -31,8 +32,12 @@ export class NegocioCreaeditaComponent implements OnInit {
   mensaje: string = '';
   idUsuarioSeleccionado: number=0;
   lista: Usuario[] = [];
+  role:string="";
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -51,7 +56,7 @@ export class NegocioCreaeditaComponent implements OnInit {
   constructor(
     private aS: NegocioService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, private ls :LoginService
   ) {}
   aceptar(): void {
     this.negocio.id = this.form.value['id'];

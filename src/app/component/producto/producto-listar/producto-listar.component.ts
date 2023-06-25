@@ -6,7 +6,8 @@ import { MatTableDataSource } from '@angular/material/table'
 import { ProductoService } from 'src/app/service/producto.service';
 import { MatDialog } from '@angular/material/dialog'
 import { ProductoDialogoComponent } from './producto-dialogo/producto-dialogo.component';
-import { LoginService } from 'src/app/service/login.service';
+import { LoginService } from 'src/app/service/login.service'
+import { MatPaginator } from '@angular/material/paginator';;
 
 @Component({
   selector: 'app-producto-listar',
@@ -15,6 +16,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class ProductoListarComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   reason = '';
   close(reason: string) {
@@ -35,12 +37,15 @@ export class ProductoListarComponent implements OnInit {
   ngOnInit(): void {
     this.role=this.ls.showRole();
     console.log(this.role);
+
     this.aS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
     })
 
     this.aS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
     })
 
     this.aS.getConfirmDelete().subscribe(data => {
@@ -63,4 +68,3 @@ export class ProductoListarComponent implements OnInit {
     this.dataSource.filter = e.target.value.trim();
   }
 }
-export class PaginatorOverviewExample {}

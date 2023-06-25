@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-    <button mat-button routerLink="/pages/usuarios">Usuarios</button>
+    <button mat-button routerLink="/pages/usuarios" *ngIf="role == 'ADMIN'">Usuarios</button>
     <br>
     <button mat-button routerLink="/pages/clientes">Clientes</button>
     <br>
@@ -13,13 +13,23 @@
     <br>
     <button mat-button routerLink="/pages/comentariosproducto">ComentariosProductos</button>
     <br>
-    <button mat-button routerLink="/pages/etiqueta">Etiqueta</button>
+    <button mat-button routerLink="/pages/etiqueta" *ngIf="role == 'ADMIN'">Etiqueta</button>
     <br>
-    <button mat-button routerLink="/pages/etiquetaProducto">EtiquetaProducto</button>
+    <button mat-button routerLink="/pages/etiquetaProducto" *ngIf="role == 'ADMIN'">EtiquetaProducto</button>
     <br>
    <button mat-button routerLink="/pages/comentario_negocio">ComentariosNegocios</button>
    <br>
    <button mat-button routerLink="/pages/productos">Productos</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes" *ngIf="role == 'ADMIN'">Reporte1</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes2" *ngIf="role == 'ADMIN'">Reporte2</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes3" *ngIf="role == 'ADMIN'">Reporte3</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes4" *ngIf="role == 'ADMIN'">Reporte4</button>
+   <br>
+   <button mat-button routerLink="/pages/reportes/reporte5" *ngIf="role == 'ADMIN'">Reporte5</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -62,13 +72,21 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Distrito:</mat-label>
-          <textarea matInput required=" Distrito... " formControlName="distrito"></textarea>
+          <mat-select required formControlName="distrito">
+            <mat-option value="opcion1">Opción 1</mat-option>
+            <mat-option value="opcion2">Opción 2</mat-option>
+            <mat-option value="opcion3">Opción 3</mat-option>
+          </mat-select>
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
           <mat-label>Departamento:</mat-label>
-          <textarea matInput required=" Departamento... " formControlName="departarmento"></textarea>
+          <mat-select required formControlName="distrito">
+            <mat-option value="opcion1">Opción 1</mat-option>
+            <mat-option value="opcion2">Opción 2</mat-option>
+            <mat-option value="opcion3">Opción 3</mat-option>
+          </mat-select>
         </mat-form-field>
         <br>
 

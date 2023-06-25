@@ -7,6 +7,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-cliente-creaedita',
@@ -32,10 +33,17 @@ export class ClienteCreaeditaComponent implements OnInit {
   maxFecha: Date = moment().add(1, 'days').toDate();
   lista: Usuario[] = [];
   idUsuarioSeleccionado: number = 0;
+  role:string="";
 
+
+  constructor(private cS: ClienteService,
+    private router: Router,
+    private route: ActivatedRoute, private uS: UsuarioService, private ls :LoginService) { }
 
   ngOnInit(): void {
-    
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -53,10 +61,6 @@ export class ClienteCreaeditaComponent implements OnInit {
       cuentaBancaria: new FormControl(),
     });
   }
-
-  constructor(private cS: ClienteService,
-    private router: Router,
-    private route: ActivatedRoute, private uS: UsuarioService) { }
 
   aceptar(): void {
     this.cliente.id = this.form.value['id'];

@@ -9,6 +9,7 @@ import { Cliente } from 'src/app/model/clientes';
 import { Producto } from 'src/app/model/producto';
 import { ProductoService } from 'src/app/service/producto.service';
 import { ClienteService } from 'src/app/service/cliente.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-compras-creaedita',
@@ -36,8 +37,12 @@ export class ComprasCreaeditaComponent implements OnInit {
   lista1: Producto[] = [];
   idClienteSeleccionado: number = 0;
   lista2: Cliente[] = [];
+  role:string="";
 
   ngOnInit(): void {
+    this.role=this.los.showRole();
+    console.log(this.role);
+    
     this.pS.list().subscribe(data => { this.lista1 = data });
     this.lS.list().subscribe(data => { this.lista2 = data });
 
@@ -60,7 +65,7 @@ export class ComprasCreaeditaComponent implements OnInit {
   }
 
   constructor(private cS: ComprasService, private router: Router, private route: ActivatedRoute, private lS: ClienteService,
-    private pS: ProductoService) { }
+    private pS: ProductoService, private los :LoginService) { }
 
   aceptar(): void {
     this.compras.idCompra = this.form.value['idCompra'];

@@ -8,13 +8,18 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Cliente } from 'src/app/model/clientes';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { ProductoService } from 'src/app/service/producto.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
+
 @Component({
   selector: 'app-comentarios-producto-creaedita',
   templateUrl: './comentarios-producto-creaedita.component.html',
   styleUrls: ['./comentarios-producto-creaedita.component.css']
 })
 export class ComentariosProductoCreaeditaComponent implements OnInit {
+
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   reason = '';
   close(reason: string) {
@@ -32,8 +37,11 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
   lista1: Producto[] = [];
   idClienteSeleccionado: number = 0;
   lista2: Cliente[] = [];
+  role:string="";
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
     this.pS.list().subscribe(data => { this.lista1 = data });
     this.cS.list().subscribe(data => { this.lista2 = data });
 
@@ -50,7 +58,8 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private cS: ClienteService,
-    private pS: ProductoService
+    private pS: ProductoService,
+    private ls: LoginService
   ) { }
   aceptar(): void {
     this.comentarioproducto.idComentarioProducto = this.form.value['idComentarioProducto'];
@@ -81,7 +90,7 @@ export class ComentariosProductoCreaeditaComponent implements OnInit {
           })
         })
       }
-      this.router.navigate(['/pages/etiquetaProducto']);
+      this.router.navigate(['/pages/comentariosproducto']);
     } else {
       this.mensaje = 'Ingrese el comentario';
     }

@@ -6,6 +6,7 @@ import { ComentarioNegocio } from 'src/app/model/comentariosNegocio';
 import { ComentariosNegocioService } from 'src/app/service/comentarios-negocio.service';
 import { ComentariosNegociosDialogoComponent } from './comentarios-negocios-dialogo/comentarios-negocios-dialogo.component';
 import { LoginService } from 'src/app/service/login.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class ComentariosNegociosListarComponent implements OnInit{
   displayedColumns:string[] = ['idComentarioNegocio','comentario', 'calificacion', 'idNegocio', 'idCliente','accion01','accion02'];
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   reason = '';
   close(reason: string) {
     this.reason = reason;
@@ -26,14 +29,20 @@ export class ComentariosNegociosListarComponent implements OnInit{
   shouldRun = true;
   idMayor: number = 0
   lista: ComentarioNegocio[] = []
+  role:string="";
 
   constructor(private uS:ComentariosNegocioService, private dialog:MatDialog,private ls:LoginService) {}
   ngOnInit():void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.uS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
     })
     this.uS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
 
       this.uS.getConfirmDelete().subscribe(data => {
         data == true ? this.eliminar(this.idMayor) : false;

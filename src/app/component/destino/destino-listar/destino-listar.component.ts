@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table'
 import { DestinoService } from 'src/app/service/destino.service';
 import { MatDialog } from '@angular/material/dialog'
 import { DestinoDialogoComponent } from './destino-dialogo/destino-dialogo.component';
+import { LoginService } from 'src/app/service/login.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-destino-listar',
@@ -15,6 +17,7 @@ import { DestinoDialogoComponent } from './destino-dialogo/destino-dialogo.compo
 
 export class DestinoListarComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   reason = '';
@@ -23,23 +26,28 @@ export class DestinoListarComponent implements OnInit {
     this.sidenav.close();
   }
   shouldRun = true;
-
+  role:string="";
   lista: Destino[] = []
   dataSource: MatTableDataSource<Destino> = new MatTableDataSource();
   idMayor: number = 0
   displayedColumns: string[] = ['codigo', 'Nombre', 'Ubicacion', 'Descripcion',
   'Imagen', 'Distrito', 'Departamento','acciones1','acciones2']
 
-  constructor(private aS: DestinoService, private dialog: MatDialog) {
+  constructor(private aS: DestinoService, private dialog: MatDialog,private ls:LoginService) {
 
   }
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.aS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
     })
 
     this.aS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
     })
 
     this.aS.getConfirmDelete().subscribe(data => {
@@ -62,4 +70,3 @@ export class DestinoListarComponent implements OnInit {
     this.dataSource.filter = e.target.value.trim();
   }
 }
-export class PaginatorOverviewExample {}
