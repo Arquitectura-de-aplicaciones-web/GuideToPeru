@@ -8,6 +8,10 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { LoginService } from 'src/app/service/login.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { HolidayService } from 'src/app/service/holiday.service';
+import { Holiday } from 'src/app/model/holiday';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-cliente-creaedita',
@@ -17,6 +21,7 @@ import { LoginService } from 'src/app/service/login.service';
 export class ClienteCreaeditaComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   reason = '';
   close(reason: string) {
@@ -35,14 +40,22 @@ export class ClienteCreaeditaComponent implements OnInit {
   idUsuarioSeleccionado: number = 0;
   role:string="";
 
+  dataSource: MatTableDataSource<Holiday> = new MatTableDataSource();
+  displayedColumns:string[]=['localName', 'date']
 
-  constructor(private cS: ClienteService,
+
+  constructor(private cS: ClienteService, private hS: HolidayService,
     private router: Router,
     private route: ActivatedRoute, private uS: UsuarioService, private ls :LoginService) { }
 
   ngOnInit(): void {
     this.role=this.ls.showRole();
     console.log(this.role);
+
+    this.hS.list().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator=this.paginator
+    })
 
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
@@ -115,4 +128,6 @@ export class ClienteCreaeditaComponent implements OnInit {
       })
     }
   }
+
+  
 }

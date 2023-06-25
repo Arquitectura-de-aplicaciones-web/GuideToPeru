@@ -75,7 +75,13 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>calificacion:</mat-label>
-          <textarea matInput required="calificacion" formControlName="calificacion"></textarea>
+          <mat-select required formControlName="distrito">
+            <mat-option value="opcion1">1</mat-option>
+            <mat-option value="opcion2">2</mat-option>
+            <mat-option value="opcion3">3</mat-option>
+            <mat-option value="opcion4">4</mat-option>
+            <mat-option value="opcion5">5</mat-option>
+          </mat-select>
         </mat-form-field>
         <br>
 
