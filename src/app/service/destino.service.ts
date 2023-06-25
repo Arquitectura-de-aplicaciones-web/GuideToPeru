@@ -71,7 +71,12 @@ export class DestinoService {
     });
   }
 
-
+  getdistritosvisitados(): Observable<DistritosVisitados[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<DistritosVisitados[]>(`${this.url}/distrito-count`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
 
 
 }
