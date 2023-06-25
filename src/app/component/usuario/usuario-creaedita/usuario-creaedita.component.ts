@@ -5,6 +5,7 @@ import {MatSidenav} from '@angular/material/sidenav';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import * as moment from 'moment'
+import { PasswordService } from 'src/app/service/password.service';
 
 @Component({
   selector: 'app-usuario-creaedita',
@@ -18,6 +19,8 @@ export class UsuarioCreaeditaComponent implements OnInit {
   usuario:Usuario = new Usuario();
   mensaje:string = "";
   maxFecha:Date = moment().add(1, 'days').toDate();
+
+  password_generated: string = "";
 
   @ViewChild('sidenav') sidenav!:MatSidenav;
   reason = '';
@@ -44,7 +47,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
     })
   }
 
-  constructor(private uS:UsuarioService,
+  constructor(private uS:UsuarioService, private pS: PasswordService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -86,5 +89,11 @@ export class UsuarioCreaeditaComponent implements OnInit {
         })
       })
     }
+  }
+
+  generate_password() {
+    this.pS.list().subscribe(data => {
+      this.password_generated = data.password;
+    })
   }
 }

@@ -46,7 +46,9 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Contraseña</mat-label>
-          <input matInput placeholder="contrasenia" formControlName="contraseniaUsuario">
+          <input matInput placeholder="contrasenia" formControlName="contraseniaUsuario" [value]="password_generated">
+          <br>
+          <button mat-button color="primary" (click)="generate_password()">Generate</button>
         </mat-form-field>
         <br>
 
