@@ -2,7 +2,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Negocio } from '../model/negocio';
-import { Subject } from 'rxjs';
+import { Subject,Observable } from 'rxjs';
+import { qMejorcalificados } from '../model/qMejorcalificados';
 
 const base_url = environment.base;
 @Injectable({
@@ -57,4 +58,14 @@ export class NegocioService {
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
   }
+
+
+ //querry
+ getmejorcalificados(): Observable<qMejorcalificados[]> {
+  let token = sessionStorage.getItem("token");
+  return this.http.get<qMejorcalificados[]>(`${this.url}/mejorcalificado`,{
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
+}
+
 }

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Destino } from '../model/Destinos';
 import { Subject,Observable } from 'rxjs';
 import { DepartamentosVisitados } from '../model/DepartamentosVisitados';
+import { DistritosVisitados } from '../model/DistritosVisitados';
 
 const base_url = environment.base
 
